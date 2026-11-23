@@ -1,0 +1,283 @@
+{
+  "preregistration_sha256": "2867e5df892c97271d23f0fba8ff592e4816e6f30f5e83015ea67702bfb63925",
+  "preregistration_id": "exp_hw04_prospective_pytest_typechecker_v1",
+  "sealed_at_utc": "2026-11-23T00:58:17.404509+00:00",
+  "machine": {
+    "platform": "macOS-26.5.1-arm64-arm-64bit",
+    "machine": "arm64",
+    "python_version": "3.11.7",
+    "cpu_brand": "Apple M3 Max",
+    "logical_cores": 16,
+    "memory_gb": 48.0,
+    "mach_timebase_ns_per_tick": "125/3",
+    "telemetry_api": "macOS XNU proc_pid_rusage(RUSAGE_INFO_V6) -> ri_energy_nj, ri_instructions, ri_cycles",
+    "measurement_scope": "Per-process Apple Silicon CPU core & kernel-attributed hardware PMU energy (ri_energy_nj / ri_penergy_nj), retired instructions, CPU cycles, and OS disk I/O bytes. Excludes off-package SSD controller rail, external DRAM rail, and AC wall-socket power.",
+    "powermetrics_probe": {
+      "samplers_listed": "tasks,battery,network,disk,interrupts,cpu_power,thermal,sfi,gpu_power,ane_power",
+      "non_interactive_sudo_available": false,
+      "soc_backend_used": "macOS libIOReport.dylib 'Energy Model' (325 channels; same hardware accumulator backend as powermetrics)"
+    },
+    "exposed_soc_rails": {
+      "cpu_complex": "CPU Energy (mJ; covers EACC + PACC0 + PACC1 cores, SRAM, CPM)",
+      "gpu_complex": "GPU Energy (nJ)",
+      "ane": "ANE0 (mJ)",
+      "memory_and_fabric": "DRAM0 (mJ) + DCS0 (mJ, DRAM controller) + AMCC0 (mJ, Apple Memory Cache Controller)",
+      "display_media_io": "DISP0, DISPEXT0, ISP0, AVE0, MSR0, PCIe Port *, apciec*",
+      "explicitly_unmeasured": "Wall-plug AC power, AC/DC adapter conversion loss, display panel backlight, discrete SSD NAND flash rail, cooling fans, and battery charging circuit."
+    }
+  },
+  "system_context_at_preregistration": {
+    "loadavg_1m": 5.329,
+    "loadavg_5m": 4.576,
+    "loadavg_15m": 4.635,
+    "pmset_therm": "Note: No thermal warning level has been recorded | Note: No performance warning level has been recorded | Note: No CPU power status has been recorded",
+    "pmset_batt": "Now drawing from 'AC Power' | -InternalBattery-0 (id=29425763)\t63%; charging; 0:53 remaining present: true"
+  },
+  "target_repository": {
+    "name": "_pytest (pytest 9.0.2)",
+    "root": "/Users/leoguinan/.pyenv/versions/3.11.7/lib/python3.11/site-packages/_pytest",
+    "num_modules": 71,
+    "num_import_edges": 310,
+    "total_source_kib": 1279.08
+  },
+  "planned_protocol": {
+    "n_blocks": 10,
+    "num_edits_per_block": 20,
+    "target_qs": [
+      0.0,
+      0.1,
+      0.25,
+      0.5,
+      0.75,
+      0.9,
+      1.0
+    ],
+    "cold_start_passes": 1
+  },
+  "static_workload_expectations": {
+    "num_modules": 71,
+    "total_corpus_kib": 1279.08,
+    "per_q": {
+      "0.00": {
+        "q": 0.0,
+        "cold_start_kib": 1279.08,
+        "expected_inc_total_kib": 15341.06,
+        "expected_canary_total_kib": 1647.86,
+        "expected_avoided_kib": 13693.2,
+        "expected_avoided_modules": 448.3
+      },
+      "0.10": {
+        "q": 0.1,
+        "cold_start_kib": 1279.08,
+        "expected_inc_total_kib": 14413.81,
+        "expected_canary_total_kib": 3043.59,
+        "expected_avoided_kib": 11370.22,
+        "expected_avoided_modules": 377.8
+      },
+      "0.25": {
+        "q": 0.25,
+        "cold_start_kib": 1279.08,
+        "expected_inc_total_kib": 14617.94,
+        "expected_canary_total_kib": 4560.39,
+        "expected_avoided_kib": 10057.56,
+        "expected_avoided_modules": 331.7
+      },
+      "0.50": {
+        "q": 0.5,
+        "cold_start_kib": 1279.08,
+        "expected_inc_total_kib": 14832.77,
+        "expected_canary_total_kib": 9017.84,
+        "expected_avoided_kib": 5814.93,
+        "expected_avoided_modules": 187.1
+      },
+      "0.75": {
+        "q": 0.75,
+        "cold_start_kib": 1279.08,
+        "expected_inc_total_kib": 14132.05,
+        "expected_canary_total_kib": 11451.66,
+        "expected_avoided_kib": 2680.39,
+        "expected_avoided_modules": 90.2
+      },
+      "0.90": {
+        "q": 0.9,
+        "cold_start_kib": 1279.08,
+        "expected_inc_total_kib": 14233.39,
+        "expected_canary_total_kib": 12637.8,
+        "expected_avoided_kib": 1595.59,
+        "expected_avoided_modules": 50.7
+      },
+      "1.00": {
+        "q": 1.0,
+        "cold_start_kib": 1279.08,
+        "expected_inc_total_kib": 14485.74,
+        "expected_canary_total_kib": 14485.74,
+        "expected_avoided_kib": 0.0,
+        "expected_avoided_modules": 0
+      }
+    }
+  },
+  "frozen_exp03_constants": {
+    "exp03_mean_kib_per_module": 17.9761,
+    "exp03_proc_j_per_kib": 0.001234,
+    "exp03_soc_j_per_kib": 0.004898,
+    "exp03_proc_overhead_per_edit_j": 0.003116,
+    "exp03_soc_overhead_per_edit_j": 0.221457
+  },
+  "primitive_5term_microprobe": {
+    "probe_modules": [
+      "_pytest._py",
+      "_pytest.freeze_support",
+      "_pytest._io.saferepr",
+      "_pytest._code.source",
+      "_pytest.subtests",
+      "_pytest.cacheprovider",
+      "_pytest.main",
+      "_pytest.config"
+    ],
+    "probe_total_kib": 167.0,
+    "e_exec_proc_j_per_kib": 0.000963,
+    "e_exec_soc_package_j_per_kib": 0.0023,
+    "e_exec_soc_cpu_j_per_kib": 0.001221,
+    "e_exec_soc_memory_j_per_kib": 0.001057,
+    "e_dispatch_val_maint_proc_j_per_edit": 0.000457,
+    "e_dispatch_val_maint_soc_j_per_edit": 0.001109
+  },
+  "model1_zero_shot_exp03_predictions": {
+    "q_star_pred_proc": 0.9963,
+    "q_star_pred_soc": 0.934,
+    "by_q": {
+      "0.00": {
+        "q": 0.0,
+        "pred_inc_proc_j": 18.9309,
+        "pred_delta_proc_j": 16.8351,
+        "pred_pct_proc": 88.93,
+        "pred_inc_soc_j": 75.1405,
+        "pred_delta_soc_j": 62.6402,
+        "pred_pct_soc": 83.36
+      },
+      "0.10": {
+        "q": 0.1,
+        "pred_inc_proc_j": 17.7866,
+        "pred_delta_proc_j": 13.9685,
+        "pred_pct_proc": 78.53,
+        "pred_inc_soc_j": 70.5988,
+        "pred_delta_soc_j": 51.2622,
+        "pred_pct_soc": 72.61
+      },
+      "0.25": {
+        "q": 0.25,
+        "pred_inc_proc_j": 18.0385,
+        "pred_delta_proc_j": 12.3487,
+        "pred_pct_proc": 68.46,
+        "pred_inc_soc_j": 71.5987,
+        "pred_delta_soc_j": 44.8328,
+        "pred_pct_soc": 62.62
+      },
+      "0.50": {
+        "q": 0.5,
+        "pred_inc_proc_j": 18.3036,
+        "pred_delta_proc_j": 7.1133,
+        "pred_pct_proc": 38.86,
+        "pred_inc_soc_j": 72.6509,
+        "pred_delta_soc_j": 24.0524,
+        "pred_pct_soc": 33.11
+      },
+      "0.75": {
+        "q": 0.75,
+        "pred_inc_proc_j": 17.4389,
+        "pred_delta_proc_j": 3.2453,
+        "pred_pct_proc": 18.61,
+        "pred_inc_soc_j": 69.2188,
+        "pred_delta_soc_j": 8.6994,
+        "pred_pct_soc": 12.57
+      },
+      "0.90": {
+        "q": 0.9,
+        "pred_inc_proc_j": 17.564,
+        "pred_delta_proc_j": 1.9066,
+        "pred_pct_proc": 10.86,
+        "pred_inc_soc_j": 69.7151,
+        "pred_delta_soc_j": 3.3861,
+        "pred_pct_soc": 4.86
+      },
+      "1.00": {
+        "q": 1.0,
+        "pred_inc_proc_j": 17.8754,
+        "pred_delta_proc_j": -0.0623,
+        "pred_pct_proc": -0.35,
+        "pred_inc_soc_j": 70.9512,
+        "pred_delta_soc_j": -4.4291,
+        "pred_pct_soc": -6.24
+      }
+    }
+  },
+  "model2_5term_primitive_predictions": {
+    "q_star_pred_proc": 0.9993,
+    "q_star_pred_soc": 0.9993,
+    "by_q": {
+      "0.00": {
+        "q": 0.0,
+        "pred_inc_proc_j": 14.7734,
+        "pred_delta_proc_j": 13.1774,
+        "pred_pct_proc": 89.2,
+        "pred_inc_soc_j": 35.2844,
+        "pred_delta_soc_j": 31.4722,
+        "pred_pct_soc": 89.2
+      },
+      "0.10": {
+        "q": 0.1,
+        "pred_inc_proc_j": 13.8805,
+        "pred_delta_proc_j": 10.9404,
+        "pred_pct_proc": 78.82,
+        "pred_inc_soc_j": 33.1518,
+        "pred_delta_soc_j": 26.1293,
+        "pred_pct_soc": 78.82
+      },
+      "0.25": {
+        "q": 0.25,
+        "pred_inc_proc_j": 14.0771,
+        "pred_delta_proc_j": 9.6763,
+        "pred_pct_proc": 68.74,
+        "pred_inc_soc_j": 33.6213,
+        "pred_delta_soc_j": 23.1102,
+        "pred_pct_soc": 68.74
+      },
+      "0.50": {
+        "q": 0.5,
+        "pred_inc_proc_j": 14.284,
+        "pred_delta_proc_j": 5.5906,
+        "pred_pct_proc": 39.14,
+        "pred_inc_soc_j": 34.1154,
+        "pred_delta_soc_j": 13.3522,
+        "pred_pct_soc": 39.14
+      },
+      "0.75": {
+        "q": 0.75,
+        "pred_inc_proc_j": 13.6092,
+        "pred_delta_proc_j": 2.5721,
+        "pred_pct_proc": 18.9,
+        "pred_inc_soc_j": 32.5037,
+        "pred_delta_soc_j": 6.1427,
+        "pred_pct_soc": 18.9
+      },
+      "0.90": {
+        "q": 0.9,
+        "pred_inc_proc_j": 13.7068,
+        "pred_delta_proc_j": 1.5274,
+        "pred_pct_proc": 11.14,
+        "pred_inc_soc_j": 32.7368,
+        "pred_delta_soc_j": 3.6477,
+        "pred_pct_soc": 11.14
+      },
+      "1.00": {
+        "q": 1.0,
+        "pred_inc_proc_j": 13.9498,
+        "pred_delta_proc_j": -0.0091,
+        "pred_pct_proc": -0.07,
+        "pred_inc_soc_j": 33.3172,
+        "pred_delta_soc_j": -0.0222,
+        "pred_pct_soc": -0.07
+      }
+    }
+  }
+}

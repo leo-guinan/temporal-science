@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0.0",
+  "stream": "unrestricted-grants",
+  "season": "external-research-season-1",
+  "target_scouting_reports": 8,
+  "frozen_scouting_reports": 0,
+  "policy": {
+    "freeze_before_contact": true,
+    "unrestricted_research_freedom": true,
+    "temporal_science_adoption_not_required": true,
+    "no_credit_claiming": "Scouting predictions test our ability to recognize promising independent trajectories; subsequent discoveries belong strictly to the independent researchers."
+  },
+  "entry_schema_fields": [
+    "grant_slot",
+    "researcher_or_group",
+    "scouting_report_path",
+    "frozen_at_utc",
+    "pre_contact_git_commit",
+    "recognized_existing_work",
+    "question_offered",
+    "preregistered_predictions",
+    "contacted_at_utc",
+    "grant_status",
+    "subsequent_public_research",
+    "attribution_note"
+  ],
+  "entries": []
+}

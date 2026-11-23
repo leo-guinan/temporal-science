@@ -1,0 +1,42 @@
+id: TS-004
+version: 0.1.0
+title: Predictive Timespace Stability with Selective Canary Adaptation
+kind: empirical_finding
+status: empirically_supported
+paper_id: paper-01
+statement: >
+  Combining mature sufficient Bayesian memory with a residual-surprise precision-retirement
+  canary reduces routine timespace movement (Hellinger metric D_H = 0.043, 4.2x quieter than
+  sliding-window baselines) while achieving rapid adaptation (19 steps, 6.08x Jump-to-Jitter ratio)
+  and 98.85% action accuracy across structural regime shifts.
+assumptions:
+  - Piece-wise stationary linear-Gaussian observation model with abrupt regime shifts.
+  - Known relevant feature subset for mature sufficient memory.
+depends_on:
+  - id: TS-BASE-001
+    version: 1.0.0
+evidence:
+  proofs:
+    - "../living-computation/research/definitions-v02.md"
+  experiments:
+    - "../living-computation/results/exp09_v02_timespace_inertia/exp09_summary.json"
+  counterexamples:
+    - "Naive infinite memory (overconfident inertia): fails to adapt after shifts (65.94% action accuracy, Adapt=None)."
+    - "Bloated irrelevant memory (bytes != sufficiency): 208x raw memory bytes explodes maintenance ops 196x while worsening MSE."
+guarantee:
+  type: empirical
+  scope: piecewise_stationary_bayesian_linear_streams
+  energy_evidence_tier: modeled_proxy_energy
+validity:
+  requirements:
+    - "Hellinger metric, KL information gain, memory bytes, and compute ops reported separately"
+  invalidation_conditions:
+    - "Gradual continuous drift below CUSUM trigger threshold or unidentified relevant features"
+provenance:
+  contributors:
+    - living-computation-v02
+  source_artifacts:
+    - "../living-computation/experiments/09_timespace_inertia/timespace_core.py"
+    - "../living-computation/experiments/09_timespace_inertia/run_exp09.py"
+limitations:
+  - "Empirical simulation result; formal competitive regret bounds under continuous drift remain open."

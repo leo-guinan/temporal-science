@@ -1,0 +1,52 @@
+id: paper-04
+version: 0.1.0
+title: "Human Computational Capital: Stable Interfaces and Intergenerational Knowledge Transfer"
+exported_contract: TS-HUMAN-CAPITAL
+claims:
+  - TS-008
+  - TS-HUMAN-CAPITAL
+imports:
+  - id: TS-BASE-001
+    version: 1.0.0
+  - id: TS-005
+    version: 0.1.0
+reference_experiments:
+  - id: exp07_human_capital
+    path: "../living-computation/results/exp07_v02_human_capital/exp07_summary.json"
+    figures:
+      - "../living-computation/results/exp07_v02_human_capital/exp07_human_capital.png"
+  - id: exp10_human_api
+    path: "../living-computation/results/exp10_v02_human_api/exp10_summary.json"
+    figures:
+      - "../living-computation/results/exp10_v02_human_api/exp10_human_api_stability.png"
+  - id: exp05_environment_synthesis
+    path: "../living-computation/results/exp05_v02_environment_synthesis/exp05_summary.json"
+publication_gate:
+  proofs_audited: false
+  internal_benchmarks_reproducible: true
+  failure_boundaries_documented: true
+  real_human_subject_study: false
+  tiers:
+    technical_report:
+      ready: true
+      scope_note: "Simulation-only engineering report explicitly labeling all human times as synthetic models."
+    scoped_preprint:
+      ready: false
+      blockers:
+        - "IRB-approved human-subject study required before making behavioral preprint claims (§8)."
+        - "Open formal proof obligations P7 and P8."
+    energy_focused_paper:
+      ready: false
+      blockers:
+        - "Not applicable until physical & empirical human-time studies exist."
+    independently_validated_release:
+      ready: false
+      blockers:
+        - "Real human-subject trials, independent replication, and completed P7/P8 proofs."
+  blocking_items:
+    - "All human-time measurements are synthetic (simulated_human_*_model); IRB-approved human-subject trials required before making behavioral claims (§8)."
+    - "Open formal proof obligations P7 (Human Advice Accounting) and P8 (Semantic Interface Stability)."
+does_not_prove:
+  - "Actual human psychological, cognitive, or behavioral outcomes from simulated-agent trials."
+  - "That all human tacit knowledge is codifiable or transferable."
+  - "That intergenerational wealth persistence is explained primarily by inherited computational knowledge."

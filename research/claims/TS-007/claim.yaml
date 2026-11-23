@@ -1,0 +1,52 @@
+id: TS-007
+version: 0.1.0
+title: Verifiable Work Not Done Accounting, Anti-Fraud Rejection & Portable Payback (P12, P14)
+kind: theorem
+status: formally_proved_under_assumptions
+paper_id: paper-03
+statement: >
+  Counterfactual Work Not Done claims are valid iff outcome equivalence, complete lifecycle
+  cost conservation, active contract validity, and workload non-duplication hold (P12).
+  While full independent replay costs 4.2x-9.3x the avoided work on incremental DAGs,
+  mathematically bounded contract verification costs 612 ops (75.7x cheaper than 46.3k net WND),
+  and portable cross-institution reuse compounds savings up to +59.3% (M=16) under low churn (P14).
+assumptions:
+  - Credible reference baseline declared and pinned to identical replayable workload commitment.
+  - Formal contract premises (e.g., TS-001 or TS-006) are independently audited for MATHEMATICALLY_BOUNDED tier.
+depends_on:
+  - id: TS-BASE-001
+    version: 1.0.0
+  - id: TS-001
+    version: 0.1.0
+  - id: TS-005
+    version: 0.1.0
+evidence:
+  proofs:
+    - "../living-computation/research/proof-obligations.md"
+  experiments:
+    - "../living-computation/results/exp13_v03_work_not_done/exp13_summary.json"
+    - "../living-computation/results/exp15_v03_compounding_capital/exp15_summary.json"
+  counterexamples:
+    - "Exp 13 verification economics: full replay verification (433k ops) exceeds net WND (46k ops) by 9.3x."
+    - "Exp 13 adversarial suite: 8/8 fabricated/hidden-cost/duplicated claims rejected."
+    - "Exp 15 high churn (churn >= 0.075): static cross-institution transfer flips to -15.4%..-95.4% liability without adaptive retirement."
+guarantee:
+  type: conditional
+  scope: counterfactual_certificates_with_explicit_claim_tiers
+  energy_evidence_tier: modeled_proxy_energy
+validity:
+  requirements:
+    - "Distinct ClaimTiers (replay_measured, statistically_estimated, mathematically_bounded) never conflated"
+    - "Zero duplicate claims on (workload_commitment, capability_id)"
+  invalidation_conditions:
+    - "Invalid baseline comparator, hidden human/preprocessing cost, or expired contract"
+provenance:
+  contributors:
+    - living-computation-v03
+  source_artifacts:
+    - "../living-computation/experiments/13_work_not_done/wnd_verifier.py"
+    - "../living-computation/experiments/15_compounding_capital/compounding_core.py"
+    - "../living-computation/core/evidence.py"
+limitations:
+  - "Compositional WND across overlapping shared baselines requires further formalization."
+  - "Physical energy reduction certificates require hardware metering not yet executed."

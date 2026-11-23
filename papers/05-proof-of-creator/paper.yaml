@@ -1,0 +1,58 @@
+id: paper-05
+version: 0.1.0
+title: "Proof of Creator: Causal Provenance, Verified Savings, and Computational Optionality"
+exported_contract: TS-PROOF-OF-CREATOR
+claims:
+  - TS-009
+  - TS-010
+  - TS-PROOF-OF-CREATOR
+imports:
+  - id: TS-BASE-001
+    version: 1.0.0
+  - id: TS-WORK-NOT-DONE
+    version: 0.1.0
+  - id: TS-HUMAN-CAPITAL
+    version: 0.1.0
+reference_experiments:
+  - id: exp14_proof_of_creator
+    path: "../living-computation/results/exp14_v03_proof_of_creator/exp14_summary.json"
+    figures:
+      - "../living-computation/results/exp14_v03_proof_of_creator/exp14_attribution_conservation.png"
+  - id: exp16_optionality
+    path: "../living-computation/results/exp16_v03_optionality/exp16_summary.json"
+    figures:
+      - "../living-computation/results/exp16_v03_optionality/exp16_optionality.png"
+  - id: exp11_knowledge_asymmetry
+    path: "../living-computation/results/exp11_v02_knowledge_asymmetry/exp11_summary.json"
+    figures:
+      - "../living-computation/results/exp11_v02_knowledge_asymmetry/exp11_knowledge_asymmetry.png"
+  - id: milestone_v03_end_to_end
+    path: "../living-computation/results/milestone_v03_end_to_end/v03_chain_bundle.json"
+publication_gate:
+  proofs_audited: true
+  internal_benchmarks_reproducible: true
+  failure_boundaries_documented: true
+  upstream_contracts_released: false
+  tiers:
+    technical_report:
+      ready: true
+      scope_note: "Prototype evidence graph, Shapley conservation, optionality counterexamples, and 10-step held-out chain."
+    scoped_preprint:
+      ready: true
+      scope_note: "Scoped strictly to formal protocol specification and synthetic multi-contributor demonstrations."
+    energy_focused_paper:
+      ready: false
+      blockers:
+        - "Depends on physically metered WND certificates from Paper III."
+    independently_validated_release:
+      ready: false
+      blockers:
+        - "Depends on upstream contracts TS-WORK-NOT-DONE (Paper III) and TS-HUMAN-CAPITAL (Paper IV) clearing independent validation."
+        - "Multi-party independent deployment beyond single-host simulation."
+  blocking_items:
+    - "Depends on upstream contracts TS-WORK-NOT-DONE (Paper III) and TS-HUMAN-CAPITAL (Paper IV) clearing their publication gates."
+    - "Multi-party independent deployment beyond single-host simulation."
+does_not_prove:
+  - "Legal authorship, intellectual property ownership, or globally optimal economic compensation."
+  - "Empirical truth from cryptographic hash digests alone."
+  - "New cryptographic hardness assumptions."

@@ -1,0 +1,49 @@
+id: TS-005
+version: 0.1.0
+title: Transfer Contract Soundness & Institutional Enclosure Detection (P11)
+kind: theorem
+status: formally_proved_under_assumptions
+paper_id: paper-02
+statement: >
+  Under explicit translation maps (phi_in, phi_out) satisfying domain preservation and
+  semantic commutation (P11), a validated source capability transfers soundly to destination
+  environments (T1 syntactic, T2 semantic) with 0% false-SAFE errors, selectively retains
+  unaffected modules under partial drift (T3: 8/12 retained, -87.0% ops), and catches
+  institutional enclosure (T4) via external reality probes despite 100% internal consistency.
+assumptions:
+  - Source capability holds certified validity on V_src (inherited from TS-CERTIFIED-REUSE).
+  - Grounded external reality audit samples are available at destination to test semantic commutation.
+depends_on:
+  - id: TS-BASE-001
+    version: 1.0.0
+  - id: TS-001
+    version: 0.1.0
+evidence:
+  proofs:
+    - "../living-computation/research/proof-obligations.md"
+  experiments:
+    - "../living-computation/results/exp12_v03_transfer/exp12_summary.json"
+    - "../living-computation/results/exp12_v03_transfer/transfer_certificates.json"
+  counterexamples:
+    - "Blind reuse without transfer canaries suffers 62.3%-100.0% false-SAFE rates across T1-T4."
+    - "T4 institutional enclosure passes all internal schema checks while diverging from external reality."
+guarantee:
+  type: restricted_worst_case
+  scope: modular_capabilities_with_verified_translation_and_external_audit
+  energy_evidence_tier: operation_counts_only
+validity:
+  requirements:
+    - "Sealed TransferCertificate with explicit phi_in/phi_out and external audit MAE <= 0.05"
+  invalidation_conditions:
+    - "Absence of external ground-truth probe (enclosure undetectable internally)"
+    - "Non-invertible or lossy destination encoding"
+provenance:
+  contributors:
+    - living-computation-v03
+  source_artifacts:
+    - "../living-computation/experiments/12_transferable_computation/transfer_core.py"
+    - "../living-computation/experiments/12_transferable_computation/run_exp12.py"
+    - "../living-computation/core/evidence.py"
+limitations:
+  - "Evaluated on synthetic T1-T4 institutions; real-world cross-institution validation pending."
+  - "Zero false-SAFE applies to tested scenarios, not arbitrary unknown distributions."

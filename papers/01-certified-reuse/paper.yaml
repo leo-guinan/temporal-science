@@ -1,0 +1,64 @@
+id: paper-01
+version: 0.1.0
+title: "Certified Computational Reuse Under Environmental Change"
+exported_contract: TS-CERTIFIED-REUSE
+claims:
+  - TS-BASE-001
+  - TS-001
+  - TS-002
+  - TS-003
+  - TS-004
+  - TS-CERTIFIED-REUSE
+imports: []
+reference_experiments:
+  - id: milestone_01_02
+    path: "../living-computation/results/milestone_01_02/milestone_summary.json"
+    figures:
+      - "../living-computation/results/milestone_01_02/milestone_cumulative_cost.png"
+      - "../living-computation/results/milestone_01_02/milestone_regime_comparison.png"
+      - "../living-computation/results/milestone_01_02/milestone_canary_tradeoff.png"
+  - id: exp01_trace_reuse
+    path: "../living-computation/results/exp01_trace_reuse/exp01_summary.json"
+  - id: exp02_canaries
+    path: "../living-computation/results/exp02_canaries/exp02_sweep.json"
+  - id: exp03_observation
+    path: "../living-computation/results/exp03_observation/exp03_summary.json"
+    figures:
+      - "../living-computation/results/exp03_observation/exp03_observation_dynamics.png"
+  - id: exp08_predictive_sync
+    path: "../living-computation/results/exp08_v02_predictive_sync/exp08_summary.json"
+    figures:
+      - "../living-computation/results/exp08_v02_predictive_sync/exp08_pareto_frontier.png"
+      - "../living-computation/results/exp08_v02_predictive_sync/exp08_sync_dynamics.png"
+  - id: exp09_timespace_inertia
+    path: "../living-computation/results/exp09_v02_timespace_inertia/exp09_summary.json"
+    figures:
+      - "../living-computation/results/exp09_v02_timespace_inertia/exp09_timespace_trajectories.png"
+publication_gate:
+  proofs_audited: true
+  internal_benchmarks_reproducible: true
+  failure_boundaries_documented: true
+  physical_energy_metered: false
+  independent_external_replication: false
+  tiers:
+    technical_report:
+      ready: true
+      scope_note: "Methods, formal proofs under stated assumptions, and preliminary operation/modeled-energy results."
+    scoped_preprint:
+      ready: true
+      scope_note: "Scoped strictly to operation-count savings, 0-false-SAFE soundness, and modeled_proxy energy; excludes hardware physical-energy claims."
+    energy_focused_paper:
+      ready: false
+      blockers:
+        - "True wall-plug AC / discrete SSD-rail energy metering and cross-architecture (Intel/AMD RAPL) independent replication remain required (§19). Note: exp_hw02-04 (AC-powered Apple M3 Max IOReport whole-SoC) now establish full-lifecycle whole-SoC energy savings and preregistered prospective predictability across synthetic DAGs (K>=3), 117 stdlib AST modules, and 71 _pytest typechecked modules (exp_hw04 5-term prospective R^2=0.9997 proc / 0.9610 SoC)."
+    independently_validated_release:
+      ready: false
+      blockers:
+        - "Independent external replication on non-synthetic workloads and formal P5/P9 proof review."
+  blocking_items:
+    - "Physical hardware energy measurement (RAPL/powermetrics) required for energy_focused_paper (§19)."
+    - "Independent replication on larger non-synthetic DAGs and completion of P5/P9 proofs for independently_validated_release."
+does_not_prove:
+  - "Unrestricted computational tractability or P = NP."
+  - "Universal energy savings across all hardware or volatility regimes."
+  - "Existence of sound low-cost canaries for arbitrary discontinuous environments."

@@ -1,0 +1,51 @@
+id: paper-03
+version: 0.1.0
+title: "Verifiable Work Not Done: Efficient Certificates of Computational Avoidance"
+exported_contract: TS-WORK-NOT-DONE
+claims:
+  - TS-007
+  - TS-WORK-NOT-DONE
+imports:
+  - id: TS-BASE-001
+    version: 1.0.0
+  - id: TS-CERTIFIED-REUSE
+    version: 0.1.0
+  - id: TS-TRANSFER-CERTIFICATE
+    version: 0.1.0
+reference_experiments:
+  - id: exp13_work_not_done
+    path: "../living-computation/results/exp13_v03_work_not_done/exp13_summary.json"
+    figures:
+      - "../living-computation/results/exp13_v03_work_not_done/exp13_wnd_verifier.png"
+  - id: exp15_compounding_capital
+    path: "../living-computation/results/exp15_v03_compounding_capital/exp15_summary.json"
+    figures:
+      - "../living-computation/results/exp15_v03_compounding_capital/exp15_compounding_capital.png"
+publication_gate:
+  proofs_audited: true
+  internal_benchmarks_reproducible: true
+  failure_boundaries_documented: true
+  compositional_wnd_formalized: false
+  physical_energy_metered: false
+  tiers:
+    technical_report:
+      ready: true
+      scope_note: "Single-workload WND verifier, 8-class adversarial audit, and verification economics."
+    scoped_preprint:
+      ready: true
+      scope_note: "Scoped to operation-count & modeled-energy WND certificates for non-overlapping workloads."
+    energy_focused_paper:
+      ready: false
+      blockers:
+        - "Physical hardware power metering required for Tier-3 physically measured energy certificates."
+    independently_validated_release:
+      ready: false
+      blockers:
+        - "Formalize non-overlapping compositional WND rules when multiple certificates share baselines."
+        - "Independent third-party audit of cost models and mathematical-bound premises."
+  blocking_items:
+    - "Formalize non-overlapping compositional WND rules when multiple certificates share baselines."
+    - "Physical hardware power metering required for Tier-3 physically measured energy reduction certificates."
+does_not_prove:
+  - "Cryptographic proof that no computation occurred anywhere in the universe."
+  - "Unconditional additivity of overlapping savings claims."

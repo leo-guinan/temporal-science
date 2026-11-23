@@ -1,0 +1,50 @@
+id: TS-008
+version: 0.1.0
+title: Simulated Reusable Human Hints & Stable Human API Knowledge Retention
+kind: empirical_finding
+status: partially_supported
+paper_id: paper-04
+statement: >
+  In controlled synthetic workflow simulations, caching validated human structural hints
+  slashes simulated human prompting time 20x (720s -> 36s), and mediating backend migrations
+  through a compatibility-checked Human API cuts human time a further 33% (24s) while
+  eliminating avoidable UI relearning (492.5s -> 0.0s) and silent semantic failures (0 vs 37
+  in naive silent wrappers).
+assumptions:
+  - Simulated human time models (simulated_human_hint_model, simulated_human_workflow_model).
+  - Structural hints are machine-verifiable in O(m) time prior to reuse.
+depends_on:
+  - id: TS-BASE-001
+    version: 1.0.0
+  - id: TS-005
+    version: 0.1.0
+evidence:
+  proofs:
+    - "../living-computation/research/definitions-v02.md"
+  experiments:
+    - "../living-computation/results/exp07_v02_human_capital/exp07_summary.json"
+    - "../living-computation/results/exp07_v02_human_capital/contribution_to_savings_ledger.md"
+    - "../living-computation/results/exp10_v02_human_api/exp10_summary.json"
+  counterexamples:
+    - "Exp 10 Counterexample A (naive_silent_wrapper): conceals V3->V4 semantic shift, causing 37 silent semantic failures."
+    - "Exp 10 Counterexample B (legacy adapter debt): above 6-8 divergent paradigm layers, legacy wrapping costs more human time (115.2s) than clean retraining (65.0s)."
+    - "Exp 5 high renegotiation churn: machine savings can hide 204s of human renegotiation burden."
+guarantee:
+  type: empirical
+  scope: simulated_human_workflow_models_only
+  energy_evidence_tier: modeled_proxy_energy
+validity:
+  requirements:
+    - "All human-time measurements explicitly tagged simulated; never presented as real human cognitive joules"
+    - "Formal P7 and P8 proofs remain open"
+  invalidation_conditions:
+    - "Empirical human-subject trials showing higher cognitive overhead than simulated assumptions"
+provenance:
+  contributors:
+    - living-computation-v02
+  source_artifacts:
+    - "../living-computation/experiments/07_human_capital/human_capital.py"
+    - "../living-computation/experiments/10_human_api/human_api_sim.py"
+limitations:
+  - "Marked partially_supported because NO real human-subject experiments have been conducted yet."
+  - "Does not establish psychological harm, real cognitive energy, or real-world intergenerational mobility claims."

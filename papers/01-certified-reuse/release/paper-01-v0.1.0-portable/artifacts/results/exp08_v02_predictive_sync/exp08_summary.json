@@ -1,0 +1,2028 @@
+{
+  "experiment_version": "v0.2",
+  "primary_config": {
+    "dims": 6,
+    "num_steps": 3000,
+    "phi_range": [
+      0.86,
+      0.94
+    ],
+    "disturbance_mode": "bounded",
+    "w_scale": 0.12,
+    "noise_scale": 0.025,
+    "shift_step": 1500,
+    "post_shift_w_multiplier": 1.85,
+    "sensor_cost_ops": 40,
+    "sensor_cost_joules": 0.0008,
+    "seed": 808
+  },
+  "primary_results": [
+    {
+      "observer": "continuous_kalman",
+      "horizon_tau": 2,
+      "tolerance_eps": 0.5,
+      "permitted_delta": 0.05,
+      "observation_rate": 1.0,
+      "empirical_violation_rate": 0.0,
+      "sync_budget_satisfied": true,
+      "pre_shift_violation_rate": 0.0,
+      "post_shift_violation_rate": 0.0,
+      "mean_error": 0.21816,
+      "max_error": 0.4274,
+      "calibration_gap": 0.0,
+      "detection_latency_steps": null,
+      "unknown_steps": 0,
+      "total_ops": 247960,
+      "total_modeled_joules": 2.782722,
+      "by_category": {
+        "execution": {
+          "steps": 245818,
+          "time_s": 0.109921023,
+          "joules": 2.782722359,
+          "memory_bytes": 1966544,
+          "communication_bytes": 0
+        },
+        "trace_recording": {
+          "steps": 0,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "learning": {
+          "steps": 2142,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "guarding": {
+          "steps": 0,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "reconfiguration": {
+          "steps": 0,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        }
+      }
+    },
+    {
+      "observer": "adaptive_kalman_uncertainty",
+      "horizon_tau": 2,
+      "tolerance_eps": 0.5,
+      "permitted_delta": 0.05,
+      "observation_rate": 0.5539,
+      "empirical_violation_rate": 0.00243,
+      "sync_budget_satisfied": true,
+      "pre_shift_violation_rate": 0.00145,
+      "post_shift_violation_rate": 0.00334,
+      "mean_error": 0.24985,
+      "max_error": 0.70364,
+      "calibration_gap": 0.0125,
+      "detection_latency_steps": 10,
+      "unknown_steps": 40,
+      "total_ops": 262630,
+      "total_modeled_joules": 1.986223,
+      "by_category": {
+        "execution": {
+          "steps": 163642,
+          "time_s": 0.175881331,
+          "joules": 1.986222983,
+          "memory_bytes": 1309136,
+          "communication_bytes": 0
+        },
+        "trace_recording": {
+          "steps": 0,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "learning": {
+          "steps": 2862,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "guarding": {
+          "steps": 96126,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "reconfiguration": {
+          "steps": 0,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        }
+      }
+    },
+    {
+      "observer": "adaptive_certified_bound",
+      "horizon_tau": 2,
+      "tolerance_eps": 0.5,
+      "permitted_delta": 0.05,
+      "observation_rate": 0.7592,
+      "empirical_violation_rate": 0.0,
+      "sync_budget_satisfied": true,
+      "pre_shift_violation_rate": 0.0,
+      "post_shift_violation_rate": 0.0,
+      "mean_error": 0.22505,
+      "max_error": 0.4427,
+      "calibration_gap": 0.01217,
+      "detection_latency_steps": 5,
+      "unknown_steps": 40,
+      "total_ops": 253522,
+      "total_modeled_joules": 2.371363,
+      "by_category": {
+        "execution": {
+          "steps": 173806,
+          "time_s": 0.151175759,
+          "joules": 2.371362884,
+          "memory_bytes": 1390448,
+          "communication_bytes": 0
+        },
+        "trace_recording": {
+          "steps": 0,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "learning": {
+          "steps": 2862,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "guarding": {
+          "steps": 76854,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "reconfiguration": {
+          "steps": 0,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        }
+      }
+    },
+    {
+      "observer": "periodic_kalman_p2",
+      "horizon_tau": 2,
+      "tolerance_eps": 0.5,
+      "permitted_delta": 0.05,
+      "observation_rate": 0.5,
+      "empirical_violation_rate": 0.00625,
+      "sync_budget_satisfied": true,
+      "pre_shift_violation_rate": 0.0,
+      "post_shift_violation_rate": 0.01202,
+      "mean_error": 0.23643,
+      "max_error": 0.5514,
+      "calibration_gap": 0.00624,
+      "detection_latency_steps": null,
+      "unknown_steps": 0,
+      "total_ops": 152879,
+      "total_modeled_joules": 1.561564,
+      "by_category": {
+        "execution": {
+          "steps": 149882,
+          "time_s": 0.103549797,
+          "joules": 1.561564168,
+          "memory_bytes": 1199056,
+          "communication_bytes": 0
+        },
+        "trace_recording": {
+          "steps": 0,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "learning": {
+          "steps": 0,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "guarding": {
+          "steps": 2997,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "reconfiguration": {
+          "steps": 0,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        }
+      }
+    },
+    {
+      "observer": "periodic_kalman_p3",
+      "horizon_tau": 2,
+      "tolerance_eps": 0.5,
+      "permitted_delta": 0.05,
+      "observation_rate": 0.3336,
+      "empirical_violation_rate": 0.02328,
+      "sync_budget_satisfied": true,
+      "pre_shift_violation_rate": 0.0,
+      "post_shift_violation_rate": 0.04473,
+      "mean_error": 0.25152,
+      "max_error": 0.68144,
+      "calibration_gap": 0.02322,
+      "detection_latency_steps": null,
+      "unknown_steps": 0,
+      "total_ops": 120943,
+      "total_modeled_joules": 1.154824,
+      "by_category": {
+        "execution": {
+          "steps": 117946,
+          "time_s": 0.101454708,
+          "joules": 1.154823877,
+          "memory_bytes": 943568,
+          "communication_bytes": 0
+        },
+        "trace_recording": {
+          "steps": 0,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "learning": {
+          "steps": 0,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "guarding": {
+          "steps": 2997,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "reconfiguration": {
+          "steps": 0,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        }
+      }
+    },
+    {
+      "observer": "periodic_kalman_p5",
+      "horizon_tau": 2,
+      "tolerance_eps": 0.5,
+      "permitted_delta": 0.05,
+      "observation_rate": 0.2001,
+      "empirical_violation_rate": 0.0476,
+      "sync_budget_satisfied": true,
+      "pre_shift_violation_rate": 0.0,
+      "post_shift_violation_rate": 0.09146,
+      "mean_error": 0.27343,
+      "max_error": 0.7759,
+      "calibration_gap": 0.04727,
+      "detection_latency_steps": null,
+      "unknown_steps": 0,
+      "total_ops": 95343,
+      "total_modeled_joules": 0.824667,
+      "by_category": {
+        "execution": {
+          "steps": 92346,
+          "time_s": 0.098508323,
+          "joules": 0.824666537,
+          "memory_bytes": 738768,
+          "communication_bytes": 0
+        },
+        "trace_recording": {
+          "steps": 0,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "learning": {
+          "steps": 0,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "guarding": {
+          "steps": 2997,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "reconfiguration": {
+          "steps": 0,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        }
+      }
+    },
+    {
+      "observer": "periodic_kalman_p8",
+      "horizon_tau": 2,
+      "tolerance_eps": 0.5,
+      "permitted_delta": 0.05,
+      "observation_rate": 0.1251,
+      "empirical_violation_rate": 0.0827,
+      "sync_budget_satisfied": false,
+      "pre_shift_violation_rate": 0.0,
+      "post_shift_violation_rate": 0.15888,
+      "mean_error": 0.29396,
+      "max_error": 0.84857,
+      "calibration_gap": 0.08161,
+      "detection_latency_steps": null,
+      "unknown_steps": 0,
+      "total_ops": 80943,
+      "total_modeled_joules": 0.805727,
+      "by_category": {
+        "execution": {
+          "steps": 77946,
+          "time_s": 0.144515425,
+          "joules": 0.805727377,
+          "memory_bytes": 623568,
+          "communication_bytes": 0
+        },
+        "trace_recording": {
+          "steps": 0,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "learning": {
+          "steps": 0,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "guarding": {
+          "steps": 2997,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "reconfiguration": {
+          "steps": 0,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        }
+      }
+    },
+    {
+      "observer": "periodic_kalman_p12",
+      "horizon_tau": 2,
+      "tolerance_eps": 0.5,
+      "permitted_delta": 0.05,
+      "observation_rate": 0.0834,
+      "empirical_violation_rate": 0.10771,
+      "sync_budget_satisfied": false,
+      "pre_shift_violation_rate": 0.00072,
+      "post_shift_violation_rate": 0.20628,
+      "mean_error": 0.30768,
+      "max_error": 0.98675,
+      "calibration_gap": 0.10549,
+      "detection_latency_steps": null,
+      "unknown_steps": 0,
+      "total_ops": 72943,
+      "total_modeled_joules": 0.532837,
+      "by_category": {
+        "execution": {
+          "steps": 69946,
+          "time_s": 0.095038119,
+          "joules": 0.532836677,
+          "memory_bytes": 559568,
+          "communication_bytes": 0
+        },
+        "trace_recording": {
+          "steps": 0,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "learning": {
+          "steps": 0,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "guarding": {
+          "steps": 2997,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "reconfiguration": {
+          "steps": 0,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        }
+      }
+    }
+  ],
+  "gaussian_config": {
+    "dims": 6,
+    "num_steps": 3000,
+    "phi_range": [
+      0.86,
+      0.94
+    ],
+    "disturbance_mode": "gaussian",
+    "w_scale": 0.11,
+    "noise_scale": 0.025,
+    "shift_step": null,
+    "post_shift_w_multiplier": 2.0,
+    "sensor_cost_ops": 40,
+    "sensor_cost_joules": 0.0008,
+    "seed": 809
+  },
+  "gaussian_pareto_results": [
+    {
+      "observer": "continuous_kalman",
+      "horizon_tau": 2,
+      "tolerance_eps": 0.48,
+      "permitted_delta": 0.05,
+      "observation_rate": 1.0,
+      "empirical_violation_rate": 0.00625,
+      "sync_budget_satisfied": true,
+      "pre_shift_violation_rate": 0.00625,
+      "post_shift_violation_rate": 0.00625,
+      "mean_error": 0.2441,
+      "max_error": 0.58594,
+      "calibration_gap": 0.00163,
+      "detection_latency_steps": null,
+      "unknown_steps": 0,
+      "total_ops": 247960,
+      "total_modeled_joules": 2.771298,
+      "by_category": {
+        "execution": {
+          "steps": 245818,
+          "time_s": 0.106445936,
+          "joules": 2.771298359,
+          "memory_bytes": 1966544,
+          "communication_bytes": 0
+        },
+        "trace_recording": {
+          "steps": 0,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "learning": {
+          "steps": 2142,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "guarding": {
+          "steps": 0,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "reconfiguration": {
+          "steps": 0,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        }
+      }
+    },
+    {
+      "observer": "adaptive_kalman_uncertainty",
+      "horizon_tau": 2,
+      "tolerance_eps": 0.48,
+      "permitted_delta": 0.05,
+      "observation_rate": 0.7814,
+      "empirical_violation_rate": 0.01425,
+      "sync_budget_satisfied": true,
+      "pre_shift_violation_rate": 0.01425,
+      "post_shift_violation_rate": 0.01425,
+      "mean_error": 0.25298,
+      "max_error": 0.64217,
+      "calibration_gap": 0.00874,
+      "detection_latency_steps": null,
+      "unknown_steps": 80,
+      "total_ops": 315422,
+      "total_modeled_joules": 2.526561,
+      "by_category": {
+        "execution": {
+          "steps": 205562,
+          "time_s": 0.181865598,
+          "joules": 2.526560832,
+          "memory_bytes": 1644496,
+          "communication_bytes": 0
+        },
+        "trace_recording": {
+          "steps": 0,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "learning": {
+          "steps": 3582,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "guarding": {
+          "steps": 106278,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "reconfiguration": {
+          "steps": 0,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        }
+      }
+    },
+    {
+      "observer": "adaptive_certified_bound",
+      "horizon_tau": 2,
+      "tolerance_eps": 0.48,
+      "permitted_delta": 0.05,
+      "observation_rate": 1.0,
+      "empirical_violation_rate": 0.00625,
+      "sync_budget_satisfied": true,
+      "pre_shift_violation_rate": 0.00625,
+      "post_shift_violation_rate": 0.00625,
+      "mean_error": 0.2441,
+      "max_error": 0.58594,
+      "calibration_gap": 0.00163,
+      "detection_latency_steps": null,
+      "unknown_steps": 0,
+      "total_ops": 334300,
+      "total_modeled_joules": 3.149396,
+      "by_category": {
+        "execution": {
+          "steps": 245818,
+          "time_s": 0.214747075,
+          "joules": 3.149395895,
+          "memory_bytes": 1966544,
+          "communication_bytes": 0
+        },
+        "trace_recording": {
+          "steps": 0,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "learning": {
+          "steps": 2142,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "guarding": {
+          "steps": 86340,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "reconfiguration": {
+          "steps": 0,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        }
+      }
+    },
+    {
+      "observer": "periodic_kalman_p2",
+      "horizon_tau": 2,
+      "tolerance_eps": 0.48,
+      "permitted_delta": 0.05,
+      "observation_rate": 0.5,
+      "empirical_violation_rate": 0.01876,
+      "sync_budget_satisfied": true,
+      "pre_shift_violation_rate": 0.01876,
+      "post_shift_violation_rate": 0.01876,
+      "mean_error": 0.26432,
+      "max_error": 0.62044,
+      "calibration_gap": 0.00201,
+      "detection_latency_steps": null,
+      "unknown_steps": 0,
+      "total_ops": 152879,
+      "total_modeled_joules": 1.554281,
+      "by_category": {
+        "execution": {
+          "steps": 149882,
+          "time_s": 0.101390368,
+          "joules": 1.554280668,
+          "memory_bytes": 1199056,
+          "communication_bytes": 0
+        },
+        "trace_recording": {
+          "steps": 0,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "learning": {
+          "steps": 0,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "guarding": {
+          "steps": 2997,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "reconfiguration": {
+          "steps": 0,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        }
+      }
+    },
+    {
+      "observer": "periodic_kalman_p3",
+      "horizon_tau": 2,
+      "tolerance_eps": 0.48,
+      "permitted_delta": 0.05,
+      "observation_rate": 0.3336,
+      "empirical_violation_rate": 0.03718,
+      "sync_budget_satisfied": true,
+      "pre_shift_violation_rate": 0.03718,
+      "post_shift_violation_rate": 0.03718,
+      "mean_error": 0.28041,
+      "max_error": 0.7403,
+      "calibration_gap": 9e-05,
+      "detection_latency_steps": null,
+      "unknown_steps": 0,
+      "total_ops": 120943,
+      "total_modeled_joules": 1.148023,
+      "by_category": {
+        "execution": {
+          "steps": 117946,
+          "time_s": 0.099365135,
+          "joules": 1.148023377,
+          "memory_bytes": 943568,
+          "communication_bytes": 0
+        },
+        "trace_recording": {
+          "steps": 0,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "learning": {
+          "steps": 0,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "guarding": {
+          "steps": 2997,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "reconfiguration": {
+          "steps": 0,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        }
+      }
+    },
+    {
+      "observer": "periodic_kalman_p5",
+      "horizon_tau": 2,
+      "tolerance_eps": 0.48,
+      "permitted_delta": 0.05,
+      "observation_rate": 0.2001,
+      "empirical_violation_rate": 0.06915,
+      "sync_budget_satisfied": false,
+      "pre_shift_violation_rate": 0.06915,
+      "post_shift_violation_rate": 0.06915,
+      "mean_error": 0.30599,
+      "max_error": 0.91319,
+      "calibration_gap": 0.00338,
+      "detection_latency_steps": null,
+      "unknown_steps": 0,
+      "total_ops": 95343,
+      "total_modeled_joules": 0.818356,
+      "by_category": {
+        "execution": {
+          "steps": 92346,
+          "time_s": 0.096581066,
+          "joules": 0.818356037,
+          "memory_bytes": 738768,
+          "communication_bytes": 0
+        },
+        "trace_recording": {
+          "steps": 0,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "learning": {
+          "steps": 0,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "guarding": {
+          "steps": 2997,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "reconfiguration": {
+          "steps": 0,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        }
+      }
+    },
+    {
+      "observer": "periodic_kalman_p8",
+      "horizon_tau": 2,
+      "tolerance_eps": 0.48,
+      "permitted_delta": 0.05,
+      "observation_rate": 0.1251,
+      "empirical_violation_rate": 0.11466,
+      "sync_budget_satisfied": false,
+      "pre_shift_violation_rate": 0.11466,
+      "post_shift_violation_rate": 0.11466,
+      "mean_error": 0.33209,
+      "max_error": 0.9349,
+      "calibration_gap": 0.00446,
+      "detection_latency_steps": null,
+      "unknown_steps": 0,
+      "total_ops": 80943,
+      "total_modeled_joules": 1.033857,
+      "by_category": {
+        "execution": {
+          "steps": 77946,
+          "time_s": 0.209589725,
+          "joules": 1.033857377,
+          "memory_bytes": 623568,
+          "communication_bytes": 0
+        },
+        "trace_recording": {
+          "steps": 0,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "learning": {
+          "steps": 0,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "guarding": {
+          "steps": 2997,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "reconfiguration": {
+          "steps": 0,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        }
+      }
+    },
+    {
+      "observer": "periodic_kalman_p12",
+      "horizon_tau": 2,
+      "tolerance_eps": 0.48,
+      "permitted_delta": 0.05,
+      "observation_rate": 0.0834,
+      "empirical_violation_rate": 0.16192,
+      "sync_budget_satisfied": false,
+      "pre_shift_violation_rate": 0.16192,
+      "post_shift_violation_rate": 0.16192,
+      "mean_error": 0.35415,
+      "max_error": 0.84645,
+      "calibration_gap": 0.00295,
+      "detection_latency_steps": null,
+      "unknown_steps": 0,
+      "total_ops": 72943,
+      "total_modeled_joules": 0.534447,
+      "by_category": {
+        "execution": {
+          "steps": 69946,
+          "time_s": 0.095528752,
+          "joules": 0.534446677,
+          "memory_bytes": 559568,
+          "communication_bytes": 0
+        },
+        "trace_recording": {
+          "steps": 0,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "learning": {
+          "steps": 0,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "guarding": {
+          "steps": 2997,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "reconfiguration": {
+          "steps": 0,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        }
+      }
+    }
+  ],
+  "horizon_sweep": [
+    {
+      "observer": "adaptive_kalman_uncertainty",
+      "horizon_tau": 1,
+      "tolerance_eps": 0.52,
+      "permitted_delta": 0.05,
+      "observation_rate": 0.0766,
+      "empirical_violation_rate": 0.00319,
+      "sync_budget_satisfied": true,
+      "pre_shift_violation_rate": 0.00319,
+      "post_shift_violation_rate": 0.00319,
+      "mean_error": 0.24201,
+      "max_error": 0.60527,
+      "calibration_gap": 0.00432,
+      "detection_latency_steps": null,
+      "unknown_steps": 0,
+      "total_ops": 102690,
+      "total_modeled_joules": 0.599648,
+      "by_category": {
+        "execution": {
+          "steps": 52860,
+          "time_s": 0.11093082,
+          "joules": 0.599648495,
+          "memory_bytes": 422880,
+          "communication_bytes": 0
+        },
+        "trace_recording": {
+          "steps": 0,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "learning": {
+          "steps": 2142,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "guarding": {
+          "steps": 47688,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "reconfiguration": {
+          "steps": 0,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        }
+      }
+    },
+    {
+      "observer": "adaptive_certified_bound",
+      "horizon_tau": 1,
+      "tolerance_eps": 0.52,
+      "permitted_delta": 0.05,
+      "observation_rate": 0.3332,
+      "empirical_violation_rate": 0.0,
+      "sync_budget_satisfied": true,
+      "pre_shift_violation_rate": 0.0,
+      "post_shift_violation_rate": 0.0,
+      "mean_error": 0.16717,
+      "max_error": 0.35243,
+      "calibration_gap": 8e-05,
+      "detection_latency_steps": null,
+      "unknown_steps": 0,
+      "total_ops": 118232,
+      "total_modeled_joules": 0.85245,
+      "by_category": {
+        "execution": {
+          "steps": 74756,
+          "time_s": 0.072979027,
+          "joules": 0.85245,
+          "memory_bytes": 598048,
+          "communication_bytes": 0
+        },
+        "trace_recording": {
+          "steps": 0,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "learning": {
+          "steps": 2142,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "guarding": {
+          "steps": 41334,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "reconfiguration": {
+          "steps": 0,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        }
+      }
+    },
+    {
+      "observer": "adaptive_kalman_uncertainty",
+      "horizon_tau": 2,
+      "tolerance_eps": 0.52,
+      "permitted_delta": 0.05,
+      "observation_rate": 0.0767,
+      "empirical_violation_rate": 0.00319,
+      "sync_budget_satisfied": true,
+      "pre_shift_violation_rate": 0.00319,
+      "post_shift_violation_rate": 0.00319,
+      "mean_error": 0.25411,
+      "max_error": 0.60527,
+      "calibration_gap": 0.00575,
+      "detection_latency_steps": null,
+      "unknown_steps": 0,
+      "total_ops": 102648,
+      "total_modeled_joules": 0.599631,
+      "by_category": {
+        "execution": {
+          "steps": 52842,
+          "time_s": 0.110973236,
+          "joules": 0.599630978,
+          "memory_bytes": 422736,
+          "communication_bytes": 0
+        },
+        "trace_recording": {
+          "steps": 0,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "learning": {
+          "steps": 2142,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "guarding": {
+          "steps": 47664,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "reconfiguration": {
+          "steps": 0,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        }
+      }
+    },
+    {
+      "observer": "adaptive_certified_bound",
+      "horizon_tau": 2,
+      "tolerance_eps": 0.52,
+      "permitted_delta": 0.05,
+      "observation_rate": 0.5,
+      "empirical_violation_rate": 0.0,
+      "sync_budget_satisfied": true,
+      "pre_shift_violation_rate": 0.0,
+      "post_shift_violation_rate": 0.0,
+      "mean_error": 0.18955,
+      "max_error": 0.35915,
+      "calibration_gap": 0.00012,
+      "detection_latency_steps": null,
+      "unknown_steps": 0,
+      "total_ops": 138228,
+      "total_modeled_joules": 1.108883,
+      "by_category": {
+        "execution": {
+          "steps": 91014,
+          "time_s": 0.074734777,
+          "joules": 1.10888349,
+          "memory_bytes": 728112,
+          "communication_bytes": 0
+        },
+        "trace_recording": {
+          "steps": 0,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "learning": {
+          "steps": 2142,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "guarding": {
+          "steps": 45072,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "reconfiguration": {
+          "steps": 0,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        }
+      }
+    },
+    {
+      "observer": "adaptive_kalman_uncertainty",
+      "horizon_tau": 3,
+      "tolerance_eps": 0.52,
+      "permitted_delta": 0.05,
+      "observation_rate": 0.0767,
+      "empirical_violation_rate": 0.00373,
+      "sync_budget_satisfied": true,
+      "pre_shift_violation_rate": 0.00373,
+      "post_shift_violation_rate": 0.00373,
+      "mean_error": 0.26258,
+      "max_error": 0.60527,
+      "calibration_gap": 0.00671,
+      "detection_latency_steps": null,
+      "unknown_steps": 0,
+      "total_ops": 102606,
+      "total_modeled_joules": 0.594363,
+      "by_category": {
+        "execution": {
+          "steps": 52824,
+          "time_s": 0.109429255,
+          "joules": 0.594363462,
+          "memory_bytes": 422592,
+          "communication_bytes": 0
+        },
+        "trace_recording": {
+          "steps": 0,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "learning": {
+          "steps": 2142,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "guarding": {
+          "steps": 47640,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "reconfiguration": {
+          "steps": 0,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        }
+      }
+    },
+    {
+      "observer": "adaptive_certified_bound",
+      "horizon_tau": 3,
+      "tolerance_eps": 0.52,
+      "permitted_delta": 0.05,
+      "observation_rate": 1.0,
+      "empirical_violation_rate": 0.0,
+      "sync_budget_satisfied": true,
+      "pre_shift_violation_rate": 0.0,
+      "post_shift_violation_rate": 0.0,
+      "mean_error": 0.20323,
+      "max_error": 0.35915,
+      "calibration_gap": 0.00023,
+      "detection_latency_steps": null,
+      "unknown_steps": 0,
+      "total_ops": 198224,
+      "total_modeled_joules": 2.324992,
+      "by_category": {
+        "execution": {
+          "steps": 139772,
+          "time_s": 0.207772069,
+          "joules": 2.324991981,
+          "memory_bytes": 1118176,
+          "communication_bytes": 0
+        },
+        "trace_recording": {
+          "steps": 0,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "learning": {
+          "steps": 2142,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "guarding": {
+          "steps": 56310,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "reconfiguration": {
+          "steps": 0,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        }
+      }
+    },
+    {
+      "observer": "adaptive_kalman_uncertainty",
+      "horizon_tau": 5,
+      "tolerance_eps": 0.52,
+      "permitted_delta": 0.05,
+      "observation_rate": 0.0768,
+      "empirical_violation_rate": 0.00587,
+      "sync_budget_satisfied": true,
+      "pre_shift_violation_rate": 0.00587,
+      "post_shift_violation_rate": 0.00587,
+      "mean_error": 0.27332,
+      "max_error": 0.60527,
+      "calibration_gap": 0.00763,
+      "detection_latency_steps": null,
+      "unknown_steps": 0,
+      "total_ops": 102522,
+      "total_modeled_joules": 0.593726,
+      "by_category": {
+        "execution": {
+          "steps": 52788,
+          "time_s": 0.109236168,
+          "joules": 0.593726428,
+          "memory_bytes": 422304,
+          "communication_bytes": 0
+        },
+        "trace_recording": {
+          "steps": 0,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "learning": {
+          "steps": 2142,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "guarding": {
+          "steps": 47592,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "reconfiguration": {
+          "steps": 0,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        }
+      }
+    },
+    {
+      "observer": "adaptive_certified_bound",
+      "horizon_tau": 5,
+      "tolerance_eps": 0.52,
+      "permitted_delta": 0.05,
+      "observation_rate": 1.0,
+      "empirical_violation_rate": 0.0,
+      "sync_budget_satisfied": true,
+      "pre_shift_violation_rate": 0.0,
+      "post_shift_violation_rate": 0.0,
+      "mean_error": 0.23892,
+      "max_error": 0.47146,
+      "calibration_gap": 0.00258,
+      "detection_latency_steps": null,
+      "unknown_steps": 0,
+      "total_ops": 198024,
+      "total_modeled_joules": 1.873768,
+      "by_category": {
+        "execution": {
+          "steps": 139632,
+          "time_s": 0.079299853,
+          "joules": 1.873767933,
+          "memory_bytes": 1117056,
+          "communication_bytes": 0
+        },
+        "trace_recording": {
+          "steps": 0,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "learning": {
+          "steps": 2142,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "guarding": {
+          "steps": 56250,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "reconfiguration": {
+          "steps": 0,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        }
+      }
+    }
+  ],
+  "eps_delta_sweep": [
+    {
+      "observer": "adaptive_kalman_uncertainty",
+      "horizon_tau": 2,
+      "tolerance_eps": 0.35,
+      "permitted_delta": 0.01,
+      "observation_rate": 1.0,
+      "empirical_violation_rate": 0.09937,
+      "sync_budget_satisfied": false,
+      "pre_shift_violation_rate": 0.09937,
+      "post_shift_violation_rate": 0.09937,
+      "mean_error": 0.2441,
+      "max_error": 0.58636,
+      "calibration_gap": 0.07249,
+      "detection_latency_steps": null,
+      "unknown_steps": 160,
+      "total_ops": 365164,
+      "total_modeled_joules": 3.030456,
+      "by_category": {
+        "execution": {
+          "steps": 245818,
+          "time_s": 0.18048255,
+          "joules": 3.030456089,
+          "memory_bytes": 1966544,
+          "communication_bytes": 0
+        },
+        "trace_recording": {
+          "steps": 0,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "learning": {
+          "steps": 5022,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "guarding": {
+          "steps": 114324,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "reconfiguration": {
+          "steps": 0,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        }
+      }
+    },
+    {
+      "observer": "adaptive_kalman_uncertainty",
+      "horizon_tau": 2,
+      "tolerance_eps": 0.35,
+      "permitted_delta": 0.05,
+      "observation_rate": 1.0,
+      "empirical_violation_rate": 0.09937,
+      "sync_budget_satisfied": false,
+      "pre_shift_violation_rate": 0.09937,
+      "post_shift_violation_rate": 0.09937,
+      "mean_error": 0.2441,
+      "max_error": 0.58636,
+      "calibration_gap": 0.07249,
+      "detection_latency_steps": null,
+      "unknown_steps": 160,
+      "total_ops": 365164,
+      "total_modeled_joules": 3.032528,
+      "by_category": {
+        "execution": {
+          "steps": 245818,
+          "time_s": 0.181095092,
+          "joules": 3.032528089,
+          "memory_bytes": 1966544,
+          "communication_bytes": 0
+        },
+        "trace_recording": {
+          "steps": 0,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "learning": {
+          "steps": 5022,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "guarding": {
+          "steps": 114324,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "reconfiguration": {
+          "steps": 0,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        }
+      }
+    },
+    {
+      "observer": "adaptive_kalman_uncertainty",
+      "horizon_tau": 2,
+      "tolerance_eps": 0.35,
+      "permitted_delta": 0.15,
+      "observation_rate": 1.0,
+      "empirical_violation_rate": 0.09937,
+      "sync_budget_satisfied": true,
+      "pre_shift_violation_rate": 0.09937,
+      "post_shift_violation_rate": 0.09937,
+      "mean_error": 0.2441,
+      "max_error": 0.58636,
+      "calibration_gap": 0.07249,
+      "detection_latency_steps": null,
+      "unknown_steps": 160,
+      "total_ops": 365164,
+      "total_modeled_joules": 3.026123,
+      "by_category": {
+        "execution": {
+          "steps": 245818,
+          "time_s": 0.179257276,
+          "joules": 3.026123089,
+          "memory_bytes": 1966544,
+          "communication_bytes": 0
+        },
+        "trace_recording": {
+          "steps": 0,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "learning": {
+          "steps": 5022,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "guarding": {
+          "steps": 114324,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "reconfiguration": {
+          "steps": 0,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        }
+      }
+    },
+    {
+      "observer": "adaptive_kalman_uncertainty",
+      "horizon_tau": 2,
+      "tolerance_eps": 0.48,
+      "permitted_delta": 0.01,
+      "observation_rate": 1.0,
+      "empirical_violation_rate": 0.00625,
+      "sync_budget_satisfied": true,
+      "pre_shift_violation_rate": 0.00625,
+      "post_shift_violation_rate": 0.00625,
+      "mean_error": 0.2441,
+      "max_error": 0.58636,
+      "calibration_gap": 0.01301,
+      "detection_latency_steps": null,
+      "unknown_steps": 160,
+      "total_ops": 365164,
+      "total_modeled_joules": 3.473213,
+      "by_category": {
+        "execution": {
+          "steps": 245818,
+          "time_s": 0.307049832,
+          "joules": 3.473213089,
+          "memory_bytes": 1966544,
+          "communication_bytes": 0
+        },
+        "trace_recording": {
+          "steps": 0,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "learning": {
+          "steps": 5022,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "guarding": {
+          "steps": 114324,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "reconfiguration": {
+          "steps": 0,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        }
+      }
+    },
+    {
+      "observer": "adaptive_kalman_uncertainty",
+      "horizon_tau": 2,
+      "tolerance_eps": 0.48,
+      "permitted_delta": 0.05,
+      "observation_rate": 0.7814,
+      "empirical_violation_rate": 0.01425,
+      "sync_budget_satisfied": true,
+      "pre_shift_violation_rate": 0.01425,
+      "post_shift_violation_rate": 0.01425,
+      "mean_error": 0.25298,
+      "max_error": 0.64217,
+      "calibration_gap": 0.00874,
+      "detection_latency_steps": null,
+      "unknown_steps": 80,
+      "total_ops": 315422,
+      "total_modeled_joules": 2.515711,
+      "by_category": {
+        "execution": {
+          "steps": 205562,
+          "time_s": 0.177195049,
+          "joules": 2.515710832,
+          "memory_bytes": 1644496,
+          "communication_bytes": 0
+        },
+        "trace_recording": {
+          "steps": 0,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "learning": {
+          "steps": 3582,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "guarding": {
+          "steps": 106278,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "reconfiguration": {
+          "steps": 0,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        }
+      }
+    },
+    {
+      "observer": "adaptive_kalman_uncertainty",
+      "horizon_tau": 2,
+      "tolerance_eps": 0.48,
+      "permitted_delta": 0.15,
+      "observation_rate": 0.2262,
+      "empirical_violation_rate": 0.06602,
+      "sync_budget_satisfied": true,
+      "pre_shift_violation_rate": 0.06602,
+      "post_shift_violation_rate": 0.06602,
+      "mean_error": 0.3037,
+      "max_error": 0.8442,
+      "calibration_gap": 0.00345,
+      "detection_latency_steps": null,
+      "unknown_steps": 80,
+      "total_ops": 184386,
+      "total_modeled_joules": 1.194696,
+      "by_category": {
+        "execution": {
+          "steps": 103290,
+          "time_s": 0.164997735,
+          "joules": 1.194695986,
+          "memory_bytes": 826320,
+          "communication_bytes": 0
+        },
+        "trace_recording": {
+          "steps": 0,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "learning": {
+          "steps": 3582,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "guarding": {
+          "steps": 77514,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "reconfiguration": {
+          "steps": 0,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        }
+      }
+    },
+    {
+      "observer": "adaptive_kalman_uncertainty",
+      "horizon_tau": 2,
+      "tolerance_eps": 0.65,
+      "permitted_delta": 0.01,
+      "observation_rate": 0.278,
+      "empirical_violation_rate": 0.00382,
+      "sync_budget_satisfied": true,
+      "pre_shift_violation_rate": 0.00382,
+      "post_shift_violation_rate": 0.00382,
+      "mean_error": 0.29024,
+      "max_error": 0.80418,
+      "calibration_gap": 0.00051,
+      "detection_latency_steps": null,
+      "unknown_steps": 40,
+      "total_ops": 197522,
+      "total_modeled_joules": 1.32813,
+      "by_category": {
+        "execution": {
+          "steps": 112826,
+          "time_s": 0.169186926,
+          "joules": 1.328130144,
+          "memory_bytes": 902608,
+          "communication_bytes": 0
+        },
+        "trace_recording": {
+          "steps": 0,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "learning": {
+          "steps": 2862,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "guarding": {
+          "steps": 81834,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "reconfiguration": {
+          "steps": 0,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        }
+      }
+    },
+    {
+      "observer": "adaptive_kalman_uncertainty",
+      "horizon_tau": 2,
+      "tolerance_eps": 0.65,
+      "permitted_delta": 0.05,
+      "observation_rate": 0.1119,
+      "empirical_violation_rate": 0.01981,
+      "sync_budget_satisfied": true,
+      "pre_shift_violation_rate": 0.01981,
+      "post_shift_violation_rate": 0.01981,
+      "mean_error": 0.34434,
+      "max_error": 0.94014,
+      "calibration_gap": 0.0008,
+      "detection_latency_steps": null,
+      "unknown_steps": 40,
+      "total_ops": 158326,
+      "total_modeled_joules": 0.949831,
+      "by_category": {
+        "execution": {
+          "steps": 82234,
+          "time_s": 0.171034559,
+          "joules": 0.949831114,
+          "memory_bytes": 657872,
+          "communication_bytes": 0
+        },
+        "trace_recording": {
+          "steps": 0,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "learning": {
+          "steps": 2862,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "guarding": {
+          "steps": 73230,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "reconfiguration": {
+          "steps": 0,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        }
+      }
+    },
+    {
+      "observer": "adaptive_kalman_uncertainty",
+      "horizon_tau": 2,
+      "tolerance_eps": 0.65,
+      "permitted_delta": 0.15,
+      "observation_rate": 0.0768,
+      "empirical_violation_rate": 0.02328,
+      "sync_budget_satisfied": true,
+      "pre_shift_violation_rate": 0.02328,
+      "post_shift_violation_rate": 0.02328,
+      "mean_error": 0.35752,
+      "max_error": 1.0368,
+      "calibration_gap": 0.00517,
+      "detection_latency_steps": null,
+      "unknown_steps": 0,
+      "total_ops": 150962,
+      "total_modeled_joules": 0.853581,
+      "by_category": {
+        "execution": {
+          "steps": 75770,
+          "time_s": 0.165859976,
+          "joules": 0.853581072,
+          "memory_bytes": 606160,
+          "communication_bytes": 0
+        },
+        "trace_recording": {
+          "steps": 0,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "learning": {
+          "steps": 2142,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "guarding": {
+          "steps": 73050,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "reconfiguration": {
+          "steps": 0,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        }
+      }
+    }
+  ],
+  "noise_sweep": [
+    {
+      "observer": "adaptive_certified_bound",
+      "horizon_tau": 2,
+      "tolerance_eps": 0.52,
+      "permitted_delta": 0.05,
+      "observation_rate": 0.5,
+      "empirical_violation_rate": 0.0,
+      "sync_budget_satisfied": true,
+      "pre_shift_violation_rate": 0.0,
+      "post_shift_violation_rate": 0.0,
+      "mean_error": 0.19037,
+      "max_error": 0.36233,
+      "calibration_gap": 0.00022,
+      "detection_latency_steps": null,
+      "unknown_steps": 0,
+      "total_ops": 138228,
+      "total_modeled_joules": 1.549075,
+      "by_category": {
+        "execution": {
+          "steps": 91014,
+          "time_s": 0.200483575,
+          "joules": 1.54907499,
+          "memory_bytes": 728112,
+          "communication_bytes": 0
+        },
+        "trace_recording": {
+          "steps": 0,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "learning": {
+          "steps": 2142,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "guarding": {
+          "steps": 45072,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "reconfiguration": {
+          "steps": 0,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        }
+      },
+      "noise_scale": 0.01
+    },
+    {
+      "observer": "adaptive_certified_bound",
+      "horizon_tau": 2,
+      "tolerance_eps": 0.52,
+      "permitted_delta": 0.05,
+      "observation_rate": 1.0,
+      "empirical_violation_rate": 0.0,
+      "sync_budget_satisfied": true,
+      "pre_shift_violation_rate": 0.0,
+      "post_shift_violation_rate": 0.0,
+      "mean_error": 0.1779,
+      "max_error": 0.29503,
+      "calibration_gap": 1e-05,
+      "detection_latency_steps": null,
+      "unknown_steps": 0,
+      "total_ops": 198324,
+      "total_modeled_joules": 1.88426,
+      "by_category": {
+        "execution": {
+          "steps": 139842,
+          "time_s": 0.081578826,
+          "joules": 1.884260005,
+          "memory_bytes": 1118736,
+          "communication_bytes": 0
+        },
+        "trace_recording": {
+          "steps": 0,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "learning": {
+          "steps": 2142,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "guarding": {
+          "steps": 56340,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "reconfiguration": {
+          "steps": 0,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        }
+      },
+      "noise_scale": 0.04
+    },
+    {
+      "observer": "adaptive_certified_bound",
+      "horizon_tau": 2,
+      "tolerance_eps": 0.52,
+      "permitted_delta": 0.05,
+      "observation_rate": 1.0,
+      "empirical_violation_rate": 0.0,
+      "sync_budget_satisfied": true,
+      "pre_shift_violation_rate": 0.0,
+      "post_shift_violation_rate": 0.0,
+      "mean_error": 0.19165,
+      "max_error": 0.33341,
+      "calibration_gap": 5e-05,
+      "detection_latency_steps": null,
+      "unknown_steps": 0,
+      "total_ops": 198324,
+      "total_modeled_joules": 1.88251,
+      "by_category": {
+        "execution": {
+          "steps": 139842,
+          "time_s": 0.081106751,
+          "joules": 1.882510005,
+          "memory_bytes": 1118736,
+          "communication_bytes": 0
+        },
+        "trace_recording": {
+          "steps": 0,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "learning": {
+          "steps": 2142,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "guarding": {
+          "steps": 56340,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "reconfiguration": {
+          "steps": 0,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        }
+      },
+      "noise_scale": 0.1
+    }
+  ]
+}

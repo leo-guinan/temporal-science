@@ -1,0 +1,45 @@
+id: TS-BASE-001
+version: 1.0.0
+title: Multi-Channel Conservative Lifecycle Resource Accounting
+kind: definition
+status: formally_proved_under_assumptions
+paper_id: paper-01
+statement: >
+  Every computational system's lifecycle resource expenditure is measured as a
+  5-dimensional vector (steps, time_s, joules, memory_bytes, communication_bytes)
+  partitioned exhaustively across execution, trace_recording, learning, guarding,
+  and reconfiguration, with physical energy, modeled proxy energy, human time, and
+  monetary projections maintained in strictly separate unit ledgers.
+assumptions:
+  - All system operations are instrumented under a shared accounting boundary.
+  - Modeled energy is explicitly tagged `modeled_proxy` whenever hardware counters are absent.
+  - Unlike physical and human units are never summed without an explicit conversion model.
+depends_on: []
+evidence:
+  proofs:
+    - "../living-computation/research/definitions.md"
+    - "../living-computation/research/definitions-v02.md"
+    - "../living-computation/research/definitions-v03.md"
+  experiments:
+    - "../living-computation/results/milestone_01_02/milestone_summary.json"
+  counterexamples:
+    - "Exp 1 synchronous JSONL trace serialization flips modeled energy negative (-7.1%) while cutting ops (+12.7%), proving steps and energy must stay separate."
+guarantee:
+  type: accounting_invariant
+  scope: all_temporal_science_experiments
+  energy_evidence_tier: modeled_proxy_energy
+validity:
+  requirements:
+    - "total_cost.steps == sum(totals_by_category[cat].steps)"
+    - "physical_energy_joules remains null unless hardware telemetry is attached"
+  invalidation_conditions:
+    - "Unaccounted preprocessing, hidden human time, or silent unit conflation"
+provenance:
+  contributors:
+    - living-computation-v01-v03
+  source_artifacts:
+    - "../living-computation/core/cost_ledger.py"
+    - "../living-computation/core/telemetry.py"
+    - "../living-computation/core/evidence.py"
+limitations:
+  - "Proxy energy model does not substitute for hardware RAPL/SMC or external power metering."

@@ -1,0 +1,634 @@
+{
+  "full_recomputation": {
+    "system_name": "full_recomputation",
+    "algorithm_version": "full_topo_v1",
+    "timesteps": 5001,
+    "energy_model_source": "modeled_proxy",
+    "total_cost": {
+      "steps": 4411152,
+      "time_s": 2.007181544,
+      "joules": 7.000631843,
+      "memory_bytes": 141156864,
+      "communication_bytes": 0
+    },
+    "peak_memory_bytes": 64000,
+    "by_category": {
+      "execution": {
+        "steps": 4411152,
+        "time_s": 2.007181544,
+        "joules": 7.000631843,
+        "memory_bytes": 141156864,
+        "communication_bytes": 0
+      },
+      "trace_recording": {
+        "steps": 0,
+        "time_s": 0.0,
+        "joules": 0.0,
+        "memory_bytes": 0,
+        "communication_bytes": 0
+      },
+      "learning": {
+        "steps": 0,
+        "time_s": 0.0,
+        "joules": 0.0,
+        "memory_bytes": 0,
+        "communication_bytes": 0
+      },
+      "guarding": {
+        "steps": 0,
+        "time_s": 0.0,
+        "joules": 0.0,
+        "memory_bytes": 0,
+        "communication_bytes": 0
+      },
+      "reconfiguration": {
+        "steps": 0,
+        "time_s": 0.0,
+        "joules": 0.0,
+        "memory_bytes": 0,
+        "communication_bytes": 0
+      }
+    },
+    "mean_reconsideration_ratio": 1.0,
+    "total_contracts_hit": 0,
+    "total_contracts_missed": 0,
+    "total_canaries_safe": 0,
+    "total_canaries_unsafe": 0,
+    "total_canaries_unknown": 0,
+    "total_nodes_avoided_by_contracts": 0,
+    "correctness": {
+      "checked_steps": 0,
+      "mismatches": 0,
+      "accuracy": null
+    }
+  },
+  "conventional_incremental": {
+    "system_name": "conventional_incremental",
+    "algorithm_version": "topo_heap_early_cutoff_v1",
+    "timesteps": 5001,
+    "energy_model_source": "modeled_proxy",
+    "total_cost": {
+      "steps": 327445,
+      "time_s": 0.182241986,
+      "joules": 0.63868349,
+      "memory_bytes": 13089800,
+      "communication_bytes": 0
+    },
+    "peak_memory_bytes": 80000,
+    "by_category": {
+      "execution": {
+        "steps": 327445,
+        "time_s": 0.182241986,
+        "joules": 0.63868349,
+        "memory_bytes": 13089800,
+        "communication_bytes": 0
+      },
+      "trace_recording": {
+        "steps": 0,
+        "time_s": 0.0,
+        "joules": 0.0,
+        "memory_bytes": 0,
+        "communication_bytes": 0
+      },
+      "learning": {
+        "steps": 0,
+        "time_s": 0.0,
+        "joules": 0.0,
+        "memory_bytes": 0,
+        "communication_bytes": 0
+      },
+      "guarding": {
+        "steps": 0,
+        "time_s": 0.0,
+        "joules": 0.0,
+        "memory_bytes": 0,
+        "communication_bytes": 0
+      },
+      "reconfiguration": {
+        "steps": 0,
+        "time_s": 0.0,
+        "joules": 0.0,
+        "memory_bytes": 0,
+        "communication_bytes": 0
+      }
+    },
+    "mean_reconsideration_ratio": 0.065476,
+    "total_contracts_hit": 0,
+    "total_contracts_missed": 0,
+    "total_canaries_safe": 0,
+    "total_canaries_unsafe": 0,
+    "total_canaries_unknown": 0,
+    "total_nodes_avoided_by_contracts": 0,
+    "correctness": {
+      "checked_steps": 0,
+      "mismatches": 0,
+      "accuracy": null
+    }
+  },
+  "ablations": [
+    {
+      "policy": "full_materialized",
+      "warmup_steps": 75,
+      "summary": {
+        "system_name": "living_full_materialized_w75",
+        "algorithm_version": "trace_to_contract_lipschitz_v1",
+        "timesteps": 5001,
+        "energy_model_source": "modeled_proxy",
+        "total_cost": {
+          "steps": 874445,
+          "time_s": 0.157898346,
+          "joules": 0.553912525,
+          "memory_bytes": 24830496,
+          "communication_bytes": 0
+        },
+        "peak_memory_bytes": 15048832,
+        "by_category": {
+          "execution": {
+            "steps": 209362,
+            "time_s": 0.113814755,
+            "joules": 0.398503407,
+            "memory_bytes": 8366480,
+            "communication_bytes": 0
+          },
+          "trace_recording": {
+            "steps": 600120,
+            "time_s": 0.010129593,
+            "joules": 0.036539474,
+            "memory_bytes": 14969472,
+            "communication_bytes": 0
+          },
+          "learning": {
+            "steps": 4219,
+            "time_s": 0.001727542,
+            "joules": 0.006049834,
+            "memory_bytes": 36688,
+            "communication_bytes": 0
+          },
+          "guarding": {
+            "steps": 60744,
+            "time_s": 0.032226456,
+            "joules": 0.11281981,
+            "memory_bytes": 1457856,
+            "communication_bytes": 0
+          },
+          "reconfiguration": {
+            "steps": 0,
+            "time_s": 0.0,
+            "joules": 0.0,
+            "memory_bytes": 0,
+            "communication_bytes": 0
+          }
+        },
+        "mean_reconsideration_ratio": 0.041864,
+        "total_contracts_hit": 6870,
+        "total_contracts_missed": 3718,
+        "total_canaries_safe": 6870,
+        "total_canaries_unsafe": 3718,
+        "total_canaries_unknown": 0,
+        "total_nodes_avoided_by_contracts": 144270,
+        "correctness": {
+          "checked_steps": 0,
+          "mismatches": 0,
+          "accuracy": null
+        }
+      },
+      "vs_incremental": {
+        "baseline": "conventional_incremental",
+        "adaptive": "living_full_materialized_w75",
+        "savings_steps": -547000,
+        "savings_steps_pct": -167.051,
+        "savings_time_s": 0.024344,
+        "savings_time_pct": 13.358,
+        "savings_joules": 0.084770965,
+        "savings_joules_pct": 13.273,
+        "payback_step_ops": null,
+        "payback_step_joules": 430,
+        "payback_step_time": 426,
+        "r_avoid_gross_steps": 0.177546261143346,
+        "r_avoid_net_steps": -0.822453738856654,
+        "r_avoid_gross_joules": 1.5454697023683994,
+        "r_avoid_net_joules": 0.5454697023683994
+      }
+    },
+    {
+      "policy": "full_materialized",
+      "warmup_steps": 150,
+      "summary": {
+        "system_name": "living_full_materialized_w150",
+        "algorithm_version": "trace_to_contract_lipschitz_v1",
+        "timesteps": 5001,
+        "energy_model_source": "modeled_proxy",
+        "total_cost": {
+          "steps": 871202,
+          "time_s": 0.152715972,
+          "joules": 0.535229639,
+          "memory_bytes": 24692776,
+          "communication_bytes": 0
+        },
+        "peak_memory_bytes": 15049344,
+        "by_category": {
+          "execution": {
+            "steps": 205702,
+            "time_s": 0.110441706,
+            "joules": 0.386565139,
+            "memory_bytes": 8220080,
+            "communication_bytes": 0
+          },
+          "trace_recording": {
+            "steps": 600120,
+            "time_s": 0.008533845,
+            "joules": 0.030662974,
+            "memory_bytes": 14969472,
+            "communication_bytes": 0
+          },
+          "learning": {
+            "steps": 4325,
+            "time_s": 0.001593667,
+            "joules": 0.005580895,
+            "memory_bytes": 37904,
+            "communication_bytes": 0
+          },
+          "guarding": {
+            "steps": 61055,
+            "time_s": 0.032146754,
+            "joules": 0.112420631,
+            "memory_bytes": 1465320,
+            "communication_bytes": 0
+          },
+          "reconfiguration": {
+            "steps": 0,
+            "time_s": 0.0,
+            "joules": 0.0,
+            "memory_bytes": 0,
+            "communication_bytes": 0
+          }
+        },
+        "mean_reconsideration_ratio": 0.041132,
+        "total_contracts_hit": 7052,
+        "total_contracts_missed": 3718,
+        "total_canaries_safe": 7052,
+        "total_canaries_unsafe": 3718,
+        "total_canaries_unknown": 0,
+        "total_nodes_avoided_by_contracts": 148092,
+        "correctness": {
+          "checked_steps": 0,
+          "mismatches": 0,
+          "accuracy": null
+        }
+      },
+      "vs_incremental": {
+        "baseline": "conventional_incremental",
+        "adaptive": "living_full_materialized_w150",
+        "savings_steps": -543757,
+        "savings_steps_pct": -166.061,
+        "savings_time_s": 0.029526,
+        "savings_time_pct": 16.202,
+        "savings_joules": 0.103453851,
+        "savings_joules_pct": 16.198,
+        "payback_step_ops": null,
+        "payback_step_joules": 1,
+        "payback_step_time": 1,
+        "r_avoid_gross_steps": 0.18293463561232157,
+        "r_avoid_net_steps": -0.8170653643876784,
+        "r_avoid_gross_joules": 1.6958880637075917,
+        "r_avoid_net_joules": 0.6958880637075918
+      }
+    },
+    {
+      "policy": "reconstructible_delta",
+      "warmup_steps": 75,
+      "summary": {
+        "system_name": "living_reconstructible_delta_w75",
+        "algorithm_version": "trace_to_contract_lipschitz_v1",
+        "timesteps": 5001,
+        "energy_model_source": "modeled_proxy",
+        "total_cost": {
+          "steps": 290918,
+          "time_s": 0.151744988,
+          "joules": 0.532095965,
+          "memory_bytes": 10459296,
+          "communication_bytes": 0
+        },
+        "peak_memory_bytes": 677632,
+        "by_category": {
+          "execution": {
+            "steps": 209362,
+            "time_s": 0.112050927,
+            "joules": 0.392809963,
+            "memory_bytes": 8366480,
+            "communication_bytes": 0
+          },
+          "trace_recording": {
+            "steps": 16593,
+            "time_s": 0.00622124,
+            "joules": 0.021971414,
+            "memory_bytes": 598272,
+            "communication_bytes": 0
+          },
+          "learning": {
+            "steps": 4219,
+            "time_s": 0.001708833,
+            "joules": 0.005986834,
+            "memory_bytes": 36688,
+            "communication_bytes": 0
+          },
+          "guarding": {
+            "steps": 60744,
+            "time_s": 0.031763987,
+            "joules": 0.111327754,
+            "memory_bytes": 1457856,
+            "communication_bytes": 0
+          },
+          "reconfiguration": {
+            "steps": 0,
+            "time_s": 0.0,
+            "joules": 0.0,
+            "memory_bytes": 0,
+            "communication_bytes": 0
+          }
+        },
+        "mean_reconsideration_ratio": 0.041864,
+        "total_contracts_hit": 6870,
+        "total_contracts_missed": 3718,
+        "total_canaries_safe": 6870,
+        "total_canaries_unsafe": 3718,
+        "total_canaries_unknown": 0,
+        "total_nodes_avoided_by_contracts": 144270,
+        "correctness": {
+          "checked_steps": 0,
+          "mismatches": 0,
+          "accuracy": null
+        }
+      },
+      "vs_incremental": {
+        "baseline": "conventional_incremental",
+        "adaptive": "living_reconstructible_delta_w75",
+        "savings_steps": 36527,
+        "savings_steps_pct": 11.155,
+        "savings_time_s": 0.030497,
+        "savings_time_pct": 16.734,
+        "savings_joules": 0.106587525,
+        "savings_joules_pct": 16.689,
+        "payback_step_ops": 491,
+        "payback_step_joules": 0,
+        "payback_step_time": 0,
+        "r_avoid_gross_steps": 1.4478763058511943,
+        "r_avoid_net_steps": 0.44787630585119426,
+        "r_avoid_gross_joules": 1.7652421914137615,
+        "r_avoid_net_joules": 0.7652421914137615
+      }
+    },
+    {
+      "policy": "reconstructible_delta",
+      "warmup_steps": 150,
+      "summary": {
+        "system_name": "living_reconstructible_delta_w150",
+        "algorithm_version": "trace_to_contract_lipschitz_v1",
+        "timesteps": 5001,
+        "energy_model_source": "modeled_proxy",
+        "total_cost": {
+          "steps": 287675,
+          "time_s": 0.16112615,
+          "joules": 0.564555079,
+          "memory_bytes": 10321576,
+          "communication_bytes": 0
+        },
+        "peak_memory_bytes": 678144,
+        "by_category": {
+          "execution": {
+            "steps": 205702,
+            "time_s": 0.117752625,
+            "joules": 0.412545039,
+            "memory_bytes": 8220080,
+            "communication_bytes": 0
+          },
+          "trace_recording": {
+            "steps": 16593,
+            "time_s": 0.006335842,
+            "joules": 0.022314414,
+            "memory_bytes": 598272,
+            "communication_bytes": 0
+          },
+          "learning": {
+            "steps": 4325,
+            "time_s": 0.00168125,
+            "joules": 0.005888895,
+            "memory_bytes": 37904,
+            "communication_bytes": 0
+          },
+          "guarding": {
+            "steps": 61055,
+            "time_s": 0.035356433,
+            "joules": 0.123806731,
+            "memory_bytes": 1465320,
+            "communication_bytes": 0
+          },
+          "reconfiguration": {
+            "steps": 0,
+            "time_s": 0.0,
+            "joules": 0.0,
+            "memory_bytes": 0,
+            "communication_bytes": 0
+          }
+        },
+        "mean_reconsideration_ratio": 0.041132,
+        "total_contracts_hit": 7052,
+        "total_contracts_missed": 3718,
+        "total_canaries_safe": 7052,
+        "total_canaries_unsafe": 3718,
+        "total_canaries_unknown": 0,
+        "total_nodes_avoided_by_contracts": 148092,
+        "correctness": {
+          "checked_steps": 0,
+          "mismatches": 0,
+          "accuracy": null
+        }
+      },
+      "vs_incremental": {
+        "baseline": "conventional_incremental",
+        "adaptive": "living_reconstructible_delta_w150",
+        "savings_steps": 39770,
+        "savings_steps_pct": 12.146,
+        "savings_time_s": 0.021116,
+        "savings_time_pct": 11.587,
+        "savings_joules": 0.074128411,
+        "savings_joules_pct": 11.606,
+        "payback_step_ops": 640,
+        "payback_step_joules": 1933,
+        "payback_step_time": 1942,
+        "r_avoid_gross_steps": 1.4851597477218108,
+        "r_avoid_net_steps": 0.48515974772181086,
+        "r_avoid_gross_joules": 1.4876547057992333,
+        "r_avoid_net_joules": 0.4876547057992337
+      }
+    },
+    {
+      "policy": "surprise_driven",
+      "warmup_steps": 75,
+      "summary": {
+        "system_name": "living_surprise_driven_w75",
+        "algorithm_version": "trace_to_contract_lipschitz_v1",
+        "timesteps": 5001,
+        "energy_model_source": "modeled_proxy",
+        "total_cost": {
+          "steps": 287233,
+          "time_s": 0.163296002,
+          "joules": 0.572187704,
+          "memory_bytes": 10234088,
+          "communication_bytes": 0
+        },
+        "peak_memory_bytes": 452424,
+        "by_category": {
+          "execution": {
+            "steps": 209362,
+            "time_s": 0.124022846,
+            "joules": 0.434618727,
+            "memory_bytes": 8366480,
+            "communication_bytes": 0
+          },
+          "trace_recording": {
+            "steps": 12908,
+            "time_s": 0.00366566,
+            "joules": 0.012926653,
+            "memory_bytes": 373064,
+            "communication_bytes": 0
+          },
+          "learning": {
+            "steps": 4219,
+            "time_s": 0.001607375,
+            "joules": 0.005626334,
+            "memory_bytes": 36688,
+            "communication_bytes": 0
+          },
+          "guarding": {
+            "steps": 60744,
+            "time_s": 0.034000121,
+            "joules": 0.11901599,
+            "memory_bytes": 1457856,
+            "communication_bytes": 0
+          },
+          "reconfiguration": {
+            "steps": 0,
+            "time_s": 0.0,
+            "joules": 0.0,
+            "memory_bytes": 0,
+            "communication_bytes": 0
+          }
+        },
+        "mean_reconsideration_ratio": 0.041864,
+        "total_contracts_hit": 6870,
+        "total_contracts_missed": 3718,
+        "total_canaries_safe": 6870,
+        "total_canaries_unsafe": 3718,
+        "total_canaries_unknown": 0,
+        "total_nodes_avoided_by_contracts": 144270,
+        "correctness": {
+          "checked_steps": 0,
+          "mismatches": 0,
+          "accuracy": null
+        }
+      },
+      "vs_incremental": {
+        "baseline": "conventional_incremental",
+        "adaptive": "living_surprise_driven_w75",
+        "savings_steps": 40212,
+        "savings_steps_pct": 12.281,
+        "savings_time_s": 0.018946,
+        "savings_time_pct": 10.396,
+        "savings_joules": 0.066495786,
+        "savings_joules_pct": 10.411,
+        "payback_step_ops": 443,
+        "payback_step_joules": 0,
+        "payback_step_time": 0,
+        "r_avoid_gross_steps": 1.5163924952806564,
+        "r_avoid_net_steps": 0.5163924952806564,
+        "r_avoid_gross_joules": 1.483363231307746,
+        "r_avoid_net_joules": 0.48336323130774594
+      }
+    },
+    {
+      "policy": "surprise_driven",
+      "warmup_steps": 150,
+      "summary": {
+        "system_name": "living_surprise_driven_w150",
+        "algorithm_version": "trace_to_contract_lipschitz_v1",
+        "timesteps": 5001,
+        "energy_model_source": "modeled_proxy",
+        "total_cost": {
+          "steps": 284108,
+          "time_s": 0.151704441,
+          "joules": 0.529176649,
+          "memory_bytes": 10102976,
+          "communication_bytes": 0
+        },
+        "peak_memory_bytes": 459544,
+        "by_category": {
+          "execution": {
+            "steps": 205702,
+            "time_s": 0.112903722,
+            "joules": 0.393958859,
+            "memory_bytes": 8220080,
+            "communication_bytes": 0
+          },
+          "trace_recording": {
+            "steps": 13026,
+            "time_s": 0.003920593,
+            "joules": 0.013717984,
+            "memory_bytes": 379672,
+            "communication_bytes": 0
+          },
+          "learning": {
+            "steps": 4325,
+            "time_s": 0.001600666,
+            "joules": 0.005605395,
+            "memory_bytes": 37904,
+            "communication_bytes": 0
+          },
+          "guarding": {
+            "steps": 61055,
+            "time_s": 0.03327946,
+            "joules": 0.115894411,
+            "memory_bytes": 1465320,
+            "communication_bytes": 0
+          },
+          "reconfiguration": {
+            "steps": 0,
+            "time_s": 0.0,
+            "joules": 0.0,
+            "memory_bytes": 0,
+            "communication_bytes": 0
+          }
+        },
+        "mean_reconsideration_ratio": 0.041132,
+        "total_contracts_hit": 7052,
+        "total_contracts_missed": 3718,
+        "total_canaries_safe": 7052,
+        "total_canaries_unsafe": 3718,
+        "total_canaries_unknown": 0,
+        "total_nodes_avoided_by_contracts": 148092,
+        "correctness": {
+          "checked_steps": 0,
+          "mismatches": 0,
+          "accuracy": null
+        }
+      },
+      "vs_incremental": {
+        "baseline": "conventional_incremental",
+        "adaptive": "living_surprise_driven_w150",
+        "savings_steps": 43337,
+        "savings_steps_pct": 13.235,
+        "savings_time_s": 0.030538,
+        "savings_time_pct": 16.757,
+        "savings_joules": 0.109506841,
+        "savings_joules_pct": 17.146,
+        "payback_step_ops": 577,
+        "payback_step_joules": 1,
+        "payback_step_time": 1,
+        "r_avoid_gross_steps": 1.5527255567175982,
+        "r_avoid_net_steps": 0.5527255567175982,
+        "r_avoid_gross_joules": 1.809855279385286,
+        "r_avoid_net_joules": 0.8098552793852866
+      }
+    }
+  ]
+}

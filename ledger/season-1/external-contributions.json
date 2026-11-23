@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0.0",
+  "stream": "external-contributions",
+  "season": "external-research-season-1",
+  "policy": {
+    "record_rejections_and_criticism": true,
+    "no_credit_claiming_for_independent_work": true,
+    "external_adoption_not_required": true
+  },
+  "observation_contexts": [
+    {
+      "context_id": "williams-circuit-lower-bounds",
+      "description": "External mathematical verification environment (Williams circuit lower-bound repository)",
+      "empirical_question": "Does mathematical verification become cheaper and more reliable as reusable evidence accumulates?"
+    },
+    {
+      "context_id": "pequalnp-research-fleet",
+      "description": "Continuously operating external research network (pequalnp.com)",
+      "empirical_question": "Does a continuously operating research network accumulate useful knowledge faster than coordination overhead?"
+    }
+  ],
+  "entry_schema_fields": [
+    "id",
+    "date",
+    "context_id",
+    "upstream_target",
+    "contribution_type",
+    "public_url",
+    "status",
+    "upstream_feedback_summary",
+    "lessons_or_corrections"
+  ],
+  "allowed_statuses": [
+    "drafted_not_submitted",
+    "submitted_open",
+    "accepted_merged",
+    "revised_after_review",
+    "closed_not_merged",
+    "observation_only"
+  ],
+  "entries": []
+}

@@ -1,0 +1,35 @@
+{
+  "schema_version": "1.0.0",
+  "stream": "energy-challenge",
+  "season": "external-research-season-1",
+  "active_challenge_kit": "challenge-kit-v1.1.0.tar.gz",
+  "protocol_id": "TS-PROTO-HW-ENERGY-v1.0.0",
+  "policy": {
+    "negative_results_count": true,
+    "falsification_welcome": true,
+    "wall_plug_distinction_required": true
+  },
+  "entry_schema_fields": [
+    "id",
+    "submitted_at",
+    "contributor",
+    "hardware",
+    "os_and_python",
+    "telemetry_scope",
+    "is_wall_plug_energy",
+    "workload_description",
+    "git_history_used",
+    "outcome_class",
+    "metrics",
+    "summary",
+    "artifact_url",
+    "notes"
+  ],
+  "allowed_outcome_classes": [
+    "confirmation",
+    "scope_narrowing",
+    "falsification",
+    "protocol_critique"
+  ],
+  "entries": []
+}

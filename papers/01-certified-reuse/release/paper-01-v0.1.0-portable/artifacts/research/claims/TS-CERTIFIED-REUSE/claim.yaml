@@ -1,0 +1,59 @@
+id: TS-CERTIFIED-REUSE
+version: 0.1.0
+title: Paper I Exported Contract — Certified Computational Reuse
+kind: theorem
+status: partially_supported
+paper_id: paper-01
+statement: >
+  Previously executed computation can be safely reused within explicitly verified validity
+  regions (Lipschitz cones, Multi-Anchor Validity Atlases, and bounded-disturbance P4 sync
+  bounds), reducing cumulative operations relative to full recomputation and strong
+  conventional incremental baselines within characterized volatility regimes.
+assumptions:
+  - Inherits all assumptions of TS-BASE-001, TS-001, TS-002, TS-003, and TS-004.
+  - Energy savings claims remain scoped to operation counts and modeled_proxy energy until hardware metering is executed.
+depends_on:
+  - id: TS-BASE-001
+    version: 1.0.0
+  - id: TS-001
+    version: 0.1.0
+  - id: TS-002
+    version: 0.1.0
+  - id: TS-003
+    version: 0.1.0
+  - id: TS-004
+    version: 0.1.0
+evidence:
+  proofs:
+    - "../living-computation/research/proof-obligations.md"
+    - "research/claims/TS-001/proof.md"
+  experiments:
+    - "../living-computation/results/milestone_01_02/milestone_summary.json"
+    - "../living-computation/results/exp01_trace_reuse/exp01_summary.json"
+    - "../living-computation/results/exp02_canaries/exp02_sweep.json"
+    - "../living-computation/results/exp03_observation/exp03_summary.json"
+    - "../living-computation/results/exp08_v02_predictive_sync/exp08_summary.json"
+    - "../living-computation/results/exp09_v02_timespace_inertia/exp09_summary.json"
+  counterexamples:
+    - "High-entropy shocks, recurring combinatorial boundaries, synchronous disk JSONL I/O, stationary Gaussian Kalman optimality of periodic sensing, and overconfident memory."
+guarantee:
+  type: conditional
+  scope: certified_validity_regions_and_bounded_disturbances
+  energy_evidence_tier: modeled_proxy_energy
+validity:
+  requirements:
+    - "Full lifecycle accounting including trace, learning, guarding, and reconfiguration"
+    - "Zero false-SAFE on certified RESTRICTED_WORST_CASE contracts"
+  invalidation_conditions:
+    - "Violation of Lipschitz continuity, exclusive cone ownership, or disturbance bounds"
+provenance:
+  contributors:
+    - living-computation-v01-v02
+  source_artifacts:
+    - "../living-computation/core/canary.py"
+    - "../living-computation/core/compiler.py"
+    - "../living-computation/core/engines.py"
+    - "../living-computation/benchmarks/run_milestone.py"
+limitations:
+  - "Marked partially_supported pending physical hardware energy metering (RAPL/powermetrics) and P5/P9 proofs."
+  - "Does not claim P = NP, universal energy savings, or sound canaries for arbitrary environments."

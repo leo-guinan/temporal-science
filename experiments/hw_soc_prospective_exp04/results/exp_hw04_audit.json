@@ -1,0 +1,334 @@
+{
+  "audit_id": "exp_hw04_methodological_audit_v1",
+  "q1_preregistration_independence": {
+    "disclosure": "preregister_predictions.py ran ZERO hardware trials on the 71-module _pytest workload or churn sweep, so physical energy scaling and Joule/SoC predictions were genuinely prospective and sealed before execution. However, _compute_static_workload_expectations evaluated expected_avoided_kib on the same 10 static RNG seeds (7000 + int(q*100)*100 + b*29) later run by run_exp_hw04.py, removing seed-to-seed fanout variance from the conditional-schedule scores.",
+    "population_mean_edited_kib": 19.05,
+    "population_mean_downstream_kib": 632.38,
+    "strictly_blind_unseen_schedule_scores": {
+      "model1_zero_shot": {
+        "proc_cpu_energy_j": {
+          "blind_r2_joules": 0.8573,
+          "blind_r2_pct": 0.9937,
+          "blind_mae_joules": 1.4827,
+          "blind_mae_pct_pts": 2.07,
+          "per_q": [
+            {
+              "q": 0.0,
+              "obs_delta_j": 13.2843,
+              "blind_pred_delta_j": 15.5449,
+              "obs_pct": 89.18,
+              "blind_pred_pct": 88.04,
+              "err_pct_pts": -1.14
+            },
+            {
+              "q": 0.1,
+              "obs_delta_j": 11.0502,
+              "blind_pred_delta_j": 13.9842,
+              "obs_pct": 79.06,
+              "blind_pred_pct": 79.2,
+              "err_pct_pts": 0.14
+            },
+            {
+              "q": 0.25,
+              "obs_delta_j": 9.7794,
+              "blind_pred_delta_j": 11.6431,
+              "obs_pct": 69.23,
+              "blind_pred_pct": 65.94,
+              "err_pct_pts": -3.28
+            },
+            {
+              "q": 0.5,
+              "obs_delta_j": 5.6963,
+              "blind_pred_delta_j": 7.7413,
+              "obs_pct": 39.05,
+              "blind_pred_pct": 43.85,
+              "err_pct_pts": 4.79
+            },
+            {
+              "q": 0.75,
+              "obs_delta_j": 2.6097,
+              "blind_pred_delta_j": 3.8395,
+              "obs_pct": 18.88,
+              "blind_pred_pct": 21.75,
+              "err_pct_pts": 2.87
+            },
+            {
+              "q": 0.9,
+              "obs_delta_j": 1.5153,
+              "blind_pred_delta_j": 1.4984,
+              "obs_pct": 10.68,
+              "blind_pred_pct": 8.49,
+              "err_pct_pts": -2.19
+            },
+            {
+              "q": 1.0,
+              "obs_delta_j": -0.0333,
+              "blind_pred_delta_j": -0.0623,
+              "obs_pct": -0.24,
+              "blind_pred_pct": -0.35,
+              "err_pct_pts": -0.11
+            }
+          ]
+        },
+        "soc_package_j": {
+          "blind_r2_joules": -0.2675,
+          "blind_r2_pct": 0.9676,
+          "blind_mae_joules": 11.412,
+          "blind_mae_pct_pts": 5.74,
+          "per_q": [
+            {
+              "q": 0.0,
+              "obs_delta_j": 34.9154,
+              "blind_pred_delta_j": 57.5193,
+              "obs_pct": 88.96,
+              "blind_pred_pct": 82.08,
+              "err_pct_pts": -6.88
+            },
+            {
+              "q": 0.1,
+              "obs_delta_j": 29.4251,
+              "blind_pred_delta_j": 51.3244,
+              "obs_pct": 79.2,
+              "blind_pred_pct": 73.24,
+              "err_pct_pts": -5.96
+            },
+            {
+              "q": 0.25,
+              "obs_delta_j": 24.7181,
+              "blind_pred_delta_j": 42.0322,
+              "obs_pct": 68.99,
+              "blind_pred_pct": 59.98,
+              "err_pct_pts": -9.02
+            },
+            {
+              "q": 0.5,
+              "obs_delta_j": 17.2013,
+              "blind_pred_delta_j": 26.5451,
+              "obs_pct": 40.76,
+              "blind_pred_pct": 37.88,
+              "err_pct_pts": -2.88
+            },
+            {
+              "q": 0.75,
+              "obs_delta_j": 7.8247,
+              "blind_pred_delta_j": 11.058,
+              "obs_pct": 21.15,
+              "blind_pred_pct": 15.78,
+              "err_pct_pts": -5.37
+            },
+            {
+              "q": 0.9,
+              "obs_delta_j": 3.1038,
+              "blind_pred_delta_j": 1.7657,
+              "obs_pct": 7.23,
+              "blind_pred_pct": 2.52,
+              "err_pct_pts": -4.71
+            },
+            {
+              "q": 1.0,
+              "obs_delta_j": -0.2776,
+              "blind_pred_delta_j": -4.4291,
+              "obs_pct": -0.94,
+              "blind_pred_pct": -6.32,
+              "err_pct_pts": -5.38
+            }
+          ]
+        }
+      },
+      "model2_5term_primitive": {
+        "proc_cpu_energy_j": {
+          "blind_r2_joules": 0.9869,
+          "blind_r2_pct": 0.9935,
+          "blind_mae_joules": 0.4295,
+          "blind_mae_pct_pts": 2.08,
+          "per_q": [
+            {
+              "q": 0.0,
+              "obs_delta_j": 13.2843,
+              "blind_pred_delta_j": 12.1706,
+              "obs_pct": 89.18,
+              "blind_pred_pct": 88.33,
+              "err_pct_pts": -0.85
+            },
+            {
+              "q": 0.1,
+              "obs_delta_j": 11.0502,
+              "blind_pred_delta_j": 10.9526,
+              "obs_pct": 79.06,
+              "blind_pred_pct": 79.49,
+              "err_pct_pts": 0.43
+            },
+            {
+              "q": 0.25,
+              "obs_delta_j": 9.7794,
+              "blind_pred_delta_j": 9.1257,
+              "obs_pct": 69.23,
+              "blind_pred_pct": 66.23,
+              "err_pct_pts": -3.0
+            },
+            {
+              "q": 0.5,
+              "obs_delta_j": 5.6963,
+              "blind_pred_delta_j": 6.0807,
+              "obs_pct": 39.05,
+              "blind_pred_pct": 44.13,
+              "err_pct_pts": 5.08
+            },
+            {
+              "q": 0.75,
+              "obs_delta_j": 2.6097,
+              "blind_pred_delta_j": 3.0358,
+              "obs_pct": 18.88,
+              "blind_pred_pct": 22.03,
+              "err_pct_pts": 3.16
+            },
+            {
+              "q": 0.9,
+              "obs_delta_j": 1.5153,
+              "blind_pred_delta_j": 1.2088,
+              "obs_pct": 10.68,
+              "blind_pred_pct": 8.77,
+              "err_pct_pts": -1.9
+            },
+            {
+              "q": 1.0,
+              "obs_delta_j": -0.0333,
+              "blind_pred_delta_j": -0.0091,
+              "obs_pct": -0.24,
+              "blind_pred_pct": -0.07,
+              "err_pct_pts": 0.18
+            }
+          ]
+        },
+        "soc_package_j": {
+          "blind_r2_joules": 0.945,
+          "blind_r2_pct": 0.997,
+          "blind_mae_joules": 2.2519,
+          "blind_mae_pct_pts": 1.48,
+          "per_q": [
+            {
+              "q": 0.0,
+              "obs_delta_j": 34.9154,
+              "blind_pred_delta_j": 29.0675,
+              "obs_pct": 88.96,
+              "blind_pred_pct": 88.33,
+              "err_pct_pts": -0.63
+            },
+            {
+              "q": 0.1,
+              "obs_delta_j": 29.4251,
+              "blind_pred_delta_j": 26.1585,
+              "obs_pct": 79.2,
+              "blind_pred_pct": 79.49,
+              "err_pct_pts": 0.29
+            },
+            {
+              "q": 0.25,
+              "obs_delta_j": 24.7181,
+              "blind_pred_delta_j": 21.7951,
+              "obs_pct": 68.99,
+              "blind_pred_pct": 66.23,
+              "err_pct_pts": -2.76
+            },
+            {
+              "q": 0.5,
+              "obs_delta_j": 17.2013,
+              "blind_pred_delta_j": 14.5227,
+              "obs_pct": 40.76,
+              "blind_pred_pct": 44.13,
+              "err_pct_pts": 3.38
+            },
+            {
+              "q": 0.75,
+              "obs_delta_j": 7.8247,
+              "blind_pred_delta_j": 7.2502,
+              "obs_pct": 21.15,
+              "blind_pred_pct": 22.03,
+              "err_pct_pts": 0.88
+            },
+            {
+              "q": 0.9,
+              "obs_delta_j": 3.1038,
+              "blind_pred_delta_j": 2.8868,
+              "obs_pct": 7.23,
+              "blind_pred_pct": 8.77,
+              "err_pct_pts": 1.55
+            },
+            {
+              "q": 1.0,
+              "obs_delta_j": -0.2776,
+              "blind_pred_delta_j": -0.0222,
+              "obs_pct": -0.94,
+              "blind_pred_pct": -0.07,
+              "err_pct_pts": 0.88
+            }
+          ]
+        }
+      }
+    }
+  },
+  "q2_calibration_cost_and_payback": {
+    "microprobe_exec_kib_total": 6179.0,
+    "microprobe_val_calls_total": 2880,
+    "estimated_calibration_energy_proc_j": 7.2665,
+    "estimated_calibration_energy_soc_j": 17.4056,
+    "payback_runs_by_q": {
+      "0.00": {
+        "measured_saving_proc_j_per_run": 13.2843,
+        "measured_saving_soc_j_per_run": 34.9154,
+        "n_star_cal_proc_runs": 1,
+        "n_star_cal_soc_runs": 1
+      },
+      "0.10": {
+        "measured_saving_proc_j_per_run": 11.0502,
+        "measured_saving_soc_j_per_run": 29.4251,
+        "n_star_cal_proc_runs": 1,
+        "n_star_cal_soc_runs": 1
+      },
+      "0.25": {
+        "measured_saving_proc_j_per_run": 9.7794,
+        "measured_saving_soc_j_per_run": 24.7181,
+        "n_star_cal_proc_runs": 1,
+        "n_star_cal_soc_runs": 1
+      },
+      "0.50": {
+        "measured_saving_proc_j_per_run": 5.6963,
+        "measured_saving_soc_j_per_run": 17.2013,
+        "n_star_cal_proc_runs": 2,
+        "n_star_cal_soc_runs": 2
+      },
+      "0.75": {
+        "measured_saving_proc_j_per_run": 2.6097,
+        "measured_saving_soc_j_per_run": 7.8247,
+        "n_star_cal_proc_runs": 3,
+        "n_star_cal_soc_runs": 3
+      },
+      "0.90": {
+        "measured_saving_proc_j_per_run": 1.5153,
+        "measured_saving_soc_j_per_run": 3.1038,
+        "n_star_cal_proc_runs": 5,
+        "n_star_cal_soc_runs": 6
+      },
+      "1.00": {
+        "measured_saving_proc_j_per_run": -0.0333,
+        "measured_saving_soc_j_per_run": -0.2776,
+        "n_star_cal_proc_runs": null,
+        "n_star_cal_soc_runs": null
+      }
+    }
+  },
+  "q3_equal_work_symmetry": {
+    "cold_start_passes_both_systems": 1,
+    "cold_start_modules_both_systems": 71,
+    "output_mismatches_total": 0,
+    "shared_import_graph_cost": "Both strong_incremental_dag and certified_type_canary receive the identical precomputed acyclic import graph from build_pytest_import_graph(); full_typecheck does not require the graph. All per-edit AST parsing, type-interface extraction, arity checking, canary hashing, and fallback re-checking are charged symmetrically."
+  },
+  "q4_hardware_and_workload_boundaries": {
+    "hardware_tested": "Single Apple M3 Max laptop on AC Power (Python 3.11.7)",
+    "unmeasured_boundaries": [
+      "AC wall-plug power and discrete SSD flash rail (excluded from IOReport SoC accumulators)",
+      "Cross-architecture hardware replication (Intel/AMD RAPL)",
+      "Uncontrolled real Git commit histories (edit streams were experimentally mutated)"
+    ]
+  }
+}

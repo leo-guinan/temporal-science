@@ -1,0 +1,48 @@
+id: TS-010
+version: 0.1.0
+title: Constrained Computational Optionality & Maintenance Non-Monotonicity (P16)
+kind: theorem
+status: formally_proved_under_assumptions
+paper_id: paper-05
+statement: >
+  Adding an optional zero-maintenance capability monotonically expands the budget-feasible
+  action set A(K, B) and optimal portfolio utility V*(K, B) (P16). However, when mandatory
+  maintenance consumes residual budget B' = B - c_maint, capabilities can crowd out prior
+  tasks and produce strictly negative option value (V_option < 0); moreover, |Delta A| > 0
+  does not imply positive economic value under zero-utility tasks, mutex contention, or expiration.
+assumptions:
+  - Explicit task utility model, resource budget B, and mutual-exclusion constraints declared in advance.
+  - Option Ledger strictly separated from Realized Work Not Done Ledger.
+depends_on:
+  - id: TS-BASE-001
+    version: 1.0.0
+  - id: TS-009
+    version: 0.1.0
+evidence:
+  proofs:
+    - "../living-computation/research/proof-obligations.md"
+  experiments:
+    - "../living-computation/results/exp16_v03_optionality/exp16_summary.json"
+    - "../living-computation/results/milestone_v03_end_to_end/v03_chain_bundle.json"
+  counterexamples:
+    - "Exp 16 CE1: 10 newly feasible zero-utility tasks produce V_option = 0.0."
+    - "Exp 16 CE2: 2 newly feasible tasks in occupied mutex slot produce V_option = 0.0."
+    - "Exp 16 CE3 (P16 non-monotonicity): 1,000-op mandatory maintenance crowds out 9,800-op prior task -> V_option = -70.0 < 0."
+    - "Exp 16 CE4: capability expiration before demand drives realized value from 120.0 to 0.0."
+guarantee:
+  type: restricted_worst_case
+  scope: exact_01_constrained_portfolio_decision_models
+  energy_evidence_tier: operation_counts_only
+validity:
+  requirements:
+    - "Speculative V_option never added to verified realized WND totals"
+  invalidation_conditions:
+    - "Unmodeled demand correlation or unpriced mandatory maintenance overhead"
+provenance:
+  contributors:
+    - living-computation-v03
+  source_artifacts:
+    - "../living-computation/experiments/16_computational_optionality/optionality_core.py"
+    - "../living-computation/benchmarks/run_v03_end_to_end.py"
+limitations:
+  - "Expected option values depend on declared utility & demand probability models."

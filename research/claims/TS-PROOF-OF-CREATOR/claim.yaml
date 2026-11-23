@@ -1,0 +1,48 @@
+id: TS-PROOF-OF-CREATOR
+version: 0.1.0
+title: Paper V Exported Contract — Proof of Creator Protocol
+kind: theorem
+status: empirically_supported
+paper_id: paper-05
+statement: >
+  Authenticated contribution histories, validated capability/transfer contracts, and tiered
+  Work Not Done certificates compose into a reproducible Proof of Creator fingerprint that
+  supports conservative attribution analysis and strictly separated tracking of Creation,
+  Realized Avoidance, and Computational Optionality ledgers.
+assumptions:
+  - Inherits all assumptions and caveats of TS-009 and TS-010.
+depends_on:
+  - id: TS-WORK-NOT-DONE
+    version: 0.1.0
+  - id: TS-HUMAN-CAPITAL
+    version: 0.1.0
+  - id: TS-009
+    version: 0.1.0
+  - id: TS-010
+    version: 0.1.0
+evidence:
+  proofs:
+    - "../living-computation/research/proof-obligations.md"
+  experiments:
+    - "../living-computation/results/exp14_v03_proof_of_creator/exp14_summary.json"
+    - "../living-computation/results/exp16_v03_optionality/exp16_summary.json"
+    - "../living-computation/results/milestone_v03_end_to_end/v03_chain_bundle.json"
+  counterexamples:
+    - "Naive path double-counting, syntactic SAT leakage (round 0), maintenance crowding-out (V_opt=-70), and option expiration."
+guarantee:
+  type: conditional
+  scope: content_addressed_evidence_graphs_and_three_separated_ledgers
+  energy_evidence_tier: modeled_proxy_energy
+validity:
+  requirements:
+    - "End-to-end 10-step held-out chain verification passing with negative controls"
+  invalidation_conditions:
+    - "Merging speculative option value with realized savings or violating attribution conservation"
+provenance:
+  contributors:
+    - living-computation-v03
+  source_artifacts:
+    - "../living-computation/core/evidence.py"
+    - "../living-computation/benchmarks/run_v03_end_to_end.py"
+limitations:
+  - "Does not establish legal authorship, ownership, economic entitlement, or scientific truth."

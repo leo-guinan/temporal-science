@@ -1,0 +1,49 @@
+id: TS-009
+version: 0.1.0
+title: Tamper-Evident Causal Provenance & Shapley Attribution Conservation (P13, P15)
+kind: theorem
+status: formally_proved_under_assumptions
+paper_id: paper-05
+statement: >
+  Under collision-resistant SHA-256 and injective canonical JSON serialization (P15),
+  a content-addressed acyclic causal evidence graph produces a deterministically reproducible
+  Proof of Creator fingerprint that detects payload, parent-digest, signature, and replay
+  tampering, while Shapley cooperative allocation strictly satisfies attribution conservation
+  sum_i phi_i = S_ver with zero share for dummy contributors (P13).
+assumptions:
+  - SHA-256 collision resistance and secure contributor HMAC key custody.
+  - Characteristic coalition value function v(S) is explicitly defined and audited separately from the causal graph.
+depends_on:
+  - id: TS-BASE-001
+    version: 1.0.0
+  - id: TS-007
+    version: 0.1.0
+evidence:
+  proofs:
+    - "../living-computation/research/proof-obligations.md"
+  experiments:
+    - "../living-computation/results/exp14_v03_proof_of_creator/exp14_summary.json"
+    - "../living-computation/results/exp11_v02_knowledge_asymmetry/exp11_summary.json"
+  counterexamples:
+    - "Exp 14 naive path double-counting inflates credit 3x (1,020k vs 340k verified), violating P13."
+    - "Exp 11 reused syntactic Horn-backdoor leaks 100% of secret variables on round 0 (H: 13.69b -> 0.00b), confirming cryptographic primitives are required for hiding."
+guarantee:
+  type: conditional
+  scope: cryptographic_integrity_and_cooperative_accounting_conservation
+  energy_evidence_tier: modeled_proxy_energy
+validity:
+  requirements:
+    - "Independent integrity check passing on every node digest, parent link, and HMAC signature"
+    - "Explicit preservation of independent-rediscovery root lineages"
+  invalidation_conditions:
+    - "Compromised contributor keys or broken hash collision resistance"
+provenance:
+  contributors:
+    - living-computation-v02-v03
+  source_artifacts:
+    - "../living-computation/core/evidence.py"
+    - "../living-computation/experiments/14_proof_of_creator/poc_engine.py"
+    - "../living-computation/experiments/11_knowledge_asymmetry/asymmetry_core.py"
+limitations:
+  - "Does NOT automatically establish empirical truth, legal ownership, or real-world human identity."
+  - "Accounting conservation (P13) does not uniquely determine causal responsibility in inseparable joint synergies."

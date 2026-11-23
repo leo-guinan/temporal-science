@@ -1,0 +1,33 @@
+{
+  "schema_version": "1.0.0",
+  "season": "external-research-season-1",
+  "updated_at": "2026-11-23",
+  "releases": [
+    {
+      "release_tag": "v0.1.1-external-season-1",
+      "status": "staged_local_pending_public_publish",
+      "staged_at": "2026-11-23",
+      "published_at": null,
+      "local_staging_dir": "release/v0.1.1-external-season-1",
+      "github_release_url": null,
+      "zenodo_doi": null,
+      "public_download_sha256_verified": false,
+      "local_verification": {
+        "sha256_manifest_files_ok": 11,
+        "local_tests_passing": "47/47 (22 temporal-science + 25 living-computation)",
+        "independent_external_replications": 0,
+        "gates": {
+          "scoped_preprint": "PASS",
+          "energy_focused_paper": "BLOCKED",
+          "independently_validated_release": "BLOCKED"
+        }
+      },
+      "key_assets": [
+        "challenge-kit-v1.1.0.tar.gz",
+        "paper-01-v0.1.0-portable.tar.gz",
+        "raw-results-v0.1.1.tar.gz",
+        "SHA256SUMS.txt"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1110 @@
+{
+  "experiment_id": "exp_hw05_temporal_energy_router",
+  "version": "0.1.0",
+  "executed_at_utc": "2026-11-23T01:52:25.278788+00:00",
+  "sealed_decisions_sha256": "02c0b41e32e36035d22b4cd26b36b25b8028829c19b29a09832d21ab9cbaf41c",
+  "strict_blind_disjoint_seeds": true,
+  "n_unseen_tasks": 24,
+  "n_eval_blocks_per_task": 3,
+  "mismatches_total": 0,
+  "machine": {
+    "platform": "macOS-26.5.1-arm64-arm-64bit",
+    "machine": "arm64",
+    "python_version": "3.11.7",
+    "cpu_brand": "Apple M3 Max",
+    "logical_cores": 16,
+    "memory_gb": 48.0,
+    "mach_timebase_ns_per_tick": "125/3",
+    "telemetry_api": "macOS XNU proc_pid_rusage(RUSAGE_INFO_V6) -> ri_energy_nj, ri_instructions, ri_cycles",
+    "measurement_scope": "Per-process Apple Silicon CPU core & kernel-attributed hardware PMU energy (ri_energy_nj / ri_penergy_nj), retired instructions, CPU cycles, and OS disk I/O bytes. Excludes off-package SSD controller rail, external DRAM rail, and AC wall-socket power.",
+    "powermetrics_probe": {
+      "samplers_listed": "tasks,battery,network,disk,interrupts,cpu_power,thermal,sfi,gpu_power,ane_power",
+      "non_interactive_sudo_available": false,
+      "soc_backend_used": "macOS libIOReport.dylib 'Energy Model' (325 channels; same hardware accumulator backend as powermetrics)"
+    },
+    "exposed_soc_rails": {
+      "cpu_complex": "CPU Energy (mJ; covers EACC + PACC0 + PACC1 cores, SRAM, CPM)",
+      "gpu_complex": "GPU Energy (nJ)",
+      "ane": "ANE0 (mJ)",
+      "memory_and_fabric": "DRAM0 (mJ) + DCS0 (mJ, DRAM controller) + AMCC0 (mJ, Apple Memory Cache Controller)",
+      "display_media_io": "DISP0, DISPEXT0, ISP0, AVE0, MSR0, PCIe Port *, apciec*",
+      "explicitly_unmeasured": "Wall-plug AC power, AC/DC adapter conversion loss, display panel backlight, discrete SSD NAND flash rail, cooling fans, and battery charging circuit."
+    }
+  },
+  "system_context_start": {
+    "loadavg_1m": 6.48,
+    "loadavg_5m": 6.396,
+    "loadavg_15m": 6.07,
+    "pmset_therm": "Note: No thermal warning level has been recorded | Note: No performance warning level has been recorded | Note: No CPU power status has been recorded",
+    "pmset_batt": "Now drawing from 'AC Power' | -InternalBattery-0 (id=29425763)\t99%; finishing charge; 0:06 remaining present: true"
+  },
+  "system_context_end": {
+    "loadavg_1m": 6.788,
+    "loadavg_5m": 6.37,
+    "loadavg_15m": 6.077,
+    "pmset_therm": "Note: No thermal warning level has been recorded | Note: No performance warning level has been recorded | Note: No CPU power status has been recorded",
+    "pmset_batt": "Now drawing from 'AC Power' | -InternalBattery-0 (id=29425763)\t99%; finishing charge; 0:03 remaining present: true"
+  },
+  "calibration": {
+    "samples": [
+      {
+        "iterations": 1000000,
+        "checksum": 3502041716000,
+        "hardware_energy_j": 0.287131,
+        "instructions": 1247295377,
+        "cycles": 171700903,
+        "wall_time_s": 0.047131,
+        "avg_power_w": 6.092
+      },
+      {
+        "iterations": 2000000,
+        "checksum": 14008174453312,
+        "hardware_energy_j": 0.566979,
+        "instructions": 2495585565,
+        "cycles": 343795743,
+        "wall_time_s": 0.095191,
+        "avg_power_w": 5.956
+      },
+      {
+        "iterations": 4000000,
+        "checksum": 56032712993920,
+        "hardware_energy_j": 1.102078,
+        "instructions": 4993262131,
+        "cycles": 688657088,
+        "wall_time_s": 0.19223,
+        "avg_power_w": 5.733
+      }
+    ],
+    "ratio_2x_vs_1x_energy": 1.9746,
+    "ratio_4x_vs_1x_energy": 3.8382,
+    "ratio_4x_vs_2x_energy": 1.9438,
+    "ratio_4x_vs_1x_instructions": 4.0033
+  },
+  "router_calibration": {
+    "calibration_energy_proc_j": 12.5824,
+    "calibration_energy_soc_j": 30.6218,
+    "calibration_wall_s": 2.4264,
+    "dag_n_avoid_at_p0": 87428.8,
+    "dag_avoid_decay_per_p": 3.0516,
+    "dag_e1_per_node_iter": {
+      "proc_cpu_energy_j": 3.361104407436445e-07,
+      "soc_package_j": 6.463042597775813e-07
+    },
+    "dag_e0_per_node_base": {
+      "proc_cpu_energy_j": 3.863286853839152e-06,
+      "soc_package_j": 9.977518092994502e-06
+    },
+    "dag_overhead_base": {
+      "proc_cpu_energy_j": 0.11960174343458987,
+      "soc_package_j": 0.48491726814645997
+    },
+    "dag_overhead_per_shock": {
+      "proc_cpu_energy_j": 0.14814917363151614,
+      "soc_package_j": 0.5040987072721353
+    },
+    "code_e_exec_per_kib": {
+      "_pytest": {
+        "proc_cpu_energy_j": 0.0009472627041705828,
+        "soc_package_j": 0.0025641713726652906
+      },
+      "yaml": {
+        "proc_cpu_energy_j": 0.0009627305609252375,
+        "soc_package_j": 0.0023589886969021066
+      }
+    },
+    "code_e_val_per_edit": {
+      "_pytest": {
+        "proc_cpu_energy_j": 0.0005075238937500001,
+        "soc_package_j": 0.001414495075
+      },
+      "yaml": {
+        "proc_cpu_energy_j": 0.00017363025,
+        "soc_package_j": 0.000487303875
+      }
+    }
+  },
+  "policy_comparison": {
+    "proc_cpu_energy_j": {
+      "oracle_true_reuse_count": 16,
+      "oracle_true_inc_count": 8,
+      "router_selection_accuracy": 0.875,
+      "calibration_energy_j": 12.5824,
+      "calibration_payback_task_index": null,
+      "oracle": {
+        "total_energy_j": 45.9639,
+        "regret_vs_oracle_j": 0.0,
+        "regret_pct": 0.0
+      },
+      "always_incremental": {
+        "total_energy_j": 72.7625,
+        "regret_vs_oracle_j": 26.7986,
+        "regret_pct": 58.3
+      },
+      "always_reuse": {
+        "total_energy_j": 46.2124,
+        "regret_vs_oracle_j": 0.2485,
+        "regret_pct": 0.54
+      },
+      "router_exec_only": {
+        "total_energy_j": 46.148,
+        "regret_vs_oracle_j": 0.1841,
+        "regret_pct": 0.4
+      },
+      "router_with_cal": {
+        "total_energy_j": 58.7304,
+        "regret_vs_oracle_j": 12.7665,
+        "regret_pct": 27.77,
+        "savings_vs_always_inc_pct": 19.28,
+        "savings_vs_always_reuse_pct": -27.09
+      }
+    },
+    "soc_package_j": {
+      "oracle_true_reuse_count": 18,
+      "oracle_true_inc_count": 6,
+      "router_selection_accuracy": 0.8333,
+      "calibration_energy_j": 30.6218,
+      "calibration_payback_task_index": null,
+      "oracle": {
+        "total_energy_j": 144.6664,
+        "regret_vs_oracle_j": 0.0,
+        "regret_pct": 0.0
+      },
+      "always_incremental": {
+        "total_energy_j": 230.4064,
+        "regret_vs_oracle_j": 85.74,
+        "regret_pct": 59.27
+      },
+      "always_reuse": {
+        "total_energy_j": 147.38,
+        "regret_vs_oracle_j": 2.7137,
+        "regret_pct": 1.88
+      },
+      "router_exec_only": {
+        "total_energy_j": 148.1728,
+        "regret_vs_oracle_j": 3.5064,
+        "regret_pct": 2.42
+      },
+      "router_with_cal": {
+        "total_energy_j": 178.7945,
+        "regret_vs_oracle_j": 34.1282,
+        "regret_pct": 23.59,
+        "savings_vs_always_inc_pct": 22.4,
+        "savings_vs_always_reuse_pct": -21.32
+      }
+    }
+  },
+  "per_task_results": [
+    {
+      "task_id": "DAG-12",
+      "domain": "dag",
+      "regime_hint": "inc_favored",
+      "measured_inc": {
+        "proc_cpu_energy_j": 0.97875,
+        "soc_package_j": 2.220487
+      },
+      "measured_reuse": {
+        "proc_cpu_energy_j": 0.976188,
+        "soc_package_j": 2.292833
+      },
+      "measured_delta_j": {
+        "proc_cpu_energy_j": 0.002561,
+        "soc_package_j": -0.072346
+      },
+      "pred_delta_j": {
+        "proc_cpu_energy_j": -0.025074,
+        "soc_package_j": -0.303292
+      },
+      "oracle_choice": {
+        "proc_cpu_energy_j": "certified_reuse",
+        "soc_package_j": "strong_incremental"
+      },
+      "router_choice": {
+        "proc_cpu_energy_j": "strong_incremental",
+        "soc_package_j": "strong_incremental"
+      },
+      "router_correct": {
+        "proc_cpu_energy_j": false,
+        "soc_package_j": true
+      },
+      "router_decision_cost": {
+        "proc_cpu_energy_j": 0.0,
+        "soc_package_j": 0.028304
+      },
+      "mismatches": 0
+    },
+    {
+      "task_id": "DAG-14",
+      "domain": "dag",
+      "regime_hint": "inc_favored",
+      "measured_inc": {
+        "proc_cpu_energy_j": 1.352178,
+        "soc_package_j": 3.023243
+      },
+      "measured_reuse": {
+        "proc_cpu_energy_j": 1.366622,
+        "soc_package_j": 3.811244
+      },
+      "measured_delta_j": {
+        "proc_cpu_energy_j": -0.014444,
+        "soc_package_j": -0.788002
+      },
+      "pred_delta_j": {
+        "proc_cpu_energy_j": -0.083172,
+        "soc_package_j": -0.49384
+      },
+      "oracle_choice": {
+        "proc_cpu_energy_j": "strong_incremental",
+        "soc_package_j": "strong_incremental"
+      },
+      "router_choice": {
+        "proc_cpu_energy_j": "strong_incremental",
+        "soc_package_j": "strong_incremental"
+      },
+      "router_correct": {
+        "proc_cpu_energy_j": true,
+        "soc_package_j": true
+      },
+      "router_decision_cost": {
+        "proc_cpu_energy_j": 0.030342,
+        "soc_package_j": 0.021309
+      },
+      "mismatches": 0
+    },
+    {
+      "task_id": "DAG-07",
+      "domain": "dag",
+      "regime_hint": "boundary",
+      "measured_inc": {
+        "proc_cpu_energy_j": 0.925597,
+        "soc_package_j": 2.079839
+      },
+      "measured_reuse": {
+        "proc_cpu_energy_j": 0.785809,
+        "soc_package_j": 1.851242
+      },
+      "measured_delta_j": {
+        "proc_cpu_energy_j": 0.139789,
+        "soc_package_j": 0.228597
+      },
+      "pred_delta_j": {
+        "proc_cpu_energy_j": 0.2017,
+        "soc_package_j": 0.305315
+      },
+      "oracle_choice": {
+        "proc_cpu_energy_j": "certified_reuse",
+        "soc_package_j": "certified_reuse"
+      },
+      "router_choice": {
+        "proc_cpu_energy_j": "certified_reuse",
+        "soc_package_j": "certified_reuse"
+      },
+      "router_correct": {
+        "proc_cpu_energy_j": true,
+        "soc_package_j": true
+      },
+      "router_decision_cost": {
+        "proc_cpu_energy_j": 0.0,
+        "soc_package_j": 0.018
+      },
+      "mismatches": 0
+    },
+    {
+      "task_id": "CODE-02",
+      "domain": "code_typecheck",
+      "regime_hint": "reuse_favored",
+      "measured_inc": {
+        "proc_cpu_energy_j": 11.798836,
+        "soc_package_j": 40.224858
+      },
+      "measured_reuse": {
+        "proc_cpu_energy_j": 4.352669,
+        "soc_package_j": 17.254785
+      },
+      "measured_delta_j": {
+        "proc_cpu_energy_j": 7.446167,
+        "soc_package_j": 22.970073
+      },
+      "pred_delta_j": {
+        "proc_cpu_energy_j": 6.731523,
+        "soc_package_j": 18.221135
+      },
+      "oracle_choice": {
+        "proc_cpu_energy_j": "certified_reuse",
+        "soc_package_j": "certified_reuse"
+      },
+      "router_choice": {
+        "proc_cpu_energy_j": "certified_reuse",
+        "soc_package_j": "certified_reuse"
+      },
+      "router_correct": {
+        "proc_cpu_energy_j": true,
+        "soc_package_j": true
+      },
+      "router_decision_cost": {
+        "proc_cpu_energy_j": 0.0,
+        "soc_package_j": 0.021
+      },
+      "mismatches": 0
+    },
+    {
+      "task_id": "DAG-09",
+      "domain": "dag",
+      "regime_hint": "boundary",
+      "measured_inc": {
+        "proc_cpu_energy_j": 1.28109,
+        "soc_package_j": 3.891896
+      },
+      "measured_reuse": {
+        "proc_cpu_energy_j": 1.148205,
+        "soc_package_j": 3.700635
+      },
+      "measured_delta_j": {
+        "proc_cpu_energy_j": 0.132885,
+        "soc_package_j": 0.19126
+      },
+      "pred_delta_j": {
+        "proc_cpu_energy_j": 0.220627,
+        "soc_package_j": 0.277417
+      },
+      "oracle_choice": {
+        "proc_cpu_energy_j": "certified_reuse",
+        "soc_package_j": "certified_reuse"
+      },
+      "router_choice": {
+        "proc_cpu_energy_j": "certified_reuse",
+        "soc_package_j": "certified_reuse"
+      },
+      "router_correct": {
+        "proc_cpu_energy_j": true,
+        "soc_package_j": true
+      },
+      "router_decision_cost": {
+        "proc_cpu_energy_j": 0.0,
+        "soc_package_j": 0.018
+      },
+      "mismatches": 0
+    },
+    {
+      "task_id": "DAG-13",
+      "domain": "dag",
+      "regime_hint": "inc_favored",
+      "measured_inc": {
+        "proc_cpu_energy_j": 1.070246,
+        "soc_package_j": 2.98706
+      },
+      "measured_reuse": {
+        "proc_cpu_energy_j": 1.115811,
+        "soc_package_j": 3.048728
+      },
+      "measured_delta_j": {
+        "proc_cpu_energy_j": -0.045565,
+        "soc_package_j": -0.061668
+      },
+      "pred_delta_j": {
+        "proc_cpu_energy_j": -0.063499,
+        "soc_package_j": -0.419243
+      },
+      "oracle_choice": {
+        "proc_cpu_energy_j": "strong_incremental",
+        "soc_package_j": "strong_incremental"
+      },
+      "router_choice": {
+        "proc_cpu_energy_j": "strong_incremental",
+        "soc_package_j": "strong_incremental"
+      },
+      "router_correct": {
+        "proc_cpu_energy_j": true,
+        "soc_package_j": true
+      },
+      "router_decision_cost": {
+        "proc_cpu_energy_j": 0.0,
+        "soc_package_j": 0.022327
+      },
+      "mismatches": 0
+    },
+    {
+      "task_id": "DAG-11",
+      "domain": "dag",
+      "regime_hint": "inc_favored",
+      "measured_inc": {
+        "proc_cpu_energy_j": 0.792045,
+        "soc_package_j": 2.042573
+      },
+      "measured_reuse": {
+        "proc_cpu_energy_j": 0.796774,
+        "soc_package_j": 2.014036
+      },
+      "measured_delta_j": {
+        "proc_cpu_energy_j": -0.004729,
+        "soc_package_j": 0.028537
+      },
+      "pred_delta_j": {
+        "proc_cpu_energy_j": 0.014569,
+        "soc_package_j": -0.177813
+      },
+      "oracle_choice": {
+        "proc_cpu_energy_j": "strong_incremental",
+        "soc_package_j": "certified_reuse"
+      },
+      "router_choice": {
+        "proc_cpu_energy_j": "certified_reuse",
+        "soc_package_j": "strong_incremental"
+      },
+      "router_correct": {
+        "proc_cpu_energy_j": false,
+        "soc_package_j": false
+      },
+      "router_decision_cost": {
+        "proc_cpu_energy_j": 0.033088,
+        "soc_package_j": 0.018
+      },
+      "mismatches": 0
+    },
+    {
+      "task_id": "CODE-05",
+      "domain": "code_typecheck",
+      "regime_hint": "inc_favored",
+      "measured_inc": {
+        "proc_cpu_energy_j": 10.751283,
+        "soc_package_j": 31.277537
+      },
+      "measured_reuse": {
+        "proc_cpu_energy_j": 10.751368,
+        "soc_package_j": 28.922412
+      },
+      "measured_delta_j": {
+        "proc_cpu_energy_j": -8.6e-05,
+        "soc_package_j": 2.355124
+      },
+      "pred_delta_j": {
+        "proc_cpu_energy_j": -0.007613,
+        "soc_package_j": -0.021217
+      },
+      "oracle_choice": {
+        "proc_cpu_energy_j": "strong_incremental",
+        "soc_package_j": "certified_reuse"
+      },
+      "router_choice": {
+        "proc_cpu_energy_j": "strong_incremental",
+        "soc_package_j": "strong_incremental"
+      },
+      "router_correct": {
+        "proc_cpu_energy_j": true,
+        "soc_package_j": false
+      },
+      "router_decision_cost": {
+        "proc_cpu_energy_j": 0.0,
+        "soc_package_j": 0.02
+      },
+      "mismatches": 0
+    },
+    {
+      "task_id": "DAG-01",
+      "domain": "dag",
+      "regime_hint": "reuse_favored",
+      "measured_inc": {
+        "proc_cpu_energy_j": 2.38804,
+        "soc_package_j": 5.672193
+      },
+      "measured_reuse": {
+        "proc_cpu_energy_j": 1.489771,
+        "soc_package_j": 3.671685
+      },
+      "measured_delta_j": {
+        "proc_cpu_energy_j": 0.898269,
+        "soc_package_j": 2.000508
+      },
+      "pred_delta_j": {
+        "proc_cpu_energy_j": 0.952804,
+        "soc_package_j": 1.800046
+      },
+      "oracle_choice": {
+        "proc_cpu_energy_j": "certified_reuse",
+        "soc_package_j": "certified_reuse"
+      },
+      "router_choice": {
+        "proc_cpu_energy_j": "certified_reuse",
+        "soc_package_j": "certified_reuse"
+      },
+      "router_correct": {
+        "proc_cpu_energy_j": true,
+        "soc_package_j": true
+      },
+      "router_decision_cost": {
+        "proc_cpu_energy_j": 0.031726,
+        "soc_package_j": 0.017
+      },
+      "mismatches": 0
+    },
+    {
+      "task_id": "DAG-08",
+      "domain": "dag",
+      "regime_hint": "boundary",
+      "measured_inc": {
+        "proc_cpu_energy_j": 1.081245,
+        "soc_package_j": 2.535025
+      },
+      "measured_reuse": {
+        "proc_cpu_energy_j": 0.949586,
+        "soc_package_j": 2.342046
+      },
+      "measured_delta_j": {
+        "proc_cpu_energy_j": 0.131659,
+        "soc_package_j": 0.192979
+      },
+      "pred_delta_j": {
+        "proc_cpu_energy_j": 0.198692,
+        "soc_package_j": 0.255334
+      },
+      "oracle_choice": {
+        "proc_cpu_energy_j": "certified_reuse",
+        "soc_package_j": "certified_reuse"
+      },
+      "router_choice": {
+        "proc_cpu_energy_j": "certified_reuse",
+        "soc_package_j": "certified_reuse"
+      },
+      "router_correct": {
+        "proc_cpu_energy_j": true,
+        "soc_package_j": true
+      },
+      "router_decision_cost": {
+        "proc_cpu_energy_j": 0.0,
+        "soc_package_j": 0.018313
+      },
+      "mismatches": 0
+    },
+    {
+      "task_id": "DAG-06",
+      "domain": "dag",
+      "regime_hint": "reuse_favored",
+      "measured_inc": {
+        "proc_cpu_energy_j": 2.063736,
+        "soc_package_j": 5.760917
+      },
+      "measured_reuse": {
+        "proc_cpu_energy_j": 1.481524,
+        "soc_package_j": 5.026215
+      },
+      "measured_delta_j": {
+        "proc_cpu_energy_j": 0.582212,
+        "soc_package_j": 0.734701
+      },
+      "pred_delta_j": {
+        "proc_cpu_energy_j": 0.693606,
+        "soc_package_j": 1.267261
+      },
+      "oracle_choice": {
+        "proc_cpu_energy_j": "certified_reuse",
+        "soc_package_j": "certified_reuse"
+      },
+      "router_choice": {
+        "proc_cpu_energy_j": "certified_reuse",
+        "soc_package_j": "certified_reuse"
+      },
+      "router_correct": {
+        "proc_cpu_energy_j": true,
+        "soc_package_j": true
+      },
+      "router_decision_cost": {
+        "proc_cpu_energy_j": 0.0,
+        "soc_package_j": 0.019
+      },
+      "mismatches": 0
+    },
+    {
+      "task_id": "CODE-06",
+      "domain": "code_typecheck",
+      "regime_hint": "inc_favored",
+      "measured_inc": {
+        "proc_cpu_energy_j": 1.440481,
+        "soc_package_j": 5.420135
+      },
+      "measured_reuse": {
+        "proc_cpu_energy_j": 1.460096,
+        "soc_package_j": 4.952151
+      },
+      "measured_delta_j": {
+        "proc_cpu_energy_j": -0.019615,
+        "soc_package_j": 0.467985
+      },
+      "pred_delta_j": {
+        "proc_cpu_energy_j": -0.007613,
+        "soc_package_j": -0.021217
+      },
+      "oracle_choice": {
+        "proc_cpu_energy_j": "strong_incremental",
+        "soc_package_j": "certified_reuse"
+      },
+      "router_choice": {
+        "proc_cpu_energy_j": "strong_incremental",
+        "soc_package_j": "strong_incremental"
+      },
+      "router_correct": {
+        "proc_cpu_energy_j": true,
+        "soc_package_j": false
+      },
+      "router_decision_cost": {
+        "proc_cpu_energy_j": 0.0,
+        "soc_package_j": 0.019
+      },
+      "mismatches": 0
+    },
+    {
+      "task_id": "DAG-05",
+      "domain": "dag",
+      "regime_hint": "reuse_favored",
+      "measured_inc": {
+        "proc_cpu_energy_j": 1.411316,
+        "soc_package_j": 3.727588
+      },
+      "measured_reuse": {
+        "proc_cpu_energy_j": 0.992689,
+        "soc_package_j": 2.710958
+      },
+      "measured_delta_j": {
+        "proc_cpu_energy_j": 0.418626,
+        "soc_package_j": 1.01663
+      },
+      "pred_delta_j": {
+        "proc_cpu_energy_j": 0.491554,
+        "soc_package_j": 0.904221
+      },
+      "oracle_choice": {
+        "proc_cpu_energy_j": "certified_reuse",
+        "soc_package_j": "certified_reuse"
+      },
+      "router_choice": {
+        "proc_cpu_energy_j": "certified_reuse",
+        "soc_package_j": "certified_reuse"
+      },
+      "router_correct": {
+        "proc_cpu_energy_j": true,
+        "soc_package_j": true
+      },
+      "router_decision_cost": {
+        "proc_cpu_energy_j": 0.0,
+        "soc_package_j": 0.022316
+      },
+      "mismatches": 0
+    },
+    {
+      "task_id": "CODE-08",
+      "domain": "code_typecheck",
+      "regime_hint": "inc_favored",
+      "measured_inc": {
+        "proc_cpu_energy_j": 0.274717,
+        "soc_package_j": 0.791505
+      },
+      "measured_reuse": {
+        "proc_cpu_energy_j": 0.267928,
+        "soc_package_j": 0.628256
+      },
+      "measured_delta_j": {
+        "proc_cpu_energy_j": 0.00679,
+        "soc_package_j": 0.163249
+      },
+      "pred_delta_j": {
+        "proc_cpu_energy_j": -0.002604,
+        "soc_package_j": -0.00731
+      },
+      "oracle_choice": {
+        "proc_cpu_energy_j": "certified_reuse",
+        "soc_package_j": "certified_reuse"
+      },
+      "router_choice": {
+        "proc_cpu_energy_j": "strong_incremental",
+        "soc_package_j": "strong_incremental"
+      },
+      "router_correct": {
+        "proc_cpu_energy_j": false,
+        "soc_package_j": false
+      },
+      "router_decision_cost": {
+        "proc_cpu_energy_j": 0.03085,
+        "soc_package_j": 0.021
+      },
+      "mismatches": 0
+    },
+    {
+      "task_id": "DAG-16",
+      "domain": "dag",
+      "regime_hint": "inc_favored",
+      "measured_inc": {
+        "proc_cpu_energy_j": 1.606607,
+        "soc_package_j": 3.813219
+      },
+      "measured_reuse": {
+        "proc_cpu_energy_j": 1.642661,
+        "soc_package_j": 4.39994
+      },
+      "measured_delta_j": {
+        "proc_cpu_energy_j": -0.036054,
+        "soc_package_j": -0.586721
+      },
+      "pred_delta_j": {
+        "proc_cpu_energy_j": -0.108782,
+        "soc_package_j": -0.575947
+      },
+      "oracle_choice": {
+        "proc_cpu_energy_j": "strong_incremental",
+        "soc_package_j": "strong_incremental"
+      },
+      "router_choice": {
+        "proc_cpu_energy_j": "strong_incremental",
+        "soc_package_j": "strong_incremental"
+      },
+      "router_correct": {
+        "proc_cpu_energy_j": true,
+        "soc_package_j": true
+      },
+      "router_decision_cost": {
+        "proc_cpu_energy_j": 0.0,
+        "soc_package_j": 0.028
+      },
+      "mismatches": 0
+    },
+    {
+      "task_id": "DAG-15",
+      "domain": "dag",
+      "regime_hint": "inc_favored",
+      "measured_inc": {
+        "proc_cpu_energy_j": 0.878417,
+        "soc_package_j": 2.218238
+      },
+      "measured_reuse": {
+        "proc_cpu_energy_j": 0.988276,
+        "soc_package_j": 2.667112
+      },
+      "measured_delta_j": {
+        "proc_cpu_energy_j": -0.10986,
+        "soc_package_j": -0.448874
+      },
+      "pred_delta_j": {
+        "proc_cpu_energy_j": -0.144941,
+        "soc_package_j": -0.629463
+      },
+      "oracle_choice": {
+        "proc_cpu_energy_j": "strong_incremental",
+        "soc_package_j": "strong_incremental"
+      },
+      "router_choice": {
+        "proc_cpu_energy_j": "strong_incremental",
+        "soc_package_j": "strong_incremental"
+      },
+      "router_correct": {
+        "proc_cpu_energy_j": true,
+        "soc_package_j": true
+      },
+      "router_decision_cost": {
+        "proc_cpu_energy_j": 0.013409,
+        "soc_package_j": 0.025
+      },
+      "mismatches": 0
+    },
+    {
+      "task_id": "DAG-02",
+      "domain": "dag",
+      "regime_hint": "reuse_favored",
+      "measured_inc": {
+        "proc_cpu_energy_j": 3.333577,
+        "soc_package_j": 12.759555
+      },
+      "measured_reuse": {
+        "proc_cpu_energy_j": 2.155439,
+        "soc_package_j": 6.113652
+      },
+      "measured_delta_j": {
+        "proc_cpu_energy_j": 1.178139,
+        "soc_package_j": 6.645903
+      },
+      "pred_delta_j": {
+        "proc_cpu_energy_j": 1.301038,
+        "soc_package_j": 2.452083
+      },
+      "oracle_choice": {
+        "proc_cpu_energy_j": "certified_reuse",
+        "soc_package_j": "certified_reuse"
+      },
+      "router_choice": {
+        "proc_cpu_energy_j": "certified_reuse",
+        "soc_package_j": "certified_reuse"
+      },
+      "router_correct": {
+        "proc_cpu_energy_j": true,
+        "soc_package_j": true
+      },
+      "router_decision_cost": {
+        "proc_cpu_energy_j": 0.0,
+        "soc_package_j": 0.021
+      },
+      "mismatches": 0
+    },
+    {
+      "task_id": "DAG-04",
+      "domain": "dag",
+      "regime_hint": "reuse_favored",
+      "measured_inc": {
+        "proc_cpu_energy_j": 2.751241,
+        "soc_package_j": 8.20215
+      },
+      "measured_reuse": {
+        "proc_cpu_energy_j": 1.950359,
+        "soc_package_j": 7.585357
+      },
+      "measured_delta_j": {
+        "proc_cpu_energy_j": 0.800882,
+        "soc_package_j": 0.616793
+      },
+      "pred_delta_j": {
+        "proc_cpu_energy_j": 0.91978,
+        "soc_package_j": 1.694049
+      },
+      "oracle_choice": {
+        "proc_cpu_energy_j": "certified_reuse",
+        "soc_package_j": "certified_reuse"
+      },
+      "router_choice": {
+        "proc_cpu_energy_j": "certified_reuse",
+        "soc_package_j": "certified_reuse"
+      },
+      "router_correct": {
+        "proc_cpu_energy_j": true,
+        "soc_package_j": true
+      },
+      "router_decision_cost": {
+        "proc_cpu_energy_j": 0.0,
+        "soc_package_j": 0.017311
+      },
+      "mismatches": 0
+    },
+    {
+      "task_id": "DAG-10",
+      "domain": "dag",
+      "regime_hint": "boundary",
+      "measured_inc": {
+        "proc_cpu_energy_j": 0.828728,
+        "soc_package_j": 5.062737
+      },
+      "measured_reuse": {
+        "proc_cpu_energy_j": 0.719417,
+        "soc_package_j": 3.642585
+      },
+      "measured_delta_j": {
+        "proc_cpu_energy_j": 0.109311,
+        "soc_package_j": 1.420152
+      },
+      "pred_delta_j": {
+        "proc_cpu_energy_j": 0.188185,
+        "soc_package_j": 0.28727
+      },
+      "oracle_choice": {
+        "proc_cpu_energy_j": "certified_reuse",
+        "soc_package_j": "certified_reuse"
+      },
+      "router_choice": {
+        "proc_cpu_energy_j": "certified_reuse",
+        "soc_package_j": "certified_reuse"
+      },
+      "router_correct": {
+        "proc_cpu_energy_j": true,
+        "soc_package_j": true
+      },
+      "router_decision_cost": {
+        "proc_cpu_energy_j": 0.0,
+        "soc_package_j": 0.019
+      },
+      "mismatches": 0
+    },
+    {
+      "task_id": "CODE-07",
+      "domain": "code_typecheck",
+      "regime_hint": "inc_favored",
+      "measured_inc": {
+        "proc_cpu_energy_j": 1.203534,
+        "soc_package_j": 4.36598
+      },
+      "measured_reuse": {
+        "proc_cpu_energy_j": 1.221642,
+        "soc_package_j": 5.122064
+      },
+      "measured_delta_j": {
+        "proc_cpu_energy_j": -0.018108,
+        "soc_package_j": -0.756084
+      },
+      "pred_delta_j": {
+        "proc_cpu_energy_j": -0.002604,
+        "soc_package_j": -0.00731
+      },
+      "oracle_choice": {
+        "proc_cpu_energy_j": "strong_incremental",
+        "soc_package_j": "strong_incremental"
+      },
+      "router_choice": {
+        "proc_cpu_energy_j": "strong_incremental",
+        "soc_package_j": "strong_incremental"
+      },
+      "router_correct": {
+        "proc_cpu_energy_j": true,
+        "soc_package_j": true
+      },
+      "router_decision_cost": {
+        "proc_cpu_energy_j": 0.0,
+        "soc_package_j": 0.019
+      },
+      "mismatches": 0
+    },
+    {
+      "task_id": "CODE-03",
+      "domain": "code_typecheck",
+      "regime_hint": "reuse_favored",
+      "measured_inc": {
+        "proc_cpu_energy_j": 1.071548,
+        "soc_package_j": 4.483774
+      },
+      "measured_reuse": {
+        "proc_cpu_energy_j": 0.532808,
+        "soc_package_j": 2.470697
+      },
+      "measured_delta_j": {
+        "proc_cpu_energy_j": 0.538739,
+        "soc_package_j": 2.013077
+      },
+      "pred_delta_j": {
+        "proc_cpu_energy_j": 0.683567,
+        "soc_package_j": 1.674023
+      },
+      "oracle_choice": {
+        "proc_cpu_energy_j": "certified_reuse",
+        "soc_package_j": "certified_reuse"
+      },
+      "router_choice": {
+        "proc_cpu_energy_j": "certified_reuse",
+        "soc_package_j": "certified_reuse"
+      },
+      "router_correct": {
+        "proc_cpu_energy_j": true,
+        "soc_package_j": true
+      },
+      "router_decision_cost": {
+        "proc_cpu_energy_j": 0.0,
+        "soc_package_j": 0.020329
+      },
+      "mismatches": 0
+    },
+    {
+      "task_id": "CODE-04",
+      "domain": "code_typecheck",
+      "regime_hint": "reuse_favored",
+      "measured_inc": {
+        "proc_cpu_energy_j": 11.390411,
+        "soc_package_j": 43.842819
+      },
+      "measured_reuse": {
+        "proc_cpu_energy_j": 6.236816,
+        "soc_package_j": 25.747606
+      },
+      "measured_delta_j": {
+        "proc_cpu_energy_j": 5.153596,
+        "soc_package_j": 18.095213
+      },
+      "pred_delta_j": {
+        "proc_cpu_energy_j": 4.485145,
+        "soc_package_j": 12.140351
+      },
+      "oracle_choice": {
+        "proc_cpu_energy_j": "certified_reuse",
+        "soc_package_j": "certified_reuse"
+      },
+      "router_choice": {
+        "proc_cpu_energy_j": "certified_reuse",
+        "soc_package_j": "certified_reuse"
+      },
+      "router_correct": {
+        "proc_cpu_energy_j": true,
+        "soc_package_j": true
+      },
+      "router_decision_cost": {
+        "proc_cpu_energy_j": 0.0,
+        "soc_package_j": 0.017
+      },
+      "mismatches": 0
+    },
+    {
+      "task_id": "DAG-03",
+      "domain": "dag",
+      "regime_hint": "reuse_favored",
+      "measured_inc": {
+        "proc_cpu_energy_j": 1.737202,
+        "soc_package_j": 4.176233
+      },
+      "measured_reuse": {
+        "proc_cpu_energy_j": 1.217654,
+        "soc_package_j": 2.924432
+      },
+      "measured_delta_j": {
+        "proc_cpu_energy_j": 0.519548,
+        "soc_package_j": 1.251801
+      },
+      "pred_delta_j": {
+        "proc_cpu_energy_j": 0.586394,
+        "soc_package_j": 1.069407
+      },
+      "oracle_choice": {
+        "proc_cpu_energy_j": "certified_reuse",
+        "soc_package_j": "certified_reuse"
+      },
+      "router_choice": {
+        "proc_cpu_energy_j": "certified_reuse",
+        "soc_package_j": "certified_reuse"
+      },
+      "router_correct": {
+        "proc_cpu_energy_j": true,
+        "soc_package_j": true
+      },
+      "router_decision_cost": {
+        "proc_cpu_energy_j": 0.030589,
+        "soc_package_j": 0.019
+      },
+      "mismatches": 0
+    },
+    {
+      "task_id": "CODE-01",
+      "domain": "code_typecheck",
+      "regime_hint": "reuse_favored",
+      "measured_inc": {
+        "proc_cpu_energy_j": 10.351689,
+        "soc_package_j": 29.826811
+      },
+      "measured_reuse": {
+        "proc_cpu_energy_j": 1.612267,
+        "soc_package_j": 4.479376
+      },
+      "measured_delta_j": {
+        "proc_cpu_energy_j": 8.739422,
+        "soc_package_j": 25.347435
+      },
+      "pred_delta_j": {
+        "proc_cpu_energy_j": 8.977902,
+        "soc_package_j": 24.30192
+      },
+      "oracle_choice": {
+        "proc_cpu_energy_j": "certified_reuse",
+        "soc_package_j": "certified_reuse"
+      },
+      "router_choice": {
+        "proc_cpu_energy_j": "certified_reuse",
+        "soc_package_j": "certified_reuse"
+      },
+      "router_correct": {
+        "proc_cpu_energy_j": true,
+        "soc_package_j": true
+      },
+      "router_decision_cost": {
+        "proc_cpu_energy_j": 0.0,
+        "soc_package_j": 0.022308
+      },
+      "mismatches": 0
+    }
+  ]
+}

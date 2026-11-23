@@ -1,0 +1,40 @@
+name: Temporal Science Research CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  research-ci:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install minimal CRR dependencies
+        run: pip install pyyaml pytest numpy networkx scipy matplotlib
+
+      - name: Structural & Scientific Composition Validation (CRR v0.2)
+        run: python3 tools/research.py validate
+
+      - name: CRR, Adversarial Composition & Executable Claim Tests
+        run: python3 tools/research.py test
+
+      - name: Build, Verify & Bundle Portable Paper I Preprint
+        run: |
+          python3 tools/research.py build paper-01
+          python3 tools/research.py verify-build paper-01
+          python3 tools/research.py release paper-01 --tier scoped_preprint
+          python3 tools/research.py bundle paper-01
+
+      - name: Clean-Environment Offline Reproduction Test (Paper I)
+        run: |
+          mkdir -p /tmp/ci_clean_repro
+          tar -xzf papers/01-certified-reuse/release/paper-01-v0.1.0-portable.tar.gz -C /tmp/ci_clean_repro
+          cd /tmp/ci_clean_repro/paper-01-v0.1.0-portable
+          python3 reproduce.py

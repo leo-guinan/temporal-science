@@ -1,0 +1,44 @@
+id: TS-WORK-NOT-DONE
+version: 0.1.0
+title: Paper III Exported Contract — Verifiable Work Not Done Certificates
+kind: theorem
+status: partially_supported
+paper_id: paper-03
+statement: >
+  Avoided computation can be certified relative to credible baselines using tiered Work Not
+  Done Certificates that reject fabricated, shifted, and duplicated claims and verify more
+  cheaply than replaying avoided work when backed by formally bounded contracts.
+assumptions:
+  - Inherits all assumptions of TS-007.
+depends_on:
+  - id: TS-CERTIFIED-REUSE
+    version: 0.1.0
+  - id: TS-TRANSFER-CERTIFICATE
+    version: 0.1.0
+  - id: TS-007
+    version: 0.1.0
+evidence:
+  proofs:
+    - "../living-computation/research/proof-obligations.md"
+  experiments:
+    - "../living-computation/results/exp13_v03_work_not_done/exp13_summary.json"
+    - "../living-computation/results/exp15_v03_compounding_capital/exp15_summary.json"
+  counterexamples:
+    - "Brute-force replay exceeds avoided work; high-churn capital becomes maintenance liability."
+guarantee:
+  type: conditional
+  scope: tiered_counterfactual_avoidance_certificates
+  energy_evidence_tier: modeled_proxy_energy
+validity:
+  requirements:
+    - "Complete multi-channel accounting & verification-cost inclusion"
+  invalidation_conditions:
+    - "Unsound mathematical premises or unmonitored baseline drift"
+provenance:
+  contributors:
+    - living-computation-v03
+  source_artifacts:
+    - "../living-computation/experiments/13_work_not_done/wnd_verifier.py"
+    - "../living-computation/core/evidence.py"
+limitations:
+  - "Marked partially_supported pending physical energy metering and compositional multi-claim WND rules."

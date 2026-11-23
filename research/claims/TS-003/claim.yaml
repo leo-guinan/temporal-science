@@ -1,0 +1,48 @@
+id: TS-003
+version: 0.1.0
+title: Predictive Synchronization Under Bounded Disturbances (P4)
+kind: theorem
+status: formally_proved_under_assumptions
+paper_id: paper-01
+statement: >
+  For contractive dynamics R_{t+1} = phi * R_t + w_t with |phi| < 1, bounded disturbance
+  |w_t| <= W_max, and bounded measurement noise |eta_t| <= eta_max, an adaptive observer
+  triggering observation whenever E_cert(t, tau) > eps(tau) guarantees 0% lookahead bound
+  violations when feasible, and detects broken W_max assumptions via CanaryState.UNKNOWN escalation.
+assumptions:
+  - "Known contraction coefficient |phi| < 1 and bounded disturbance |w_t| <= W_max."
+  - "Feasibility condition: |phi|^tau * eta_max + W_max * (1 - |phi|^tau)/(1 - |phi|) <= eps(tau)."
+depends_on:
+  - id: TS-BASE-001
+    version: 1.0.0
+evidence:
+  proofs:
+    - "../living-computation/research/proof-obligations.md"
+  experiments:
+    - "../living-computation/results/exp08_v02_predictive_sync/exp08_summary.json"
+    - "../living-computation/results/exp03_observation/exp03_summary.json"
+  counterexamples:
+    - "Exp 8 stationary linear-Gaussian regime: tuned periodic_kalman_p3 (33.4% obs, 1.15 J, 3.72% viol) outperforms adaptive_kalman_uncertainty (78.1% obs, 2.53 J, 1.42% viol)."
+    - "Exp 8 unbounded Gaussian noise: P4 certified observer degrades to 100% continuous observation."
+    - "Exp 8 super-critical 2.4x shift: even continuous observation suffers 20.29% violations (irreducible P9 predictability floor)."
+    - "Exp 3 adaptive observer: 203 safety violations & 0.2700 post-MSE vs 59 violations & 0.0222 MSE for observe-all."
+guarantee:
+  type: restricted_worst_case
+  scope: contractive_bounded_disturbance_linear_dynamics
+  energy_evidence_tier: modeled_proxy_energy
+validity:
+  requirements:
+    - "Strict enforcement: never claim predictive synchronization unless empirical violation rate <= delta"
+  invalidation_conditions:
+    - "Unbounded heavy-tailed disturbances or super-critical disturbance jumps exceeding eps(tau)"
+provenance:
+  contributors:
+    - living-computation-v01
+    - living-computation-v02
+  source_artifacts:
+    - "../living-computation/experiments/08_predictive_sync/sync_engine.py"
+    - "../living-computation/experiments/08_predictive_sync/run_exp08.py"
+    - "../living-computation/experiments/03_observation/observer.py"
+limitations:
+  - "Information-theoretic observation lower bound (P9) remains open."
+  - "Physical sensor energy is modeled rather than hardware-metered."

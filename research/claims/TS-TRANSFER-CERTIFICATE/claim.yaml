@@ -1,0 +1,46 @@
+id: TS-TRANSFER-CERTIFICATE
+version: 0.1.0
+title: Paper II Exported Contract — Transferable Computation Certificates
+kind: theorem
+status: empirically_supported
+paper_id: paper-02
+statement: >
+  Validated capabilities can transfer across environments with distinct schemas,
+  encodings, or partial drift via versioned Transfer Certificates and upstream
+  tractability policies, outperforming destination rediscovery while soundly rejecting
+  unverified semantic shifts and institutional enclosure.
+assumptions:
+  - Inherits all assumptions of TS-005 and TS-006.
+depends_on:
+  - id: TS-CERTIFIED-REUSE
+    version: 0.1.0
+  - id: TS-005
+    version: 0.1.0
+  - id: TS-006
+    version: 0.1.0
+evidence:
+  proofs:
+    - "../living-computation/research/proof-obligations.md"
+  experiments:
+    - "../living-computation/results/exp12_v03_transfer/exp12_summary.json"
+    - "../living-computation/results/exp05_v02_environment_synthesis/exp05_summary.json"
+    - "../living-computation/results/exp04_tractability/exp04_summary.json"
+  counterexamples:
+    - "Blind transfer, low-density SAT heuristics, institutional enclosure without external probes, and high-mandatory-violation enforcement."
+guarantee:
+  type: conditional
+  scope: certified_transfer_with_external_probes
+  energy_evidence_tier: modeled_proxy_energy
+validity:
+  requirements:
+    - "Explicit TransferCertificate seal + external reality audit"
+  invalidation_conditions:
+    - "Unchecked translation or unmonitored external reality drift"
+provenance:
+  contributors:
+    - living-computation-v02-v03
+  source_artifacts:
+    - "../living-computation/experiments/12_transferable_computation/transfer_core.py"
+    - "../living-computation/experiments/05_environment_design/env_synthesis.py"
+limitations:
+  - "Independent non-synthetic destination domain validation still pending."

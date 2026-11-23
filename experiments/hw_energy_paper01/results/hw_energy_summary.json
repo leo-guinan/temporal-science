@@ -1,0 +1,1874 @@
+{
+  "benchmark_id": "exp_hw01_paper01_apple_silicon",
+  "version": "0.1.0",
+  "machine": {
+    "platform": "macOS-26.5.1-arm64-arm-64bit",
+    "machine": "arm64",
+    "python_version": "3.11.7",
+    "cpu_brand": "Apple M3 Max",
+    "logical_cores": 16,
+    "memory_gb": 48.0,
+    "mach_timebase_ns_per_tick": "125/3",
+    "telemetry_api": "macOS XNU proc_pid_rusage(RUSAGE_INFO_V6) -> ri_energy_nj, ri_instructions, ri_cycles",
+    "measurement_scope": "Per-process Apple Silicon CPU core & kernel-attributed hardware PMU energy (ri_energy_nj / ri_penergy_nj), retired instructions, CPU cycles, and OS disk I/O bytes. Excludes off-package SSD controller rail, external DRAM rail, and AC wall-socket power."
+  },
+  "calibration": {
+    "samples": [
+      {
+        "iterations": 1000000,
+        "checksum": 3502041716000,
+        "hardware_energy_j": 0.282035,
+        "instructions": 1247012828,
+        "cycles": 165670770,
+        "wall_time_s": 0.046179,
+        "avg_power_w": 6.107
+      },
+      {
+        "iterations": 2000000,
+        "checksum": 14008174453312,
+        "hardware_energy_j": 0.488279,
+        "instructions": 2495122643,
+        "cycles": 331302241,
+        "wall_time_s": 0.092153,
+        "avg_power_w": 5.299
+      },
+      {
+        "iterations": 4000000,
+        "checksum": 56032712993920,
+        "hardware_energy_j": 1.102602,
+        "instructions": 4991334743,
+        "cycles": 657067688,
+        "wall_time_s": 0.177116,
+        "avg_power_w": 6.225
+      }
+    ],
+    "ratio_2x_vs_1x_energy": 1.7313,
+    "ratio_4x_vs_1x_energy": 3.9095,
+    "ratio_4x_vs_2x_energy": 2.2581,
+    "ratio_4x_vs_1x_instructions": 4.0026
+  },
+  "hw1_unmodified_paper01_regimes": {
+    "localized_regime_drift": {
+      "systems": {
+        "full_recompute": {
+          "n_trials": 5,
+          "mismatches_total": 0,
+          "abstract_ops": 8821276,
+          "modeled_proxy_j": {
+            "mean": 13.841589,
+            "std": 0.10592,
+            "ci95": 0.092843,
+            "min": 13.710223,
+            "max": 13.94984
+          },
+          "hardware_energy_j": {
+            "mean": 22.382286,
+            "std": 0.055893,
+            "ci95": 0.048992,
+            "min": 22.286374,
+            "max": 22.425101
+          },
+          "pcore_energy_j": {
+            "mean": 22.381515,
+            "std": 0.055446,
+            "ci95": 0.0486,
+            "min": 22.286281,
+            "max": 22.423802
+          },
+          "instructions": {
+            "mean": 85436429221.0,
+            "std": 3075790.490616,
+            "ci95": 2696049.235653,
+            "min": 85431056480.0,
+            "max": 85438852710.0
+          },
+          "cycles": {
+            "mean": 14824938994.2,
+            "std": 85167173.577999,
+            "ci95": 74652319.112197,
+            "min": 14722543626.0,
+            "max": 14944466079.0
+          },
+          "ipc": {
+            "mean": 5.763172,
+            "std": 0.032927,
+            "ci95": 0.028862,
+            "min": 5.717015,
+            "max": 5.802738
+          },
+          "avg_power_w": {
+            "mean": 5.581642,
+            "std": 0.040545,
+            "ci95": 0.035539,
+            "min": 5.542127,
+            "max": 5.64371
+          },
+          "wall_time_s": {
+            "mean": 4.010173,
+            "std": 0.034121,
+            "ci95": 0.029909,
+            "min": 3.966507,
+            "max": 4.046298
+          },
+          "user_time_s": {
+            "mean": 3.986838,
+            "std": 0.030071,
+            "ci95": 0.026358,
+            "min": 3.94863,
+            "max": 4.018675
+          },
+          "system_time_s": {
+            "mean": 0.017456,
+            "std": 0.002432,
+            "ci95": 0.002132,
+            "min": 0.014405,
+            "max": 0.019807
+          },
+          "logical_writes_bytes": {
+            "mean": 0.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "disk_bytes_written": {
+            "mean": 0.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "phys_footprint_end_mb": {
+            "mean": 89.441197,
+            "std": 4.000967,
+            "ci95": 3.507002,
+            "min": 82.328697,
+            "max": 91.531822
+          }
+        },
+        "strong_incremental": {
+          "n_trials": 5,
+          "mismatches_total": 0,
+          "abstract_ops": 663878,
+          "modeled_proxy_j": {
+            "mean": 1.284175,
+            "std": 0.022142,
+            "ci95": 0.019409,
+            "min": 1.249763,
+            "max": 1.304482
+          },
+          "hardware_energy_j": {
+            "mean": 2.225854,
+            "std": 0.014497,
+            "ci95": 0.012707,
+            "min": 2.206195,
+            "max": 2.244934
+          },
+          "pcore_energy_j": {
+            "mean": 2.22584,
+            "std": 0.014479,
+            "ci95": 0.012691,
+            "min": 2.20619,
+            "max": 2.244873
+          },
+          "instructions": {
+            "mean": 7941121452.6,
+            "std": 813299.21371,
+            "ci95": 712888.192538,
+            "min": 7940158136.0,
+            "max": 7942368686.0
+          },
+          "cycles": {
+            "mean": 1541039376.0,
+            "std": 18683454.620896,
+            "ci95": 16376770.038047,
+            "min": 1511018228.0,
+            "max": 1558027924.0
+          },
+          "ipc": {
+            "mean": 5.153702,
+            "std": 0.062625,
+            "ci95": 0.054893,
+            "min": 5.097706,
+            "max": 5.254839
+          },
+          "avg_power_w": {
+            "mean": 5.345869,
+            "std": 0.104979,
+            "ci95": 0.092018,
+            "min": 5.238219,
+            "max": 5.513979
+          },
+          "wall_time_s": {
+            "mean": 0.416484,
+            "std": 0.007761,
+            "ci95": 0.006803,
+            "min": 0.404927,
+            "max": 0.423682
+          },
+          "user_time_s": {
+            "mean": 0.4101,
+            "std": 0.006778,
+            "ci95": 0.005941,
+            "min": 0.400049,
+            "max": 0.417042
+          },
+          "system_time_s": {
+            "mean": 0.006104,
+            "std": 0.000879,
+            "ci95": 0.000771,
+            "min": 0.00488,
+            "max": 0.007231
+          },
+          "logical_writes_bytes": {
+            "mean": 0.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "disk_bytes_written": {
+            "mean": 0.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "phys_footprint_end_mb": {
+            "mean": 91.047447,
+            "std": 0.614363,
+            "ci95": 0.538513,
+            "min": 90.375572,
+            "max": 91.531822
+          }
+        },
+        "living_inmem_surprise": {
+          "n_trials": 5,
+          "mismatches_total": 0,
+          "abstract_ops": 562200,
+          "modeled_proxy_j": {
+            "mean": 1.170968,
+            "std": 0.04142,
+            "ci95": 0.036306,
+            "min": 1.1314,
+            "max": 1.227912
+          },
+          "hardware_energy_j": {
+            "mean": 2.018149,
+            "std": 0.035734,
+            "ci95": 0.031322,
+            "min": 1.981801,
+            "max": 2.054949
+          },
+          "pcore_energy_j": {
+            "mean": 2.01795,
+            "std": 0.035769,
+            "ci95": 0.031353,
+            "min": 1.981786,
+            "max": 2.05493
+          },
+          "instructions": {
+            "mean": 6552291370.4,
+            "std": 1106897.092915,
+            "ci95": 970238.080391,
+            "min": 6551369545.0,
+            "max": 6554151329.0
+          },
+          "cycles": {
+            "mean": 1516539269.6,
+            "std": 48239071.156514,
+            "ci95": 42283410.172746,
+            "min": 1470715584.0,
+            "max": 1580860176.0
+          },
+          "ipc": {
+            "mean": 4.323999,
+            "std": 0.135346,
+            "ci95": 0.118636,
+            "min": 4.14594,
+            "max": 4.454546
+          },
+          "avg_power_w": {
+            "mean": 4.898534,
+            "std": 0.138191,
+            "ci95": 0.12113,
+            "min": 4.747208,
+            "max": 5.07878
+          },
+          "wall_time_s": {
+            "mean": 0.41227,
+            "std": 0.014434,
+            "ci95": 0.012652,
+            "min": 0.397513,
+            "max": 0.432306
+          },
+          "user_time_s": {
+            "mean": 0.401316,
+            "std": 0.012676,
+            "ci95": 0.011111,
+            "min": 0.38922,
+            "max": 0.41895
+          },
+          "system_time_s": {
+            "mean": 0.009108,
+            "std": 0.001414,
+            "ci95": 0.001239,
+            "min": 0.007798,
+            "max": 0.011021
+          },
+          "logical_writes_bytes": {
+            "mean": 0.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "disk_bytes_written": {
+            "mean": 0.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "phys_footprint_end_mb": {
+            "mean": 91.063072,
+            "std": 0.593647,
+            "ci95": 0.520355,
+            "min": 90.375572,
+            "max": 91.531822
+          }
+        },
+        "living_inmem_delta": {
+          "n_trials": 5,
+          "mismatches_total": 0,
+          "abstract_ops": 569629,
+          "modeled_proxy_j": {
+            "mean": 1.155562,
+            "std": 0.029729,
+            "ci95": 0.026058,
+            "min": 1.12879,
+            "max": 1.199221
+          },
+          "hardware_energy_j": {
+            "mean": 2.036464,
+            "std": 0.035902,
+            "ci95": 0.03147,
+            "min": 1.985012,
+            "max": 2.080649
+          },
+          "pcore_energy_j": {
+            "mean": 2.036463,
+            "std": 0.035902,
+            "ci95": 0.03147,
+            "min": 1.985012,
+            "max": 2.080649
+          },
+          "instructions": {
+            "mean": 6679490212.2,
+            "std": 2375784.260492,
+            "ci95": 2082466.721683,
+            "min": 6678097430.0,
+            "max": 6683706284.0
+          },
+          "cycles": {
+            "mean": 1512052271.2,
+            "std": 34850979.839499,
+            "ci95": 30548230.721409,
+            "min": 1483032452.0,
+            "max": 1566933812.0
+          },
+          "ipc": {
+            "mean": 4.419321,
+            "std": 0.098777,
+            "ci95": 0.086582,
+            "min": 4.265468,
+            "max": 4.503002
+          },
+          "avg_power_w": {
+            "mean": 5.022529,
+            "std": 0.079908,
+            "ci95": 0.070042,
+            "min": 4.942409,
+            "max": 5.154412
+          },
+          "wall_time_s": {
+            "mean": 0.405563,
+            "std": 0.010469,
+            "ci95": 0.009176,
+            "min": 0.396302,
+            "max": 0.420979
+          },
+          "user_time_s": {
+            "mean": 0.395291,
+            "std": 0.0091,
+            "ci95": 0.007976,
+            "min": 0.386859,
+            "max": 0.408416
+          },
+          "system_time_s": {
+            "mean": 0.010035,
+            "std": 0.001049,
+            "ci95": 0.00092,
+            "min": 0.00893,
+            "max": 0.011664
+          },
+          "logical_writes_bytes": {
+            "mean": 0.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "disk_bytes_written": {
+            "mean": 0.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "phys_footprint_end_mb": {
+            "mean": 91.244322,
+            "std": 0.489215,
+            "ci95": 0.428816,
+            "min": 90.375572,
+            "max": 91.516197
+          }
+        },
+        "living_disk_jsonl_surprise": {
+          "n_trials": 5,
+          "mismatches_total": 0,
+          "abstract_ops": 562200,
+          "modeled_proxy_j": {
+            "mean": 1.302595,
+            "std": 0.036317,
+            "ci95": 0.031833,
+            "min": 1.264147,
+            "max": 1.359102
+          },
+          "hardware_energy_j": {
+            "mean": 2.190266,
+            "std": 0.005925,
+            "ci95": 0.005194,
+            "min": 2.184014,
+            "max": 2.199648
+          },
+          "pcore_energy_j": {
+            "mean": 2.190237,
+            "std": 0.005958,
+            "ci95": 0.005222,
+            "min": 2.183918,
+            "max": 2.199648
+          },
+          "instructions": {
+            "mean": 7027712460.0,
+            "std": 1036958.821293,
+            "ci95": 908934.482398,
+            "min": 7026298155.0,
+            "max": 7028948248.0
+          },
+          "cycles": {
+            "mean": 1648837925.4,
+            "std": 31528574.225883,
+            "ci95": 27636013.799467,
+            "min": 1611071957.0,
+            "max": 1695258795.0
+          },
+          "ipc": {
+            "mean": 4.263468,
+            "std": 0.081508,
+            "ci95": 0.071445,
+            "min": 4.144676,
+            "max": 4.362572
+          },
+          "avg_power_w": {
+            "mean": 4.928702,
+            "std": 0.132709,
+            "ci95": 0.116324,
+            "min": 4.732861,
+            "max": 5.090892
+          },
+          "wall_time_s": {
+            "mean": 0.444639,
+            "std": 0.011654,
+            "ci95": 0.010215,
+            "min": 0.432075,
+            "max": 0.462706
+          },
+          "user_time_s": {
+            "mean": 0.433978,
+            "std": 0.010979,
+            "ci95": 0.009623,
+            "min": 0.422579,
+            "max": 0.451089
+          },
+          "system_time_s": {
+            "mean": 0.010159,
+            "std": 0.000764,
+            "ci95": 0.000669,
+            "min": 0.009195,
+            "max": 0.011109
+          },
+          "logical_writes_bytes": {
+            "mean": 1726873.6,
+            "std": 36475.104233,
+            "ci95": 31971.83852,
+            "min": 1667072.0,
+            "max": 1761280.0
+          },
+          "disk_bytes_written": {
+            "mean": 1605632.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 1605632.0,
+            "max": 1605632.0
+          },
+          "phys_footprint_end_mb": {
+            "mean": 91.063072,
+            "std": 0.593647,
+            "ci95": 0.520355,
+            "min": 90.375572,
+            "max": 91.531822
+          }
+        }
+      },
+      "comparisons": {
+        "living_inmem_surprise_vs_full": {
+          "savings_abstract_ops_pct": 93.627,
+          "savings_modeled_proxy_j_pct": 91.54,
+          "savings_hardware_energy_j_pct": 90.983,
+          "savings_instructions_pct": 92.331,
+          "savings_cycles_pct": 89.77,
+          "savings_wall_time_pct": 89.719,
+          "delta_hardware_energy_j": 20.364137
+        },
+        "living_inmem_surprise_vs_incremental": {
+          "savings_abstract_ops_pct": 15.316,
+          "savings_modeled_proxy_j_pct": 8.816,
+          "savings_hardware_energy_j_pct": 9.331,
+          "savings_instructions_pct": 17.489,
+          "savings_cycles_pct": 1.59,
+          "savings_wall_time_pct": 1.012,
+          "delta_hardware_energy_j": 0.207705
+        },
+        "living_inmem_delta_vs_incremental": {
+          "savings_abstract_ops_pct": 14.197,
+          "savings_modeled_proxy_j_pct": 10.015,
+          "savings_hardware_energy_j_pct": 8.509,
+          "savings_instructions_pct": 15.887,
+          "savings_cycles_pct": 1.881,
+          "savings_wall_time_pct": 2.622,
+          "delta_hardware_energy_j": 0.18939
+        },
+        "living_disk_jsonl_vs_incremental": {
+          "savings_abstract_ops_pct": 15.316,
+          "savings_modeled_proxy_j_pct": -1.434,
+          "savings_hardware_energy_j_pct": 1.599,
+          "savings_instructions_pct": 11.502,
+          "savings_cycles_pct": -6.995,
+          "savings_wall_time_pct": -6.76,
+          "delta_hardware_energy_j": 0.035588
+        }
+      }
+    },
+    "drift_and_regime_shift": {
+      "systems": {
+        "full_recompute": {
+          "n_trials": 5,
+          "mismatches_total": 0,
+          "abstract_ops": 8825962,
+          "modeled_proxy_j": {
+            "mean": 13.840723,
+            "std": 0.171483,
+            "ci95": 0.150311,
+            "min": 13.599365,
+            "max": 13.996779
+          },
+          "hardware_energy_j": {
+            "mean": 22.347167,
+            "std": 0.071392,
+            "ci95": 0.062578,
+            "min": 22.228651,
+            "max": 22.418263
+          },
+          "pcore_energy_j": {
+            "mean": 22.346106,
+            "std": 0.070817,
+            "ci95": 0.062073,
+            "min": 22.228277,
+            "max": 22.416092
+          },
+          "instructions": {
+            "mean": 85431304224.2,
+            "std": 7152552.776644,
+            "ci95": 6269488.934722,
+            "min": 85422998145.0,
+            "max": 85439073983.0
+          },
+          "cycles": {
+            "mean": 14787675941.8,
+            "std": 125869107.576353,
+            "ci95": 110329137.27672,
+            "min": 14599808590.0,
+            "max": 14917933554.0
+          },
+          "ipc": {
+            "mean": 5.77753,
+            "std": 0.04905,
+            "ci95": 0.042994,
+            "min": 5.727217,
+            "max": 5.851191
+          },
+          "avg_power_w": {
+            "mean": 5.570406,
+            "std": 0.063892,
+            "ci95": 0.056004,
+            "min": 5.510768,
+            "max": 5.649948
+          },
+          "wall_time_s": {
+            "mean": 4.012282,
+            "std": 0.056652,
+            "ci95": 0.049658,
+            "min": 3.934311,
+            "max": 4.068083
+          },
+          "user_time_s": {
+            "mean": 3.985762,
+            "std": 0.046792,
+            "ci95": 0.041015,
+            "min": 3.920288,
+            "max": 4.031538
+          },
+          "system_time_s": {
+            "mean": 0.018807,
+            "std": 0.006007,
+            "ci95": 0.005265,
+            "min": 0.011988,
+            "max": 0.027794
+          },
+          "logical_writes_bytes": {
+            "mean": 0.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "disk_bytes_written": {
+            "mean": 0.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "phys_footprint_end_mb": {
+            "mean": 94.450572,
+            "std": 0.116089,
+            "ci95": 0.101756,
+            "min": 94.281822,
+            "max": 94.609947
+          }
+        },
+        "strong_incremental": {
+          "n_trials": 5,
+          "mismatches_total": 0,
+          "abstract_ops": 802731,
+          "modeled_proxy_j": {
+            "mean": 1.591143,
+            "std": 0.029707,
+            "ci95": 0.026039,
+            "min": 1.560579,
+            "max": 1.636616
+          },
+          "hardware_energy_j": {
+            "mean": 2.657575,
+            "std": 0.019825,
+            "ci95": 0.017377,
+            "min": 2.635094,
+            "max": 2.677333
+          },
+          "pcore_energy_j": {
+            "mean": 2.657506,
+            "std": 0.019831,
+            "ci95": 0.017383,
+            "min": 2.634996,
+            "max": 2.677333
+          },
+          "instructions": {
+            "mean": 9537867556.2,
+            "std": 10996845.1619,
+            "ci95": 9639159.781459,
+            "min": 9518245254.0,
+            "max": 9544016298.0
+          },
+          "cycles": {
+            "mean": 1857577768.4,
+            "std": 25880103.947122,
+            "ci95": 22684911.302686,
+            "min": 1833403959.0,
+            "max": 1898753437.0
+          },
+          "ipc": {
+            "mean": 5.135337,
+            "std": 0.068865,
+            "ci95": 0.060363,
+            "min": 5.026464,
+            "max": 5.20499
+          },
+          "avg_power_w": {
+            "mean": 5.243775,
+            "std": 0.113224,
+            "ci95": 0.099246,
+            "min": 5.121854,
+            "max": 5.375775
+          },
+          "wall_time_s": {
+            "mean": 0.506976,
+            "std": 0.010553,
+            "ci95": 0.00925,
+            "min": 0.495677,
+            "max": 0.522727
+          },
+          "user_time_s": {
+            "mean": 0.498886,
+            "std": 0.007803,
+            "ci95": 0.006839,
+            "min": 0.488873,
+            "max": 0.508587
+          },
+          "system_time_s": {
+            "mean": 0.007514,
+            "std": 0.003536,
+            "ci95": 0.003099,
+            "min": 0.005686,
+            "max": 0.013829
+          },
+          "logical_writes_bytes": {
+            "mean": 0.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "disk_bytes_written": {
+            "mean": 0.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "phys_footprint_end_mb": {
+            "mean": 94.416197,
+            "std": 0.138261,
+            "ci95": 0.121191,
+            "min": 94.281822,
+            "max": 94.609947
+          }
+        },
+        "living_inmem_surprise": {
+          "n_trials": 5,
+          "mismatches_total": 0,
+          "abstract_ops": 678483,
+          "modeled_proxy_j": {
+            "mean": 1.407306,
+            "std": 0.075564,
+            "ci95": 0.066235,
+            "min": 1.326493,
+            "max": 1.51607
+          },
+          "hardware_energy_j": {
+            "mean": 2.31926,
+            "std": 0.031639,
+            "ci95": 0.027733,
+            "min": 2.288725,
+            "max": 2.368237
+          },
+          "pcore_energy_j": {
+            "mean": 2.318915,
+            "std": 0.031088,
+            "ci95": 0.027249,
+            "min": 2.288721,
+            "max": 2.36679
+          },
+          "instructions": {
+            "mean": 7657252964.8,
+            "std": 3959623.120862,
+            "ci95": 3470762.693703,
+            "min": 7654036056.0,
+            "max": 7663490082.0
+          },
+          "cycles": {
+            "mean": 1753775447.2,
+            "std": 70662076.850456,
+            "ci95": 61938041.249422,
+            "min": 1682508460.0,
+            "max": 1861645138.0
+          },
+          "ipc": {
+            "mean": 4.371632,
+            "std": 0.170025,
+            "ci95": 0.149034,
+            "min": 4.116515,
+            "max": 4.549181
+          },
+          "avg_power_w": {
+            "mean": 4.814921,
+            "std": 0.261675,
+            "ci95": 0.229368,
+            "min": 4.418132,
+            "max": 5.080025
+          },
+          "wall_time_s": {
+            "mean": 0.483152,
+            "std": 0.033877,
+            "ci95": 0.029695,
+            "min": 0.450534,
+            "max": 0.536027
+          },
+          "user_time_s": {
+            "mean": 0.467426,
+            "std": 0.022672,
+            "ci95": 0.019873,
+            "min": 0.442613,
+            "max": 0.500356
+          },
+          "system_time_s": {
+            "mean": 0.010846,
+            "std": 0.003696,
+            "ci95": 0.00324,
+            "min": 0.007854,
+            "max": 0.016502
+          },
+          "logical_writes_bytes": {
+            "mean": 0.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "disk_bytes_written": {
+            "mean": 0.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "phys_footprint_end_mb": {
+            "mean": 94.481822,
+            "std": 0.136395,
+            "ci95": 0.119555,
+            "min": 94.281822,
+            "max": 94.609947
+          }
+        }
+      },
+      "comparisons": {
+        "living_inmem_surprise_vs_full": {
+          "savings_abstract_ops_pct": 92.313,
+          "savings_modeled_proxy_j_pct": 89.832,
+          "savings_hardware_energy_j_pct": 89.622,
+          "savings_instructions_pct": 91.037,
+          "savings_cycles_pct": 88.14,
+          "savings_wall_time_pct": 87.958,
+          "delta_hardware_energy_j": 20.027907
+        },
+        "living_inmem_surprise_vs_incremental": {
+          "savings_abstract_ops_pct": 15.478,
+          "savings_modeled_proxy_j_pct": 11.554,
+          "savings_hardware_energy_j_pct": 12.73,
+          "savings_instructions_pct": 19.717,
+          "savings_cycles_pct": 5.588,
+          "savings_wall_time_pct": 4.699,
+          "delta_hardware_energy_j": 0.338315
+        }
+      }
+    },
+    "recurring_states": {
+      "systems": {
+        "strong_incremental": {
+          "n_trials": 5,
+          "mismatches_total": 0,
+          "abstract_ops": 543286,
+          "modeled_proxy_j": {
+            "mean": 1.064767,
+            "std": 0.009573,
+            "ci95": 0.008391,
+            "min": 1.050642,
+            "max": 1.074627
+          },
+          "hardware_energy_j": {
+            "mean": 1.825348,
+            "std": 0.010877,
+            "ci95": 0.009534,
+            "min": 1.808976,
+            "max": 1.836222
+          },
+          "pcore_energy_j": {
+            "mean": 1.825258,
+            "std": 0.011015,
+            "ci95": 0.009655,
+            "min": 1.808591,
+            "max": 1.836203
+          },
+          "instructions": {
+            "mean": 6467153108.4,
+            "std": 9459774.912895,
+            "ci95": 8291858.304775,
+            "min": 6459722227.0,
+            "max": 6477813248.0
+          },
+          "cycles": {
+            "mean": 1293537655.4,
+            "std": 18165255.995363,
+            "ci95": 15922548.915852,
+            "min": 1267810743.0,
+            "max": 1310075238.0
+          },
+          "ipc": {
+            "mean": 5.000334,
+            "std": 0.066856,
+            "ci95": 0.058601,
+            "min": 4.936521,
+            "max": 5.095179
+          },
+          "avg_power_w": {
+            "mean": 5.097548,
+            "std": 0.083273,
+            "ci95": 0.072992,
+            "min": 5.000908,
+            "max": 5.219192
+          },
+          "wall_time_s": {
+            "mean": 0.358136,
+            "std": 0.00414,
+            "ci95": 0.003629,
+            "min": 0.351821,
+            "max": 0.362017
+          },
+          "user_time_s": {
+            "mean": 0.349059,
+            "std": 0.003236,
+            "ci95": 0.002837,
+            "min": 0.343939,
+            "max": 0.352539
+          },
+          "system_time_s": {
+            "mean": 0.007336,
+            "std": 0.000396,
+            "ci95": 0.000347,
+            "min": 0.006874,
+            "max": 0.007968
+          },
+          "logical_writes_bytes": {
+            "mean": 0.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "disk_bytes_written": {
+            "mean": 0.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "phys_footprint_end_mb": {
+            "mean": 98.281841,
+            "std": 0.926969,
+            "ci95": 0.812524,
+            "min": 96.672447,
+            "max": 98.813095
+          }
+        },
+        "living_single_anchor": {
+          "n_trials": 5,
+          "mismatches_total": 0,
+          "abstract_ops": 639269,
+          "modeled_proxy_j": {
+            "mean": 1.195417,
+            "std": 0.026325,
+            "ci95": 0.023075,
+            "min": 1.17657,
+            "max": 1.239601
+          },
+          "hardware_energy_j": {
+            "mean": 2.071863,
+            "std": 0.016327,
+            "ci95": 0.014311,
+            "min": 2.047882,
+            "max": 2.090041
+          },
+          "pcore_energy_j": {
+            "mean": 2.071464,
+            "std": 0.016268,
+            "ci95": 0.014259,
+            "min": 2.04786,
+            "max": 2.08958
+          },
+          "instructions": {
+            "mean": 6663838299.0,
+            "std": 4485158.838875,
+            "ci95": 3931415.061014,
+            "min": 6660439644.0,
+            "max": 6671317975.0
+          },
+          "cycles": {
+            "mean": 1618956699.8,
+            "std": 23744032.383309,
+            "ci95": 20812562.023862,
+            "min": 1586955338.0,
+            "max": 1648092470.0
+          },
+          "ipc": {
+            "mean": 4.116817,
+            "std": 0.058462,
+            "ci95": 0.051244,
+            "min": 4.047903,
+            "max": 4.197131
+          },
+          "avg_power_w": {
+            "mean": 4.405023,
+            "std": 0.477016,
+            "ci95": 0.418123,
+            "min": 3.559391,
+            "max": 4.702069
+          },
+          "wall_time_s": {
+            "mean": 0.475748,
+            "std": 0.062558,
+            "ci95": 0.054834,
+            "min": 0.443144,
+            "max": 0.587191
+          },
+          "user_time_s": {
+            "mean": 0.435051,
+            "std": 0.008703,
+            "ci95": 0.007628,
+            "min": 0.4256,
+            "max": 0.448076
+          },
+          "system_time_s": {
+            "mean": 0.012782,
+            "std": 0.003285,
+            "ci95": 0.00288,
+            "min": 0.010448,
+            "max": 0.018434
+          },
+          "logical_writes_bytes": {
+            "mean": 0.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "disk_bytes_written": {
+            "mean": 0.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "phys_footprint_end_mb": {
+            "mean": 98.60372,
+            "std": 0.286752,
+            "ci95": 0.251349,
+            "min": 98.281845,
+            "max": 98.813095
+          }
+        },
+        "living_multi_anchor_atlas": {
+          "n_trials": 5,
+          "mismatches_total": 0,
+          "abstract_ops": 560544,
+          "modeled_proxy_j": {
+            "mean": 1.166012,
+            "std": 0.019545,
+            "ci95": 0.017132,
+            "min": 1.146755,
+            "max": 1.1979
+          },
+          "hardware_energy_j": {
+            "mean": 1.894707,
+            "std": 0.014218,
+            "ci95": 0.012463,
+            "min": 1.879697,
+            "max": 1.910722
+          },
+          "pcore_energy_j": {
+            "mean": 1.894516,
+            "std": 0.01433,
+            "ci95": 0.012561,
+            "min": 1.879697,
+            "max": 1.910679
+          },
+          "instructions": {
+            "mean": 6016769108.4,
+            "std": 7194229.732148,
+            "ci95": 6306020.396919,
+            "min": 6012218826.0,
+            "max": 6029517334.0
+          },
+          "cycles": {
+            "mean": 1494851647.2,
+            "std": 28316345.474154,
+            "ci95": 24820371.154994,
+            "min": 1454199067.0,
+            "max": 1528165803.0
+          },
+          "ipc": {
+            "mean": 4.026107,
+            "std": 0.073582,
+            "ci95": 0.064497,
+            "min": 3.945591,
+            "max": 4.13498
+          },
+          "avg_power_w": {
+            "mean": 4.527987,
+            "std": 0.205294,
+            "ci95": 0.179948,
+            "min": 4.17084,
+            "max": 4.699435
+          },
+          "wall_time_s": {
+            "mean": 0.41912,
+            "std": 0.018917,
+            "ci95": 0.016582,
+            "min": 0.406586,
+            "max": 0.452507
+          },
+          "user_time_s": {
+            "mean": 0.397752,
+            "std": 0.003234,
+            "ci95": 0.002835,
+            "min": 0.394016,
+            "max": 0.402603
+          },
+          "system_time_s": {
+            "mean": 0.012709,
+            "std": 0.003132,
+            "ci95": 0.002746,
+            "min": 0.010336,
+            "max": 0.018187
+          },
+          "logical_writes_bytes": {
+            "mean": 0.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "disk_bytes_written": {
+            "mean": 0.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "phys_footprint_end_mb": {
+            "mean": 98.70997,
+            "std": 0.230595,
+            "ci95": 0.202125,
+            "min": 98.29747,
+            "max": 98.813095
+          }
+        }
+      },
+      "comparisons": {
+        "single_anchor_vs_incremental": {
+          "savings_abstract_ops_pct": -17.667,
+          "savings_modeled_proxy_j_pct": -12.27,
+          "savings_hardware_energy_j_pct": -13.505,
+          "savings_instructions_pct": -3.041,
+          "savings_cycles_pct": -25.157,
+          "savings_wall_time_pct": -32.84,
+          "delta_hardware_energy_j": -0.246515
+        },
+        "multi_anchor_vs_incremental": {
+          "savings_abstract_ops_pct": -3.177,
+          "savings_modeled_proxy_j_pct": -9.509,
+          "savings_hardware_energy_j_pct": -3.8,
+          "savings_instructions_pct": 6.964,
+          "savings_cycles_pct": -15.563,
+          "savings_wall_time_pct": -17.028,
+          "delta_hardware_energy_j": -0.069359
+        }
+      }
+    },
+    "high_entropy_shock": {
+      "systems": {
+        "strong_incremental": {
+          "n_trials": 5,
+          "mismatches_total": 0,
+          "abstract_ops": 3208806,
+          "modeled_proxy_j": {
+            "mean": 6.744445,
+            "std": 0.143393,
+            "ci95": 0.12569,
+            "min": 6.612433,
+            "max": 6.960487
+          },
+          "hardware_energy_j": {
+            "mean": 10.408671,
+            "std": 0.050334,
+            "ci95": 0.044119,
+            "min": 10.331737,
+            "max": 10.472696
+          },
+          "pcore_energy_j": {
+            "mean": 10.40692,
+            "std": 0.048614,
+            "ci95": 0.042612,
+            "min": 10.331735,
+            "max": 10.467151
+          },
+          "instructions": {
+            "mean": 37489497711.2,
+            "std": 41738280.285562,
+            "ci95": 36585215.737122,
+            "min": 37419990350.0,
+            "max": 37532420869.0
+          },
+          "cycles": {
+            "mean": 7223035598.4,
+            "std": 129303499.749277,
+            "ci95": 113339514.74586,
+            "min": 7097766352.0,
+            "max": 7407113791.0
+          },
+          "ipc": {
+            "mean": 5.191557,
+            "std": 0.09017,
+            "ci95": 0.079038,
+            "min": 5.067078,
+            "max": 5.282556
+          },
+          "avg_power_w": {
+            "mean": 5.19769,
+            "std": 0.123884,
+            "ci95": 0.108589,
+            "min": 5.014075,
+            "max": 5.334183
+          },
+          "wall_time_s": {
+            "mean": 2.003614,
+            "std": 0.055881,
+            "ci95": 0.048982,
+            "min": 1.952103,
+            "max": 2.08866
+          },
+          "user_time_s": {
+            "mean": 1.974314,
+            "std": 0.036794,
+            "ci95": 0.032251,
+            "min": 1.940155,
+            "max": 2.028399
+          },
+          "system_time_s": {
+            "mean": 0.019385,
+            "std": 0.00926,
+            "ci95": 0.008117,
+            "min": 0.009919,
+            "max": 0.033281
+          },
+          "logical_writes_bytes": {
+            "mean": 0.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "disk_bytes_written": {
+            "mean": 0.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "phys_footprint_end_mb": {
+            "mean": 115.55997,
+            "std": 2.168652,
+            "ci95": 1.900907,
+            "min": 113.51622,
+            "max": 118.04747
+          }
+        },
+        "living_static_no_retire": {
+          "n_trials": 5,
+          "mismatches_total": 0,
+          "abstract_ops": 4727133,
+          "modeled_proxy_j": {
+            "mean": 8.341167,
+            "std": 0.071141,
+            "ci95": 0.062358,
+            "min": 8.249552,
+            "max": 8.437862
+          },
+          "hardware_energy_j": {
+            "mean": 12.336761,
+            "std": 0.030693,
+            "ci95": 0.026903,
+            "min": 12.305109,
+            "max": 12.384821
+          },
+          "pcore_energy_j": {
+            "mean": 12.335032,
+            "std": 0.030174,
+            "ci95": 0.026449,
+            "min": 12.304494,
+            "max": 12.382238
+          },
+          "instructions": {
+            "mean": 41061839936.8,
+            "std": 5041350.342623,
+            "ci95": 4418938.409282,
+            "min": 41056019920.0,
+            "max": 41067032612.0
+          },
+          "cycles": {
+            "mean": 9107483168.4,
+            "std": 102015491.636643,
+            "ci95": 89420521.030577,
+            "min": 9008185788.0,
+            "max": 9278130926.0
+          },
+          "ipc": {
+            "mean": 4.509032,
+            "std": 0.050174,
+            "ci95": 0.043979,
+            "min": 4.425186,
+            "max": 4.558323
+          },
+          "avg_power_w": {
+            "mean": 4.897119,
+            "std": 0.037018,
+            "ci95": 0.032447,
+            "min": 4.850195,
+            "max": 4.939909
+          },
+          "wall_time_s": {
+            "mean": 2.519319,
+            "std": 0.022475,
+            "ci95": 0.0197,
+            "min": 2.493098,
+            "max": 2.544195
+          },
+          "user_time_s": {
+            "mean": 2.479802,
+            "std": 0.019546,
+            "ci95": 0.017132,
+            "min": 2.454519,
+            "max": 2.507356
+          },
+          "system_time_s": {
+            "mean": 0.02869,
+            "std": 0.003405,
+            "ci95": 0.002985,
+            "min": 0.023324,
+            "max": 0.032158
+          },
+          "logical_writes_bytes": {
+            "mean": 0.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "disk_bytes_written": {
+            "mean": 0.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "phys_footprint_end_mb": {
+            "mean": 116.269345,
+            "std": 2.737864,
+            "ci95": 2.399843,
+            "min": 113.813095,
+            "max": 120.20372
+          }
+        },
+        "living_adaptive_retire": {
+          "n_trials": 5,
+          "mismatches_total": 0,
+          "abstract_ops": 3269486,
+          "modeled_proxy_j": {
+            "mean": 8.200644,
+            "std": 0.171169,
+            "ci95": 0.150036,
+            "min": 8.027101,
+            "max": 8.449824
+          },
+          "hardware_energy_j": {
+            "mean": 12.267079,
+            "std": 0.05622,
+            "ci95": 0.049279,
+            "min": 12.183878,
+            "max": 12.334685
+          },
+          "pcore_energy_j": {
+            "mean": 12.264132,
+            "std": 0.054249,
+            "ci95": 0.047552,
+            "min": 12.183799,
+            "max": 12.329148
+          },
+          "instructions": {
+            "mean": 42234378004.6,
+            "std": 15172779.329962,
+            "ci95": 13299527.467844,
+            "min": 42220367141.0,
+            "max": 42258722023.0
+          },
+          "cycles": {
+            "mean": 8776237898.0,
+            "std": 180112362.163981,
+            "ci95": 157875446.271595,
+            "min": 8585133067.0,
+            "max": 9063330987.0
+          },
+          "ipc": {
+            "mean": 4.81393,
+            "std": 0.095883,
+            "ci95": 0.084046,
+            "min": 4.662604,
+            "max": 4.917847
+          },
+          "avg_power_w": {
+            "mean": 5.033085,
+            "std": 0.108898,
+            "ci95": 0.095453,
+            "min": 4.874244,
+            "max": 5.140617
+          },
+          "wall_time_s": {
+            "mean": 2.43839,
+            "std": 0.063754,
+            "ci95": 0.055883,
+            "min": 2.37012,
+            "max": 2.530584
+          },
+          "user_time_s": {
+            "mean": 2.396318,
+            "std": 0.043297,
+            "ci95": 0.037951,
+            "min": 2.352964,
+            "max": 2.4563
+          },
+          "system_time_s": {
+            "mean": 0.023483,
+            "std": 0.01164,
+            "ci95": 0.010203,
+            "min": 0.01176,
+            "max": 0.042715
+          },
+          "logical_writes_bytes": {
+            "mean": 0.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "disk_bytes_written": {
+            "mean": 0.0,
+            "std": 0.0,
+            "ci95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "phys_footprint_end_mb": {
+            "mean": 115.369345,
+            "std": 1.901717,
+            "ci95": 1.666929,
+            "min": 113.563095,
+            "max": 117.719345
+          }
+        }
+      },
+      "comparisons": {
+        "static_vs_incremental": {
+          "savings_abstract_ops_pct": -47.318,
+          "savings_modeled_proxy_j_pct": -23.675,
+          "savings_hardware_energy_j_pct": -18.524,
+          "savings_instructions_pct": -9.529,
+          "savings_cycles_pct": -26.089,
+          "savings_wall_time_pct": -25.739,
+          "delta_hardware_energy_j": -1.92809
+        },
+        "adaptive_retire_vs_incremental": {
+          "savings_abstract_ops_pct": -1.891,
+          "savings_modeled_proxy_j_pct": -21.591,
+          "savings_hardware_energy_j_pct": -17.854,
+          "savings_instructions_pct": -12.657,
+          "savings_cycles_pct": -21.503,
+          "savings_wall_time_pct": -21.7,
+          "delta_hardware_energy_j": -1.858408
+        }
+      }
+    }
+  },
+  "hw2_shock_rate_crossover": [
+    {
+      "shock_prob": 0.0,
+      "inc_hw_energy_j": {
+        "mean": 0.671814,
+        "std": 0.015656,
+        "ci95": 0.017716,
+        "min": 0.654792,
+        "max": 0.685596
+      },
+      "living_hw_energy_j": {
+        "mean": 0.555934,
+        "std": 0.011196,
+        "ci95": 0.012669,
+        "min": 0.543169,
+        "max": 0.564085
+      },
+      "savings_abstract_ops_pct": 25.867,
+      "savings_modeled_proxy_j_pct": 22.802,
+      "savings_hardware_energy_j_pct": 17.249,
+      "savings_instructions_pct": 23.57,
+      "savings_cycles_pct": 15.058,
+      "savings_wall_time_pct": 14.741,
+      "delta_hardware_energy_j": 0.11588
+    },
+    {
+      "shock_prob": 0.02,
+      "inc_hw_energy_j": {
+        "mean": 0.670443,
+        "std": 0.007338,
+        "ci95": 0.008303,
+        "min": 0.664254,
+        "max": 0.678549
+      },
+      "living_hw_energy_j": {
+        "mean": 0.585394,
+        "std": 0.005414,
+        "ci95": 0.006127,
+        "min": 0.580941,
+        "max": 0.59142
+      },
+      "savings_abstract_ops_pct": 20.426,
+      "savings_modeled_proxy_j_pct": 17.741,
+      "savings_hardware_energy_j_pct": 12.685,
+      "savings_instructions_pct": 20.265,
+      "savings_cycles_pct": 10.813,
+      "savings_wall_time_pct": 10.907,
+      "delta_hardware_energy_j": 0.085049
+    },
+    {
+      "shock_prob": 0.05,
+      "inc_hw_energy_j": {
+        "mean": 0.650787,
+        "std": 0.01985,
+        "ci95": 0.022462,
+        "min": 0.629843,
+        "max": 0.669323
+      },
+      "living_hw_energy_j": {
+        "mean": 0.592263,
+        "std": 0.016743,
+        "ci95": 0.018947,
+        "min": 0.581207,
+        "max": 0.611526
+      },
+      "savings_abstract_ops_pct": 12.685,
+      "savings_modeled_proxy_j_pct": 13.546,
+      "savings_hardware_energy_j_pct": 8.993,
+      "savings_instructions_pct": 15.725,
+      "savings_cycles_pct": 6.764,
+      "savings_wall_time_pct": 6.392,
+      "delta_hardware_energy_j": 0.058524
+    },
+    {
+      "shock_prob": 0.08,
+      "inc_hw_energy_j": {
+        "mean": 0.65207,
+        "std": 0.02418,
+        "ci95": 0.027363,
+        "min": 0.629582,
+        "max": 0.677646
+      },
+      "living_hw_energy_j": {
+        "mean": 0.655719,
+        "std": 0.016554,
+        "ci95": 0.018733,
+        "min": 0.638077,
+        "max": 0.670913
+      },
+      "savings_abstract_ops_pct": 4.374,
+      "savings_modeled_proxy_j_pct": 3.917,
+      "savings_hardware_energy_j_pct": -0.56,
+      "savings_instructions_pct": 10.605,
+      "savings_cycles_pct": -1.588,
+      "savings_wall_time_pct": -2.177,
+      "delta_hardware_energy_j": -0.003649
+    },
+    {
+      "shock_prob": 0.1,
+      "inc_hw_energy_j": {
+        "mean": 0.659432,
+        "std": 0.005239,
+        "ci95": 0.005928,
+        "min": 0.655575,
+        "max": 0.665396
+      },
+      "living_hw_energy_j": {
+        "mean": 0.65787,
+        "std": 0.005668,
+        "ci95": 0.006414,
+        "min": 0.651866,
+        "max": 0.663127
+      },
+      "savings_abstract_ops_pct": 1.982,
+      "savings_modeled_proxy_j_pct": 5.499,
+      "savings_hardware_energy_j_pct": 0.237,
+      "savings_instructions_pct": 9.152,
+      "savings_cycles_pct": -1.798,
+      "savings_wall_time_pct": -1.574,
+      "delta_hardware_energy_j": 0.001562
+    },
+    {
+      "shock_prob": 0.15,
+      "inc_hw_energy_j": {
+        "mean": 0.666201,
+        "std": 0.024423,
+        "ci95": 0.027637,
+        "min": 0.638293,
+        "max": 0.683666
+      },
+      "living_hw_energy_j": {
+        "mean": 0.68154,
+        "std": 0.013509,
+        "ci95": 0.015286,
+        "min": 0.665942,
+        "max": 0.689392
+      },
+      "savings_abstract_ops_pct": -5.897,
+      "savings_modeled_proxy_j_pct": -0.752,
+      "savings_hardware_energy_j_pct": -2.302,
+      "savings_instructions_pct": 4.699,
+      "savings_cycles_pct": -5.77,
+      "savings_wall_time_pct": -6.252,
+      "delta_hardware_energy_j": -0.015339
+    },
+    {
+      "shock_prob": 0.3,
+      "inc_hw_energy_j": {
+        "mean": 0.647096,
+        "std": 0.011072,
+        "ci95": 0.012529,
+        "min": 0.634313,
+        "max": 0.653639
+      },
+      "living_hw_energy_j": {
+        "mean": 0.710715,
+        "std": 0.021872,
+        "ci95": 0.024751,
+        "min": 0.695857,
+        "max": 0.735831
+      },
+      "savings_abstract_ops_pct": -19.152,
+      "savings_modeled_proxy_j_pct": -9.234,
+      "savings_hardware_energy_j_pct": -9.831,
+      "savings_instructions_pct": -3.185,
+      "savings_cycles_pct": -14.702,
+      "savings_wall_time_pct": -13.974,
+      "delta_hardware_energy_j": -0.063619
+    },
+    {
+      "shock_prob": 0.6,
+      "inc_hw_energy_j": {
+        "mean": 0.627444,
+        "std": 0.01262,
+        "ci95": 0.014281,
+        "min": 0.613976,
+        "max": 0.638996
+      },
+      "living_hw_energy_j": {
+        "mean": 0.736287,
+        "std": 0.016193,
+        "ci95": 0.018325,
+        "min": 0.717638,
+        "max": 0.746791
+      },
+      "savings_abstract_ops_pct": -31.401,
+      "savings_modeled_proxy_j_pct": -18.756,
+      "savings_hardware_energy_j_pct": -17.347,
+      "savings_instructions_pct": -11.434,
+      "savings_cycles_pct": -23.762,
+      "savings_wall_time_pct": -23.889,
+      "delta_hardware_energy_j": -0.108843
+    }
+  ],
+  "hw3_node_granularity_scaling": [
+    {
+      "k_node_compute_iters": 1,
+      "full_hw_energy_j": {
+        "mean": 6.775496,
+        "std": 0.021108,
+        "ci95": 0.023886,
+        "min": 6.751969,
+        "max": 6.792773
+      },
+      "inc_hw_energy_j": {
+        "mean": 0.660022,
+        "std": 0.005145,
+        "ci95": 0.005822,
+        "min": 0.654472,
+        "max": 0.664632
+      },
+      "living_hw_energy_j": {
+        "mean": 0.605443,
+        "std": 0.021887,
+        "ci95": 0.024768,
+        "min": 0.581447,
+        "max": 0.624312
+      },
+      "vs_incremental": {
+        "savings_abstract_ops_pct": 14.954,
+        "savings_modeled_proxy_j_pct": 14.211,
+        "savings_hardware_energy_j_pct": 8.269,
+        "savings_instructions_pct": 17.056,
+        "savings_cycles_pct": 5.943,
+        "savings_wall_time_pct": 5.962,
+        "delta_hardware_energy_j": 0.054579
+      },
+      "vs_full": {
+        "savings_abstract_ops_pct": 93.624,
+        "savings_modeled_proxy_j_pct": 91.905,
+        "savings_hardware_energy_j_pct": 91.064,
+        "savings_instructions_pct": 92.325,
+        "savings_cycles_pct": 90.032,
+        "savings_wall_time_pct": 90.058,
+        "delta_hardware_energy_j": 6.170053
+      }
+    },
+    {
+      "k_node_compute_iters": 5,
+      "full_hw_energy_j": {
+        "mean": 12.593334,
+        "std": 0.032742,
+        "ci95": 0.037051,
+        "min": 12.561096,
+        "max": 12.626558
+      },
+      "inc_hw_energy_j": {
+        "mean": 1.099524,
+        "std": 0.008033,
+        "ci95": 0.00909,
+        "min": 1.090505,
+        "max": 1.105912
+      },
+      "living_hw_energy_j": {
+        "mean": 0.858934,
+        "std": 0.029124,
+        "ci95": 0.032957,
+        "min": 0.82794,
+        "max": 0.885732
+      },
+      "vs_incremental": {
+        "savings_abstract_ops_pct": 14.954,
+        "savings_modeled_proxy_j_pct": 24.829,
+        "savings_hardware_energy_j_pct": 21.881,
+        "savings_instructions_pct": 25.505,
+        "savings_cycles_pct": 19.027,
+        "savings_wall_time_pct": 19.145,
+        "delta_hardware_energy_j": 0.24059
+      },
+      "vs_full": {
+        "savings_abstract_ops_pct": 93.624,
+        "savings_modeled_proxy_j_pct": 93.594,
+        "savings_hardware_energy_j_pct": 93.179,
+        "savings_instructions_pct": 93.765,
+        "savings_cycles_pct": 92.597,
+        "savings_wall_time_pct": 92.595,
+        "delta_hardware_energy_j": 11.7344
+      }
+    },
+    {
+      "k_node_compute_iters": 20,
+      "full_hw_energy_j": {
+        "mean": 25.453709,
+        "std": 0.060574,
+        "ci95": 0.068546,
+        "min": 25.411473,
+        "max": 25.523111
+      },
+      "inc_hw_energy_j": {
+        "mean": 2.040164,
+        "std": 0.006349,
+        "ci95": 0.007184,
+        "min": 2.033498,
+        "max": 2.046139
+      },
+      "living_hw_energy_j": {
+        "mean": 1.435426,
+        "std": 0.014643,
+        "ci95": 0.01657,
+        "min": 1.418554,
+        "max": 1.444827
+      },
+      "vs_incremental": {
+        "savings_abstract_ops_pct": 14.954,
+        "savings_modeled_proxy_j_pct": 31.654,
+        "savings_hardware_energy_j_pct": 29.642,
+        "savings_instructions_pct": 32.056,
+        "savings_cycles_pct": 28.335,
+        "savings_wall_time_pct": 28.301,
+        "delta_hardware_energy_j": 0.604738
+      },
+      "vs_full": {
+        "savings_abstract_ops_pct": 93.624,
+        "savings_modeled_proxy_j_pct": 94.492,
+        "savings_hardware_energy_j_pct": 94.361,
+        "savings_instructions_pct": 94.706,
+        "savings_cycles_pct": 93.987,
+        "savings_wall_time_pct": 93.975,
+        "delta_hardware_energy_j": 24.018283
+      }
+    },
+    {
+      "k_node_compute_iters": 80,
+      "full_hw_energy_j": {
+        "mean": 76.850061,
+        "std": 0.105425,
+        "ci95": 0.1193,
+        "min": 76.728463,
+        "max": 76.915853
+      },
+      "inc_hw_energy_j": {
+        "mean": 5.803784,
+        "std": 0.006799,
+        "ci95": 0.007694,
+        "min": 5.796532,
+        "max": 5.810014
+      },
+      "living_hw_energy_j": {
+        "mean": 3.781022,
+        "std": 0.014508,
+        "ci95": 0.016418,
+        "min": 3.771405,
+        "max": 3.79771
+      },
+      "vs_incremental": {
+        "savings_abstract_ops_pct": 14.954,
+        "savings_modeled_proxy_j_pct": 34.41,
+        "savings_hardware_energy_j_pct": 34.852,
+        "savings_instructions_pct": 36.491,
+        "savings_cycles_pct": 32.934,
+        "savings_wall_time_pct": 32.878,
+        "delta_hardware_energy_j": 2.022762
+      },
+      "vs_full": {
+        "savings_abstract_ops_pct": 93.624,
+        "savings_modeled_proxy_j_pct": 95.108,
+        "savings_hardware_energy_j_pct": 95.08,
+        "savings_instructions_pct": 95.272,
+        "savings_cycles_pct": 94.925,
+        "savings_wall_time_pct": 94.926,
+        "delta_hardware_energy_j": 73.069039
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CRR v0.1 Claim Contract Schema",
+  "type": "object",
+  "required": [
+    "id",
+    "version",
+    "title",
+    "kind",
+    "status",
+    "paper_id",
+    "statement",
+    "assumptions",
+    "depends_on",
+    "evidence",
+    "guarantee",
+    "validity",
+    "provenance",
+    "limitations"
+  ],
+  "properties": {
+    "id": { "type": "string", "pattern": "^TS-[A-Z0-9-]+$" },
+    "version": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$" },
+    "title": { "type": "string", "minLength": 3 },
+    "kind": {
+      "type": "string",
+      "enum": [
+        "definition",
+        "theorem",
+        "conjecture",
+        "empirical_finding",
+        "causal_hypothesis",
+        "modeling_assumption",
+        "normative_proposition"
+      ]
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "proposed",
+        "formally_proved_under_assumptions",
+        "empirically_supported",
+        "partially_supported",
+        "replication_pending",
+        "contradicted",
+        "invalidated",
+        "superseded"
+      ]
+    },
+    "paper_id": { "type": "string" },
+    "statement": { "type": "string", "minLength": 10 },
+    "assumptions": { "type": "array", "items": { "type": "string" } },
+    "depends_on": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "version"],
+        "properties": {
+          "id": { "type": "string" },
+          "version": { "type": "string" }
+        }
+      }
+    },
+    "evidence": {
+      "type": "object",
+      "required": ["proofs", "experiments", "counterexamples"],
+      "properties": {
+        "proofs": { "type": "array", "items": { "type": "string" } },
+        "experiments": { "type": "array", "items": { "type": "string" } },
+        "counterexamples": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "guarantee": {
+      "type": "object",
+      "required": ["type", "scope", "energy_evidence_tier"],
+      "properties": {
+        "type": { "type": "string" },
+        "scope": { "type": "string" },
+        "energy_evidence_tier": {
+          "type": "string",
+          "enum": ["none", "operation_counts_only", "modeled_proxy_energy", "physically_measured_energy"]
+        }
+      }
+    },
+    "validity": {
+      "type": "object",
+      "required": ["requirements", "invalidation_conditions"]
+    },
+    "provenance": {
+      "type": "object",
+      "required": ["contributors", "source_artifacts"]
+    },
+    "limitations": { "type": "array", "items": { "type": "string" } }
+  }
+}

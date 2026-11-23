@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+message: "If you use this research initiative, challenge kit, specifications, or CRR tooling, please cite it as below."
+title: "Temporal Science Research Initiative & Living Computation Experimental Program"
+version: "0.1.1-external-season-1"
+date-released: "2026-11-23"
+license: MIT
+authors:
+  - given-names: "Leo"
+    family-names: "Guinan"
+  - name: "Temporal Science Initiative Contributors"
+repository-code: "https://github.com/leo-guinan/temporal-science"
+url: "https://github.com/leo-guinan/temporal-science"
+keywords:
+  - temporal-science
+  - living-computation
+  - certified-reuse
+  - transferable-computation
+  - work-not-done
+  - proof-of-creator
+  - computational-optionality
+  - composable-research-repositories

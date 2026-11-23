@@ -1,0 +1,40 @@
+initiative:
+  id: temporal-science
+  name: Temporal Science Research Initiative
+  version: 1.0.0
+  date: "2026-11-22"
+  status: proposed_research_initiative
+  crr_standard_version: 0.1.0
+
+reference_repositories:
+  living_computation:
+    path: ../living-computation
+    versions_covered: ["v0.1", "v0.2", "v0.3"]
+    policy: read_only_preserved_artifacts
+
+papers:
+  - id: paper-01
+    path: papers/01-certified-reuse
+    exported_contract: TS-CERTIFIED-REUSE
+    title: "Certified Computational Reuse Under Environmental Change"
+    version: 0.1.0
+  - id: paper-02
+    path: papers/02-transferable-computation
+    exported_contract: TS-TRANSFER-CERTIFICATE
+    title: "Transferable Computation: Validity-Preserving Knowledge Across Environments"
+    version: 0.1.0
+  - id: paper-03
+    path: papers/03-work-not-done
+    exported_contract: TS-WORK-NOT-DONE
+    title: "Verifiable Work Not Done: Efficient Certificates of Computational Avoidance"
+    version: 0.1.0
+  - id: paper-04
+    path: papers/04-human-capital
+    exported_contract: TS-HUMAN-CAPITAL
+    title: "Human Computational Capital: Stable Interfaces and Intergenerational Knowledge Transfer"
+    version: 0.1.0
+  - id: paper-05
+    path: papers/05-proof-of-creator
+    exported_contract: TS-PROOF-OF-CREATOR
+    title: "Proof of Creator: Causal Provenance, Verified Savings, and Computational Optionality"
+    version: 0.1.0

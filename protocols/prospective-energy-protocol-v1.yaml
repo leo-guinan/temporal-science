@@ -1,0 +1,30 @@
+protocol_id: TS-PROTO-HW-ENERGY-v1.0.0
+version: 1.0.0
+status: frozen
+date: 2026-11-22
+initiative: temporal-science
+five_term_model:
+  formula: "E_reuse = E_dispatch + E_validation + E_execution + E_memory + E_maintenance"
+  dimensionless_transfer_hypothesis: "Delta_E ~= E_baseline * f(K, q, V) - E_overhead"
+mandatory_rules:
+  - id: R1_STRICT_BLIND_SCHEDULE
+    description: "No shared execution RNG seeds or exact per-step operation counts between preregistration and evaluation."
+  - id: R2_SHA256_PRE_EXECUTION_SEAL
+    description: "Preregistered predictions must be UTC-timestamped and SHA-256 sealed prior to execution; zero post-hoc refitting."
+  - id: R3_FULL_LIFECYCLE_AND_CALIBRATION_PAYBACK
+    description: "Include cold-start, validation, maintenance, fallback, and report calibration energy E_cal and payback N*_cal."
+  - id: R4_EQUAL_WORK_ZERO_MISMATCH
+    description: "Verify 0 output mismatches and symmetric accounting against a strong incremental baseline."
+  - id: R5_NEGATIVE_BOUNDARY_REQUIRED
+    description: "Include at least one high-churn or fine-granularity failure regime."
+minimum_controls:
+  min_paired_blocks: 8
+  recommended_paired_blocks: 10
+  power_source: "AC mains power required (log pre/post state)"
+  statistics: ["paired_diff_mean", "student_t_ci95", "cohens_dz", "paired_ttest_p", "prospective_r2_joules", "prospective_r2_pct", "mae_joules", "mae_pct_pts"]
+  explicit_non_conflation: "Never describe process PMU, SoC IOReport, or RAPL counters as AC wall-plug measurements."
+reference_implementations:
+  - "experiments/hw_soc_breakeven_exp03/run_exp_hw03.py"
+  - "experiments/hw_soc_prospective_exp04/preregister_predictions.py"
+  - "experiments/hw_soc_prospective_exp04/run_exp_hw04.py"
+  - "experiments/hw_soc_prospective_exp04/audit_exp_hw04.py"

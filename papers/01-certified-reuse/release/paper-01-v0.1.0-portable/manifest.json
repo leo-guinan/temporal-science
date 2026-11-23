@@ -1,0 +1,388 @@
+{
+  "bundle_name": "paper-01-v0.1.0-portable",
+  "paper_id": "paper-01",
+  "paper_version": "0.1.0",
+  "title": "Certified Computational Reuse Under Environmental Change",
+  "exported_contract": "TS-CERTIFIED-REUSE",
+  "release_tier": "scoped_preprint",
+  "portable_self_contained": true,
+  "claims": [
+    {
+      "id": "TS-BASE-001",
+      "version": "1.0.0",
+      "kind": "definition",
+      "status": "formally_proved_under_assumptions",
+      "energy_evidence_tier": "modeled_proxy_energy",
+      "statement": "Every computational system's lifecycle resource expenditure is measured as a 5-dimensional vector (steps, time_s, joules, memory_bytes, communication_bytes) partitioned exhaustively across execution, trace_recording, learning, guarding, and reconfiguration, with physical energy, modeled proxy energy, human time, and monetary projections maintained in strictly separate unit ledgers.",
+      "assumptions": [
+        "All system operations are instrumented under a shared accounting boundary.",
+        "Modeled energy is explicitly tagged `modeled_proxy` whenever hardware counters are absent.",
+        "Unlike physical and human units are never summed without an explicit conversion model."
+      ],
+      "counterexamples": [
+        "Exp 1 synchronous JSONL trace serialization flips modeled energy negative (-7.1%) while cutting ops (+12.7%), proving steps and energy must stay separate."
+      ],
+      "limitations": [
+        "Proxy energy model does not substitute for hardware RAPL/SMC or external power metering."
+      ]
+    },
+    {
+      "id": "TS-001",
+      "version": "0.1.0",
+      "kind": "theorem",
+      "status": "formally_proved_under_assumptions",
+      "energy_evidence_tier": "modeled_proxy_energy",
+      "statement": "For a deterministic topologically ordered computational DAG G and an exclusive globally Lipschitz-continuous sub-DAG cone I feeding a saturating or discrete target node v in {THRESHOLD, RELU, CLAMP}, if boundary drift satisfies sum_{b in B} L_b * |u_b - u0_b| + eps_fp < margin(p(u0)), then skipping evaluation of all nodes in I U {v} produces an output observationally identical to full DAG evaluation (RESTRICTED_WORST_CASE guarantee, zero false-SAFE errors).",
+      "assumptions": [
+        "Target DAG is deterministic and topologically ordered with immutable internal cone structure.",
+        "Every internal node in cone I belongs to LIPSCHITZ_CONTINUOUS_OPS with exact partial bounds.",
+        "Exclusive ownership holds: no node outside I U {v} reads any node in I.",
+        "IEEE-754 safety margin eps_fp strictly dominates floating-point rounding error."
+      ],
+      "counterexamples": [
+        "High-entropy shock regime (Exp 1+2): soundness holds (0 errors) but hit rate collapses, causing -47.7% op overhead without adaptive retirement.",
+        "Periodically sampled canaries (Exp 2, P=5..50): lack formal soundness and suffer 77.6%-98.4% output mismatch rates."
+      ],
+      "limitations": [
+        "Applies only to continuous Lipschitz cones feeding flat/saturated target gates, not arbitrary discontinuous DAGs.",
+        "Energy savings are currently modeled via CPU-time/memory proxy rather than hardware power metering."
+      ]
+    },
+    {
+      "id": "TS-002",
+      "version": "0.1.0",
+      "kind": "theorem",
+      "status": "formally_proved_under_assumptions",
+      "energy_evidence_tier": "modeled_proxy_energy",
+      "statement": "The union of K certified global-Lipschitz validity balls (Multi-Anchor Validity Atlas, P6) preserves exact observational equivalence on every input falling inside any ball, and achieves positive net operation savings over conventional incremental computation iff empirical hit rate h exceeds h_min = (c_guard + c_reanchor) / (k_eff + c_reanchor) (Theorem 2).",
+      "assumptions": [
+        "Global Lipschitz vector L holds across all cached anchors (inherited from TS-001).",
+        "Stationary trigger statistics for exact Theorem 2 break-even bound; online drift regret (P5) remains open."
+      ],
+      "counterexamples": [
+        "Exp 2 shock-rate sweep: static contracts flip net-negative above shock probability p ~ 0.11 (-30.05% at p=0.60).",
+        "Exp 1 full_materialized traces: -167% ops vs incremental (never pays back).",
+        "Milestone recurring_states: combinatorial boundary mixing yields -3.34% ops even with Multi-Anchor Atlas."
+      ],
+      "limitations": [
+        "Non-stationary adaptive-retirement regret bound (P5) is only partially proved.",
+        "Synchronous disk JSONL tracing offsets modeled energy savings (-2.3% to -7.1%) despite +14-15% op savings."
+      ]
+    },
+    {
+      "id": "TS-003",
+      "version": "0.1.0",
+      "kind": "theorem",
+      "status": "formally_proved_under_assumptions",
+      "energy_evidence_tier": "modeled_proxy_energy",
+      "statement": "For contractive dynamics R_{t+1} = phi * R_t + w_t with |phi| < 1, bounded disturbance |w_t| <= W_max, and bounded measurement noise |eta_t| <= eta_max, an adaptive observer triggering observation whenever E_cert(t, tau) > eps(tau) guarantees 0% lookahead bound violations when feasible, and detects broken W_max assumptions via CanaryState.UNKNOWN escalation.",
+      "assumptions": [
+        "Known contraction coefficient |phi| < 1 and bounded disturbance |w_t| <= W_max.",
+        "Feasibility condition: |phi|^tau * eta_max + W_max * (1 - |phi|^tau)/(1 - |phi|) <= eps(tau)."
+      ],
+      "counterexamples": [
+        "Exp 8 stationary linear-Gaussian regime: tuned periodic_kalman_p3 (33.4% obs, 1.15 J, 3.72% viol) outperforms adaptive_kalman_uncertainty (78.1% obs, 2.53 J, 1.42% viol).",
+        "Exp 8 unbounded Gaussian noise: P4 certified observer degrades to 100% continuous observation.",
+        "Exp 8 super-critical 2.4x shift: even continuous observation suffers 20.29% violations (irreducible P9 predictability floor).",
+        "Exp 3 adaptive observer: 203 safety violations & 0.2700 post-MSE vs 59 violations & 0.0222 MSE for observe-all."
+      ],
+      "limitations": [
+        "Information-theoretic observation lower bound (P9) remains open.",
+        "Physical sensor energy is modeled rather than hardware-metered."
+      ]
+    },
+    {
+      "id": "TS-004",
+      "version": "0.1.0",
+      "kind": "empirical_finding",
+      "status": "empirically_supported",
+      "energy_evidence_tier": "modeled_proxy_energy",
+      "statement": "Combining mature sufficient Bayesian memory with a residual-surprise precision-retirement canary reduces routine timespace movement (Hellinger metric D_H = 0.043, 4.2x quieter than sliding-window baselines) while achieving rapid adaptation (19 steps, 6.08x Jump-to-Jitter ratio) and 98.85% action accuracy across structural regime shifts.",
+      "assumptions": [
+        "Piece-wise stationary linear-Gaussian observation model with abrupt regime shifts.",
+        "Known relevant feature subset for mature sufficient memory."
+      ],
+      "counterexamples": [
+        "Naive infinite memory (overconfident inertia): fails to adapt after shifts (65.94% action accuracy, Adapt=None).",
+        "Bloated irrelevant memory (bytes != sufficiency): 208x raw memory bytes explodes maintenance ops 196x while worsening MSE."
+      ],
+      "limitations": [
+        "Empirical simulation result; formal competitive regret bounds under continuous drift remain open."
+      ]
+    },
+    {
+      "id": "TS-CERTIFIED-REUSE",
+      "version": "0.1.0",
+      "kind": "theorem",
+      "status": "partially_supported",
+      "energy_evidence_tier": "modeled_proxy_energy",
+      "statement": "Previously executed computation can be safely reused within explicitly verified validity regions (Lipschitz cones, Multi-Anchor Validity Atlases, and bounded-disturbance P4 sync bounds), reducing cumulative operations relative to full recomputation and strong conventional incremental baselines within characterized volatility regimes.",
+      "assumptions": [
+        "Inherits all assumptions of TS-BASE-001, TS-001, TS-002, TS-003, and TS-004.",
+        "Energy savings claims remain scoped to operation counts and modeled_proxy energy until hardware metering is executed."
+      ],
+      "counterexamples": [
+        "High-entropy shocks, recurring combinatorial boundaries, synchronous disk JSONL I/O, stationary Gaussian Kalman optimality of periodic sensing, and overconfident memory."
+      ],
+      "limitations": [
+        "Marked partially_supported pending physical hardware energy metering (RAPL/powermetrics) and P5/P9 proofs.",
+        "Does not claim P = NP, universal energy savings, or sound canaries for arbitrary environments."
+      ]
+    }
+  ],
+  "artifacts": {
+    "artifacts/papers/01-certified-reuse/manuscript.md": {
+      "role": "manuscript",
+      "sha256": "ff331cb37a48a7344f250379eda00220d71cbf0d541c3493f69858366e2f9d4f",
+      "bytes": 32686,
+      "origin_uri": "temporal-science://papers/01-certified-reuse/manuscript.md"
+    },
+    "artifacts/research/claims/TS-BASE-001/claim.yaml": {
+      "role": "claim_contract",
+      "sha256": "ef2a096637b1a37a33c4e1076d989d4ddbdc95afefcdd2133e12175ca0e5ac62",
+      "bytes": 2077,
+      "origin_uri": "temporal-science://research/claims/TS-BASE-001/claim.yaml"
+    },
+    "artifacts/research/definitions.md": {
+      "role": "evidence_proofs",
+      "sha256": "c908de935ddac22f4ee675c52f50be89c09121a26bf10266f607d04b675d310e",
+      "bytes": 4480,
+      "origin_uri": "living-computation://research/definitions.md"
+    },
+    "artifacts/research/definitions-v02.md": {
+      "role": "evidence_proofs",
+      "sha256": "c75c1ee5664a60b43ed409486b4c95ab66bf06f0abf1d35c70aa5458e0f5633b",
+      "bytes": 9328,
+      "origin_uri": "living-computation://research/definitions-v02.md"
+    },
+    "artifacts/research/definitions-v03.md": {
+      "role": "evidence_proofs",
+      "sha256": "f3b06d0ee1693cad09ad85fe744a1c690ebbf66e76bc702bbd7fcc00b2154835",
+      "bytes": 6631,
+      "origin_uri": "living-computation://research/definitions-v03.md"
+    },
+    "artifacts/results/milestone_01_02/milestone_summary.json": {
+      "role": "evidence_experiments",
+      "sha256": "1af60e59266fa48dd84be6bcb2cdb1a338578d106af19e1c881af3950630af8c",
+      "bytes": 349667,
+      "origin_uri": "living-computation://results/milestone_01_02/milestone_summary.json"
+    },
+    "artifacts/core/cost_ledger.py": {
+      "role": "source_artifact",
+      "sha256": "4d49aa8ece0823bdd68a169a6276cf444346c49a68bd7930df65a1b86e7e261a",
+      "bytes": 13150,
+      "origin_uri": "living-computation://core/cost_ledger.py"
+    },
+    "artifacts/core/telemetry.py": {
+      "role": "source_artifact",
+      "sha256": "df229486b912207e3a6b6f2f2b862d30c3fb6e8a9b1824e317307ac57aa91efd",
+      "bytes": 7087,
+      "origin_uri": "living-computation://core/telemetry.py"
+    },
+    "artifacts/core/evidence.py": {
+      "role": "source_artifact",
+      "sha256": "30d76b97f3ed8b1650dd37cf5cfafa5cae0ee3e7b6519f98309d030a0f3dec3a",
+      "bytes": 17534,
+      "origin_uri": "living-computation://core/evidence.py"
+    },
+    "artifacts/research/claims/TS-001/claim.yaml": {
+      "role": "claim_contract",
+      "sha256": "01e8c3cc168e24a0a90dcdf14a52e0c648638e7d4dd4e25cf45157cfd3af1e0c",
+      "bytes": 2768,
+      "origin_uri": "temporal-science://research/claims/TS-001/claim.yaml"
+    },
+    "artifacts/research/proof-obligations.md": {
+      "role": "evidence_proofs",
+      "sha256": "78fe44fd70a96471a60738c5e351a038492e27b8d6aacfe31980ccefe4a9bf55",
+      "bytes": 22795,
+      "origin_uri": "living-computation://research/proof-obligations.md"
+    },
+    "artifacts/research/claims/TS-001/proof.md": {
+      "role": "evidence_proofs",
+      "sha256": "e9380a812f4c3b19574cdcba454d49ea1d0f7005960e240bc3d54ada6efb1324",
+      "bytes": 2484,
+      "origin_uri": "temporal-science://research/claims/TS-001/proof.md"
+    },
+    "artifacts/results/milestone_01_02/avoidance_ledger.md": {
+      "role": "evidence_experiments",
+      "sha256": "6925b78836412700c8b0cf49f2f3b7e694f1311633828148c6e2fa7a9bb7bd81",
+      "bytes": 13777,
+      "origin_uri": "living-computation://results/milestone_01_02/avoidance_ledger.md"
+    },
+    "artifacts/core/dependency_graph.py": {
+      "role": "source_artifact",
+      "sha256": "fd4fb959684da677406746fdccafb506570cd83b77d9ca5bdf68c4969996e0f7",
+      "bytes": 24246,
+      "origin_uri": "living-computation://core/dependency_graph.py"
+    },
+    "artifacts/core/canary.py": {
+      "role": "source_artifact",
+      "sha256": "100c35f8172d6c0df87a093c7171ec27942bc5cf0110a858fd8f07572c9aeafc",
+      "bytes": 16953,
+      "origin_uri": "living-computation://core/canary.py"
+    },
+    "artifacts/core/compiler.py": {
+      "role": "source_artifact",
+      "sha256": "f4ee9d9bbdde0c07772901b7a539394a21d41507450a81df4fd28d86d292a9ba",
+      "bytes": 10623,
+      "origin_uri": "living-computation://core/compiler.py"
+    },
+    "artifacts/tests/test_core_and_engines.py": {
+      "role": "source_artifact",
+      "sha256": "de965a44a0ceecab21cc5fba82cfbd9a000f73b6b3c7fca3fb828998998acd45",
+      "bytes": 8807,
+      "origin_uri": "living-computation://tests/test_core_and_engines.py"
+    },
+    "artifacts/research/claims/TS-002/claim.yaml": {
+      "role": "claim_contract",
+      "sha256": "3b602a8f71876da3fd67298e7fe2ae176ee9bc48db70b8b4d54ca8e7fc3e5c00",
+      "bytes": 2517,
+      "origin_uri": "temporal-science://research/claims/TS-002/claim.yaml"
+    },
+    "artifacts/results/exp01_trace_reuse/exp01_summary.json": {
+      "role": "evidence_experiments",
+      "sha256": "b4f06f26483af8c9454afe2d70a56f27a301e5264277f049c43a0b80e9666fb7",
+      "bytes": 19195,
+      "origin_uri": "living-computation://results/exp01_trace_reuse/exp01_summary.json"
+    },
+    "artifacts/results/exp02_canaries/exp02_sweep.json": {
+      "role": "evidence_experiments",
+      "sha256": "adfd4bae31e8545a11c338e55dfeb4720b8b8082a2ba73778aeb5d706cff1dc5",
+      "bytes": 1866,
+      "origin_uri": "living-computation://results/exp02_canaries/exp02_sweep.json"
+    },
+    "artifacts/core/engines.py": {
+      "role": "source_artifact",
+      "sha256": "90692020affb6d914d44c20a948c47ddccd36504709bdf7e9d7adeccc6cd0bbc",
+      "bytes": 34478,
+      "origin_uri": "living-computation://core/engines.py"
+    },
+    "artifacts/benchmarks/run_milestone.py": {
+      "role": "source_artifact",
+      "sha256": "f4b6b335a85585b86abe767f5badc44b5c1b7912693d1f2f08339fe053cf24ad",
+      "bytes": 28045,
+      "origin_uri": "living-computation://benchmarks/run_milestone.py"
+    },
+    "artifacts/experiments/01_trace_reuse/run_exp01.py": {
+      "role": "source_artifact",
+      "sha256": "1dbc15713fb75bbd9ac3b19bcbc0423b453316cda7dc6748ac8e3bc5e6e15d31",
+      "bytes": 3324,
+      "origin_uri": "living-computation://experiments/01_trace_reuse/run_exp01.py"
+    },
+    "artifacts/experiments/02_canaries/run_exp02.py": {
+      "role": "source_artifact",
+      "sha256": "068e974d6c2e6878e61d9240740f4cc83e9a731ef093912696affe529bc47cd4",
+      "bytes": 4012,
+      "origin_uri": "living-computation://experiments/02_canaries/run_exp02.py"
+    },
+    "artifacts/research/claims/TS-003/claim.yaml": {
+      "role": "claim_contract",
+      "sha256": "826125f884023b02e9320512c190a033bdb75d41beb3651233587191a6911bc8",
+      "bytes": 2489,
+      "origin_uri": "temporal-science://research/claims/TS-003/claim.yaml"
+    },
+    "artifacts/results/exp08_v02_predictive_sync/exp08_summary.json": {
+      "role": "evidence_experiments",
+      "sha256": "d415e3d85b87eb5d722ec89dbe9abca61b518231827339c0d2a191d6093d7268",
+      "bytes": 54282,
+      "origin_uri": "living-computation://results/exp08_v02_predictive_sync/exp08_summary.json"
+    },
+    "artifacts/results/exp03_observation/exp03_summary.json": {
+      "role": "evidence_experiments",
+      "sha256": "66ff5e9e28d05ccb9e88f12740a4d52fb38a902b5e28dcb783011d671c4e6245",
+      "bytes": 9520,
+      "origin_uri": "living-computation://results/exp03_observation/exp03_summary.json"
+    },
+    "artifacts/experiments/08_predictive_sync/sync_engine.py": {
+      "role": "source_artifact",
+      "sha256": "f1396e6404a0d903be74d824bad2fbb22558e45563aa5777694cef063c1d8842",
+      "bytes": 19511,
+      "origin_uri": "living-computation://experiments/08_predictive_sync/sync_engine.py"
+    },
+    "artifacts/experiments/08_predictive_sync/run_exp08.py": {
+      "role": "source_artifact",
+      "sha256": "f6d68586d9469b5718a8e5c55c923f61be1b1427a93aa7f93b84cc0a7350a2e7",
+      "bytes": 13187,
+      "origin_uri": "living-computation://experiments/08_predictive_sync/run_exp08.py"
+    },
+    "artifacts/experiments/03_observation/observer.py": {
+      "role": "source_artifact",
+      "sha256": "762c867a24503109ba7cecb6d81531a8d2f765a0a4fbfd36b1d0a2dd656fad34",
+      "bytes": 23805,
+      "origin_uri": "living-computation://experiments/03_observation/observer.py"
+    },
+    "artifacts/research/claims/TS-004/claim.yaml": {
+      "role": "claim_contract",
+      "sha256": "ac1a08384b638f3a3a6608c8a4ce27d0cbbaa6b04bbe73aaac7cef7644a744d6",
+      "bytes": 1920,
+      "origin_uri": "temporal-science://research/claims/TS-004/claim.yaml"
+    },
+    "artifacts/results/exp09_v02_timespace_inertia/exp09_summary.json": {
+      "role": "evidence_experiments",
+      "sha256": "709e109146de7dd1ec43079a64379f090bc104bce4d3bbd52643cc3b498526ce",
+      "bytes": 10065,
+      "origin_uri": "living-computation://results/exp09_v02_timespace_inertia/exp09_summary.json"
+    },
+    "artifacts/experiments/09_timespace_inertia/timespace_core.py": {
+      "role": "source_artifact",
+      "sha256": "f7cab399dca5b09a64fbe35592d27e5178c1b41555bd49784cbc18cd50e69b03",
+      "bytes": 15652,
+      "origin_uri": "living-computation://experiments/09_timespace_inertia/timespace_core.py"
+    },
+    "artifacts/experiments/09_timespace_inertia/run_exp09.py": {
+      "role": "source_artifact",
+      "sha256": "1d0c04c16cc069bc0cf503a5a3edb82606f61411619382b744120bfd04270ba4",
+      "bytes": 9883,
+      "origin_uri": "living-computation://experiments/09_timespace_inertia/run_exp09.py"
+    },
+    "artifacts/research/claims/TS-CERTIFIED-REUSE/claim.yaml": {
+      "role": "claim_contract",
+      "sha256": "d97d2ce4b0272fb6b8bbd0c7b36009cef28bca7dd22321aa7c8e12a1cb6e86d6",
+      "bytes": 2668,
+      "origin_uri": "temporal-science://research/claims/TS-CERTIFIED-REUSE/claim.yaml"
+    },
+    "artifacts/results/milestone_01_02/milestone_cumulative_cost.png": {
+      "role": "figure",
+      "sha256": "1481e92f1b2aa29701d075e26b361f271af40c7938d340aac692574d8b0658e9",
+      "bytes": 262058,
+      "origin_uri": "living-computation://results/milestone_01_02/milestone_cumulative_cost.png"
+    },
+    "artifacts/results/milestone_01_02/milestone_regime_comparison.png": {
+      "role": "figure",
+      "sha256": "83ac03588597a62602091b8c84dcd3ec5bea571a140ddcd51350f17db64a38e8",
+      "bytes": 87207,
+      "origin_uri": "living-computation://results/milestone_01_02/milestone_regime_comparison.png"
+    },
+    "artifacts/results/milestone_01_02/milestone_canary_tradeoff.png": {
+      "role": "figure",
+      "sha256": "29d3536999d2c7e1a59fd3474950be27e06a4eacb1cc926791c644fc3abdaef7",
+      "bytes": 93392,
+      "origin_uri": "living-computation://results/milestone_01_02/milestone_canary_tradeoff.png"
+    },
+    "artifacts/results/exp03_observation/exp03_observation_dynamics.png": {
+      "role": "figure",
+      "sha256": "2efc08ae78f6bfb43f365d22f4891953350959aea99a1ded6337506e762e28d4",
+      "bytes": 265100,
+      "origin_uri": "living-computation://results/exp03_observation/exp03_observation_dynamics.png"
+    },
+    "artifacts/results/exp08_v02_predictive_sync/exp08_pareto_frontier.png": {
+      "role": "figure",
+      "sha256": "e055e357eb4a7f79c5b02d31d8b86e2bf59b7b57442d84ed8eb41e2639da8a5c",
+      "bytes": 152405,
+      "origin_uri": "living-computation://results/exp08_v02_predictive_sync/exp08_pareto_frontier.png"
+    },
+    "artifacts/results/exp08_v02_predictive_sync/exp08_sync_dynamics.png": {
+      "role": "figure",
+      "sha256": "93acdce5fba0a46220a2e82bdf01b478d30ce766a3fa083dda4395f068c072d6",
+      "bytes": 272600,
+      "origin_uri": "living-computation://results/exp08_v02_predictive_sync/exp08_sync_dynamics.png"
+    },
+    "artifacts/results/exp09_v02_timespace_inertia/exp09_timespace_trajectories.png": {
+      "role": "figure",
+      "sha256": "8aba6da7b9b9ff0098fff5c6bd9e19c379cd4aab249fa89730630eff5449a019",
+      "bytes": 453158,
+      "origin_uri": "living-computation://results/exp09_v02_timespace_inertia/exp09_timespace_trajectories.png"
+    }
+  },
+  "bundle_fingerprint_sha256": "6ea3c2b8042ae6d2b2011cb22a6b0c9d23a0513ad66eb39afc18644be5746557"
+}

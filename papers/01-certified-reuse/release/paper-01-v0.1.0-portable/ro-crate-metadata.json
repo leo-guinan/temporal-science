@@ -1,0 +1,149 @@
+{
+  "@context": "https://w3id.org/ro/crate/1.1/context",
+  "@graph": [
+    {
+      "@type": "CreativeWork",
+      "@id": "ro-crate-metadata.json",
+      "conformsTo": {
+        "@id": "https://w3id.org/ro/crate/1.1"
+      },
+      "about": {
+        "@id": "./"
+      }
+    },
+    {
+      "@id": "./",
+      "@type": "Dataset",
+      "name": "Certified Computational Reuse Under Environmental Change (Portable Scoped Preprint Bundle)",
+      "version": "0.1.0",
+      "hasPart": [
+        {
+          "@id": "artifacts/benchmarks/run_milestone.py"
+        },
+        {
+          "@id": "artifacts/core/canary.py"
+        },
+        {
+          "@id": "artifacts/core/compiler.py"
+        },
+        {
+          "@id": "artifacts/core/cost_ledger.py"
+        },
+        {
+          "@id": "artifacts/core/dependency_graph.py"
+        },
+        {
+          "@id": "artifacts/core/engines.py"
+        },
+        {
+          "@id": "artifacts/core/evidence.py"
+        },
+        {
+          "@id": "artifacts/core/telemetry.py"
+        },
+        {
+          "@id": "artifacts/experiments/01_trace_reuse/run_exp01.py"
+        },
+        {
+          "@id": "artifacts/experiments/02_canaries/run_exp02.py"
+        },
+        {
+          "@id": "artifacts/experiments/03_observation/observer.py"
+        },
+        {
+          "@id": "artifacts/experiments/08_predictive_sync/run_exp08.py"
+        },
+        {
+          "@id": "artifacts/experiments/08_predictive_sync/sync_engine.py"
+        },
+        {
+          "@id": "artifacts/experiments/09_timespace_inertia/run_exp09.py"
+        },
+        {
+          "@id": "artifacts/experiments/09_timespace_inertia/timespace_core.py"
+        },
+        {
+          "@id": "artifacts/papers/01-certified-reuse/manuscript.md"
+        },
+        {
+          "@id": "artifacts/research/claims/TS-001/claim.yaml"
+        },
+        {
+          "@id": "artifacts/research/claims/TS-001/proof.md"
+        },
+        {
+          "@id": "artifacts/research/claims/TS-002/claim.yaml"
+        },
+        {
+          "@id": "artifacts/research/claims/TS-003/claim.yaml"
+        },
+        {
+          "@id": "artifacts/research/claims/TS-004/claim.yaml"
+        },
+        {
+          "@id": "artifacts/research/claims/TS-BASE-001/claim.yaml"
+        },
+        {
+          "@id": "artifacts/research/claims/TS-CERTIFIED-REUSE/claim.yaml"
+        },
+        {
+          "@id": "artifacts/research/definitions-v02.md"
+        },
+        {
+          "@id": "artifacts/research/definitions-v03.md"
+        },
+        {
+          "@id": "artifacts/research/definitions.md"
+        },
+        {
+          "@id": "artifacts/research/proof-obligations.md"
+        },
+        {
+          "@id": "artifacts/results/exp01_trace_reuse/exp01_summary.json"
+        },
+        {
+          "@id": "artifacts/results/exp02_canaries/exp02_sweep.json"
+        },
+        {
+          "@id": "artifacts/results/exp03_observation/exp03_observation_dynamics.png"
+        },
+        {
+          "@id": "artifacts/results/exp03_observation/exp03_summary.json"
+        },
+        {
+          "@id": "artifacts/results/exp08_v02_predictive_sync/exp08_pareto_frontier.png"
+        },
+        {
+          "@id": "artifacts/results/exp08_v02_predictive_sync/exp08_summary.json"
+        },
+        {
+          "@id": "artifacts/results/exp08_v02_predictive_sync/exp08_sync_dynamics.png"
+        },
+        {
+          "@id": "artifacts/results/exp09_v02_timespace_inertia/exp09_summary.json"
+        },
+        {
+          "@id": "artifacts/results/exp09_v02_timespace_inertia/exp09_timespace_trajectories.png"
+        },
+        {
+          "@id": "artifacts/results/milestone_01_02/avoidance_ledger.md"
+        },
+        {
+          "@id": "artifacts/results/milestone_01_02/milestone_canary_tradeoff.png"
+        },
+        {
+          "@id": "artifacts/results/milestone_01_02/milestone_cumulative_cost.png"
+        },
+        {
+          "@id": "artifacts/results/milestone_01_02/milestone_regime_comparison.png"
+        },
+        {
+          "@id": "artifacts/results/milestone_01_02/milestone_summary.json"
+        },
+        {
+          "@id": "artifacts/tests/test_core_and_engines.py"
+        }
+      ]
+    }
+  ]
+}

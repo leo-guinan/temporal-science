@@ -1,0 +1,41 @@
+id: TS-HUMAN-CAPITAL
+version: 0.1.0
+title: Paper IV Exported Contract — Human Computational Capital
+kind: causal_hypothesis
+status: partially_supported
+paper_id: paper-04
+statement: >
+  Actionable human expertise can function as persistent computational capital across
+  evolving backends and institutions when validated, attributed, and mediated by a
+  compatibility-checked Human API—subject to validation, adaptation, and real human-factor constraints.
+assumptions:
+  - Inherits all assumptions and synthetic-human caveats of TS-008.
+depends_on:
+  - id: TS-008
+    version: 0.1.0
+evidence:
+  proofs:
+    - "../living-computation/research/definitions-v02.md"
+  experiments:
+    - "../living-computation/results/exp07_v02_human_capital/exp07_summary.json"
+    - "../living-computation/results/exp10_v02_human_api/exp10_summary.json"
+    - "../living-computation/results/exp05_v02_environment_synthesis/exp05_summary.json"
+  counterexamples:
+    - "Silent semantic wrappers (37 failures), legacy adapter debt (>6-8 layers), and excessive human renegotiation churn."
+guarantee:
+  type: conditional
+  scope: simulated_engineering_model_pending_human_study
+  energy_evidence_tier: modeled_proxy_energy
+validity:
+  requirements:
+    - "IRB-approved human-subject study required before making behavioral claims about actual people"
+  invalidation_conditions:
+    - "Real human participants experiencing higher adaptation burden than modeled"
+provenance:
+  contributors:
+    - living-computation-v02
+  source_artifacts:
+    - "../living-computation/experiments/07_human_capital/human_capital.py"
+    - "../living-computation/experiments/10_human_api/human_api_sim.py"
+limitations:
+  - "Strictly scoped to simulation and formal modeling until human-subject empirical data is collected."

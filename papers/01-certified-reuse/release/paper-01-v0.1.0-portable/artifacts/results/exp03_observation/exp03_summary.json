@@ -1,0 +1,356 @@
+{
+  "config": {
+    "num_core": 8,
+    "num_redundant": 8,
+    "num_conditional": 4,
+    "num_irrelevant": 40,
+    "num_steps": 5000,
+    "shift_step": 2000,
+    "rare_event_prob": 0.015,
+    "noise_std": 0.05,
+    "seed": 303
+  },
+  "primary": {
+    "observe_all": {
+      "policy": "observe_all",
+      "total_ops": 3343200,
+      "total_joules": 72.881429,
+      "observation_joules": 67.82008,
+      "mean_sensors_read": 60.0,
+      "mae": 0.07731,
+      "mse": 0.02137,
+      "pre_shift_mse": 0.01987,
+      "post_shift_mse": 0.02224,
+      "safety_violations": 59,
+      "adaptation_latency_steps": 119,
+      "final_selected_count": 60,
+      "final_selected_by_role": {
+        "core": 8,
+        "redundant": 8,
+        "conditional": 4,
+        "irrelevant": 40
+      },
+      "canary_triggers_count": 0,
+      "sample_canary_triggers": [],
+      "by_category": {
+        "execution": {
+          "steps": 3300000,
+          "time_s": 0.100039693,
+          "joules": 72.683664599,
+          "memory_bytes": 4800000,
+          "communication_bytes": 0
+        },
+        "trace_recording": {
+          "steps": 0,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "learning": {
+          "steps": 43200,
+          "time_s": 0.003749375,
+          "joules": 0.197764,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "guarding": {
+          "steps": 0,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "reconfiguration": {
+          "steps": 0,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        }
+      }
+    },
+    "oracle_relevant": {
+      "policy": "oracle_relevant",
+      "total_ops": 466211,
+      "total_joules": 13.696146,
+      "observation_joules": 9.186586,
+      "mean_sensors_read": 10.4,
+      "mae": 0.10658,
+      "mse": 0.25653,
+      "pre_shift_mse": 0.12446,
+      "post_shift_mse": 0.33352,
+      "safety_violations": 101,
+      "adaptation_latency_steps": 130,
+      "final_selected_count": 12,
+      "final_selected_by_role": {
+        "core": 8,
+        "conditional": 4
+      },
+      "canary_triggers_count": 0,
+      "sample_canary_triggers": [],
+      "by_category": {
+        "execution": {
+          "steps": 466211,
+          "time_s": 0.090191189,
+          "joules": 13.696146283,
+          "memory_bytes": 832208,
+          "communication_bytes": 0
+        },
+        "trace_recording": {
+          "steps": 0,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "learning": {
+          "steps": 0,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "guarding": {
+          "steps": 0,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "reconfiguration": {
+          "steps": 0,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        }
+      }
+    },
+    "static_learned": {
+      "policy": "static_learned",
+      "total_ops": 1218500,
+      "total_joules": 13.583602,
+      "observation_joules": 13.260019,
+      "mean_sensors_read": 12.5,
+      "mae": 1.31868,
+      "mse": 3.98855,
+      "pre_shift_mse": 0.14361,
+      "post_shift_mse": 6.23015,
+      "safety_violations": 2533,
+      "adaptation_latency_steps": null,
+      "final_selected_count": 10,
+      "final_selected_by_role": {
+        "core": 7,
+        "redundant": 1,
+        "irrelevant": 2
+      },
+      "canary_triggers_count": 0,
+      "sample_canary_triggers": [],
+      "by_category": {
+        "execution": {
+          "steps": 640000,
+          "time_s": 0.037387668,
+          "joules": 13.563805637,
+          "memory_bytes": 1000000,
+          "communication_bytes": 0
+        },
+        "trace_recording": {
+          "steps": 0,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "learning": {
+          "steps": 578500,
+          "time_s": 0.0023295,
+          "joules": 0.019796,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "guarding": {
+          "steps": 0,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "reconfiguration": {
+          "steps": 0,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        }
+      }
+    },
+    "living_adaptive": {
+      "policy": "living_adaptive",
+      "total_ops": 2071438,
+      "total_joules": 17.524554,
+      "observation_joules": 17.107344,
+      "mean_sensors_read": 16.61,
+      "mae": 0.21515,
+      "mse": 0.19132,
+      "pre_shift_mse": 0.05645,
+      "post_shift_mse": 0.26995,
+      "safety_violations": 203,
+      "adaptation_latency_steps": 131,
+      "final_selected_count": 12,
+      "final_selected_by_role": {
+        "conditional": 4,
+        "redundant": 3,
+        "core": 5
+      },
+      "canary_triggers_count": 2,
+      "sample_canary_triggers": [
+        {
+          "timestep": 1063,
+          "source": "residual_cusum_surprise",
+          "abs_error": 3.8626,
+          "threshold": 1.2
+        },
+        {
+          "timestep": 2001,
+          "source": "sentinel_distribution_shift",
+          "sensor_id": 16,
+          "sensor_name": "cond_00",
+          "z_score": 27.55
+        }
+      ],
+      "by_category": {
+        "execution": {
+          "steps": 761196,
+          "time_s": 0.11238659,
+          "joules": 16.442083339,
+          "memory_bytes": 1255968,
+          "communication_bytes": 0
+        },
+        "trace_recording": {
+          "steps": 0,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "learning": {
+          "steps": 1249430,
+          "time_s": 0.006849834,
+          "joules": 0.0239785,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "guarding": {
+          "steps": 60789,
+          "time_s": 0.0,
+          "joules": 1.058492622,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        },
+        "reconfiguration": {
+          "steps": 23,
+          "time_s": 0.0,
+          "joules": 0.0,
+          "memory_bytes": 0,
+          "communication_bytes": 0
+        }
+      }
+    }
+  },
+  "comparisons": {
+    "living_vs_observe_all": {
+      "baseline": "observe_all",
+      "adaptive": "living_adaptive",
+      "savings_steps": 1271762,
+      "savings_steps_pct": 38.04,
+      "savings_time_s": -0.015447,
+      "savings_time_pct": -14.883,
+      "savings_joules": 55.356874139,
+      "savings_joules_pct": 75.955,
+      "payback_step_ops": 1725,
+      "payback_step_joules": 0,
+      "payback_step_time": 0,
+      "r_avoid_gross_steps": 1.9706313795466792,
+      "r_avoid_net_steps": 0.9706313795466792,
+      "r_avoid_gross_joules": 52.13935424154476,
+      "r_avoid_net_joules": 51.13935424154476
+    },
+    "static_vs_observe_all": {
+      "baseline": "observe_all",
+      "adaptive": "static_learned",
+      "savings_steps": 2124700,
+      "savings_steps_pct": 63.553,
+      "savings_time_s": 0.064072,
+      "savings_time_pct": 61.733,
+      "savings_joules": 59.297826963,
+      "savings_joules_pct": 81.362,
+      "payback_step_ops": 1229,
+      "payback_step_joules": 0,
+      "payback_step_time": 0,
+      "r_avoid_gross_steps": 4.672774416594641,
+      "r_avoid_net_steps": 3.6727744165946414,
+      "r_avoid_gross_joules": 2996.444885970436,
+      "r_avoid_net_joules": 2995.444885970436
+    }
+  },
+  "sweeps": [
+    {
+      "sweep": "irrelevant_count",
+      "num_irrelevant": 20,
+      "total_sensors": 40,
+      "living_vs_all_ops_pct": 5.469,
+      "living_vs_all_joules_pct": 53.988,
+      "post_shift_mse": 0.48941,
+      "safety_violations": 129,
+      "adaptation_latency": 128
+    },
+    {
+      "sweep": "irrelevant_count",
+      "num_irrelevant": 40,
+      "total_sensors": 60,
+      "living_vs_all_ops_pct": 25.101,
+      "living_vs_all_joules_pct": 59.894,
+      "post_shift_mse": 0.40401,
+      "safety_violations": 154,
+      "adaptation_latency": 134
+    },
+    {
+      "sweep": "irrelevant_count",
+      "num_irrelevant": 80,
+      "total_sensors": 100,
+      "living_vs_all_ops_pct": 45.169,
+      "living_vs_all_joules_pct": 73.09,
+      "post_shift_mse": 0.40507,
+      "safety_violations": 327,
+      "adaptation_latency": 134
+    },
+    {
+      "sweep": "noise_std",
+      "noise_std": 0.02,
+      "living_vs_all_ops_pct": -1.015,
+      "living_vs_all_joules_pct": 68.481,
+      "post_shift_mse": 0.03479,
+      "safety_violations": 16,
+      "adaptation_latency": 26
+    },
+    {
+      "sweep": "noise_std",
+      "noise_std": 0.1,
+      "living_vs_all_ops_pct": 29.562,
+      "living_vs_all_joules_pct": 66.786,
+      "post_shift_mse": 0.3667,
+      "safety_violations": 178,
+      "adaptation_latency": 129
+    },
+    {
+      "sweep": "noise_std",
+      "noise_std": 0.25,
+      "living_vs_all_ops_pct": 31.722,
+      "living_vs_all_joules_pct": 57.93,
+      "post_shift_mse": 0.5111,
+      "safety_violations": 582,
+      "adaptation_latency": 171
+    }
+  ]
+}

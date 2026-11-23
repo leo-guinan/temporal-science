@@ -1,0 +1,74 @@
+[
+  {
+    "shock_probability": 0.0,
+    "incremental_ops": 202285,
+    "sound_living_ops": 152544,
+    "sound_vs_inc_pct": 24.59,
+    "sound_safe": 5009,
+    "sound_unsafe": 1404,
+    "sound_errors": 0,
+    "periodic_p10_ops": 198970,
+    "periodic_p10_unknown": 2503,
+    "periodic_p10_error_pct": 90.903
+  },
+  {
+    "shock_probability": 0.02,
+    "incremental_ops": 201505,
+    "sound_living_ops": 164427,
+    "sound_vs_inc_pct": 18.401,
+    "sound_safe": 4629,
+    "sound_unsafe": 1820,
+    "sound_errors": 0,
+    "periodic_p10_ops": 197232,
+    "periodic_p10_unknown": 2560,
+    "periodic_p10_error_pct": 91.903
+  },
+  {
+    "shock_probability": 0.05,
+    "incremental_ops": 198979,
+    "sound_living_ops": 180388,
+    "sound_vs_inc_pct": 9.343,
+    "sound_safe": 4045,
+    "sound_unsafe": 2421,
+    "sound_errors": 0,
+    "periodic_p10_ops": 196072,
+    "periodic_p10_unknown": 2528,
+    "periodic_p10_error_pct": 92.536
+  },
+  {
+    "shock_probability": 0.15,
+    "incremental_ops": 195092,
+    "sound_living_ops": 205004,
+    "sound_vs_inc_pct": -5.081,
+    "sound_safe": 3052,
+    "sound_unsafe": 3208,
+    "sound_errors": 0,
+    "periodic_p10_ops": 193181,
+    "periodic_p10_unknown": 2445,
+    "periodic_p10_error_pct": 92.969
+  },
+  {
+    "shock_probability": 0.35,
+    "incremental_ops": 190996,
+    "sound_living_ops": 225563,
+    "sound_vs_inc_pct": -18.098,
+    "sound_safe": 2201,
+    "sound_unsafe": 3933,
+    "sound_errors": 0,
+    "periodic_p10_ops": 189105,
+    "periodic_p10_unknown": 2353,
+    "periodic_p10_error_pct": 92.836
+  },
+  {
+    "shock_probability": 0.6,
+    "incremental_ops": 189430,
+    "sound_living_ops": 246352,
+    "sound_vs_inc_pct": -30.049,
+    "sound_safe": 1381,
+    "sound_unsafe": 4488,
+    "sound_errors": 0,
+    "periodic_p10_ops": 187697,
+    "periodic_p10_unknown": 2190,
+    "periodic_p10_error_pct": 94.269
+  }
+]

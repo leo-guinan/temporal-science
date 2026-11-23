@@ -1,0 +1,54 @@
+id: TS-001
+version: 0.1.0
+title: Soundness of Lipschitz-Margin Validity Region Canaries
+kind: theorem
+status: formally_proved_under_assumptions
+paper_id: paper-01
+statement: >
+  For a deterministic topologically ordered computational DAG G and an exclusive
+  globally Lipschitz-continuous sub-DAG cone I feeding a saturating or discrete
+  target node v in {THRESHOLD, RELU, CLAMP}, if boundary drift satisfies
+  sum_{b in B} L_b * |u_b - u0_b| + eps_fp < margin(p(u0)), then skipping evaluation
+  of all nodes in I U {v} produces an output observationally identical to full
+  DAG evaluation (RESTRICTED_WORST_CASE guarantee, zero false-SAFE errors).
+assumptions:
+  - "Target DAG is deterministic and topologically ordered with immutable internal cone structure."
+  - "Every internal node in cone I belongs to LIPSCHITZ_CONTINUOUS_OPS with exact partial bounds."
+  - "Exclusive ownership holds: no node outside I U {v} reads any node in I."
+  - "IEEE-754 safety margin eps_fp strictly dominates floating-point rounding error."
+depends_on:
+  - id: TS-BASE-001
+    version: 1.0.0
+evidence:
+  proofs:
+    - "../living-computation/research/proof-obligations.md"
+    - "research/claims/TS-001/proof.md"
+  experiments:
+    - "../living-computation/results/milestone_01_02/milestone_summary.json"
+    - "../living-computation/results/milestone_01_02/avoidance_ledger.md"
+  counterexamples:
+    - "High-entropy shock regime (Exp 1+2): soundness holds (0 errors) but hit rate collapses, causing -47.7% op overhead without adaptive retirement."
+    - "Periodically sampled canaries (Exp 2, P=5..50): lack formal soundness and suffer 77.6%-98.4% output mismatch rates."
+guarantee:
+  type: restricted_worst_case
+  scope: exclusive_globally_lipschitz_cones_feeding_saturating_gates
+  energy_evidence_tier: modeled_proxy_energy
+validity:
+  requirements:
+    - "Exact exclusive cone check in DependencyGraph.extract_lipschitz_cone"
+    - "Zero false-SAFE events across 2,000 adversarial fuzz probes and 40,004 milestone updates"
+  invalidation_conditions:
+    - "Structural mutation of internal cone nodes or weights"
+    - "Non-Lipschitz or discontinuous operator inserted inside cone I"
+    - "Boundary drift reaching or exceeding certified margin m(p(u0))"
+provenance:
+  contributors:
+    - living-computation-v01
+  source_artifacts:
+    - "../living-computation/core/dependency_graph.py"
+    - "../living-computation/core/canary.py"
+    - "../living-computation/core/compiler.py"
+    - "../living-computation/tests/test_core_and_engines.py"
+limitations:
+  - "Applies only to continuous Lipschitz cones feeding flat/saturated target gates, not arbitrary discontinuous DAGs."
+  - "Energy savings are currently modeled via CPU-time/memory proxy rather than hardware power metering."

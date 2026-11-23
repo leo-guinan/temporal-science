@@ -1,0 +1,54 @@
+id: paper-02
+version: 0.1.0
+title: "Transferable Computation: Validity-Preserving Knowledge Across Environments"
+exported_contract: TS-TRANSFER-CERTIFICATE
+claims:
+  - TS-005
+  - TS-006
+  - TS-TRANSFER-CERTIFICATE
+imports:
+  - id: TS-BASE-001
+    version: 1.0.0
+  - id: TS-001
+    version: 0.1.0
+  - id: TS-CERTIFIED-REUSE
+    version: 0.1.0
+reference_experiments:
+  - id: exp12_transfer
+    path: "../living-computation/results/exp12_v03_transfer/exp12_summary.json"
+    figures:
+      - "../living-computation/results/exp12_v03_transfer/exp12_transferability.png"
+  - id: exp05_environment_synthesis
+    path: "../living-computation/results/exp05_v02_environment_synthesis/exp05_summary.json"
+    figures:
+      - "../living-computation/results/exp05_v02_environment_synthesis/exp05_enforcement_phase_diagram.png"
+      - "../living-computation/results/exp05_v02_environment_synthesis/exp05_strategy_comparison.png"
+  - id: exp04_tractability
+    path: "../living-computation/results/exp04_tractability/exp04_summary.json"
+    figures:
+      - "../living-computation/results/exp04_tractability/exp04_tractability_scaling.png"
+publication_gate:
+  proofs_audited: true
+  internal_benchmarks_reproducible: true
+  failure_boundaries_documented: true
+  independent_destination_validation: false
+  tiers:
+    technical_report:
+      ready: true
+      scope_note: "Synthetic T1-T4 transfer benchmarks, P11 proof, and SAT upstream enforcement phase diagram."
+    scoped_preprint:
+      ready: true
+      scope_note: "Scoped to synthetic cross-institution T1-T4 environments and certified SAT subfamilies."
+    energy_focused_paper:
+      ready: false
+      blockers:
+        - "Hardware physical energy metering not yet executed."
+    independently_validated_release:
+      ready: false
+      blockers:
+        - "Independent review of semantic equivalence mappings on non-synthetic destination environments."
+  blocking_items:
+    - "Independent review of semantic equivalence mappings on non-synthetic destination environments."
+does_not_prove:
+  - "Arbitrary cross-domain knowledge portability."
+  - "Automatic semantic translation discovery without domain grounding or external probes."

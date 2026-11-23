@@ -1,0 +1,49 @@
+id: TS-006
+version: 0.1.0
+title: Tractability-Preserving SAT Recognition & Upstream Environment Enforcement
+kind: theorem
+status: formally_proved_under_assumptions
+paper_id: paper-02
+statement: >
+  2-SAT (Tarjan SCC), Renamable-Horn 3-SAT (Lewis-Aspvall 2-SAT reduction, O(n+m)), and
+  Bounded-k Strong Horn-Backdoor 3-SAT (iterative-deepening FPT vertex cover, O(2^k(n+m)))
+  admit sound RESTRICTED_WORST_CASE tractability canaries; upstream enforcement with
+  explicit authorized renegotiation cuts machine ops -76.3% vs DPLL with 0 silently dropped
+  constraints, while adaptive retirement cuts simulated human renegotiation burden -67.3%
+  during violation surges.
+assumptions:
+  - Renegotiable constraint fraction (1 - p_hard) > 0 for upstream enforcement payback.
+  - Mandatory user constraints are never silently dropped (escalated unmodified to DPLL).
+depends_on:
+  - id: TS-BASE-001
+    version: 1.0.0
+evidence:
+  proofs:
+    - "../living-computation/research/proof-obligations.md"
+  experiments:
+    - "../living-computation/results/exp04_tractability/exp04_summary.json"
+    - "../living-computation/results/exp05_v02_environment_synthesis/exp05_summary.json"
+  counterexamples:
+    - "Exp 4 C1 low-density heuristic (alpha <= 2.5) falsified by padded hard 3-SAT core (density 2.18)."
+    - "Exp 4 passive mixed stream (n=45, 15% violations): -2.98% net ops due to guard + DPLL tail."
+    - "Exp 5 high mandatory irreducibility (p_hard=1.0, v=0.50): machine savings drop to +6% with 84s wasted human escalation."
+    - "Exp 5 high negotiable churn (p_hard=0.0, v=0.50): +88% machine savings hides 204s simulated human renegotiation."
+guarantee:
+  type: restricted_worst_case
+  scope: certified_2sat_renamable_horn_and_bounded_k_backdoor_subfamilies
+  energy_evidence_tier: modeled_proxy_energy
+validity:
+  requirements:
+    - "silently_dropped_constraints == 0"
+    - "Every SAT YES-certificate verified against unmodified CNF formula"
+  invalidation_conditions:
+    - "Unrestricted random 3-SAT phase-transition workloads without tractable structure"
+provenance:
+  contributors:
+    - living-computation-v01-v02
+  source_artifacts:
+    - "../living-computation/experiments/04_tractability/sat_core.py"
+    - "../living-computation/experiments/05_environment_design/env_synthesis.py"
+limitations:
+  - "Does NOT solve P vs NP; restricted to formally recognized tractable SAT subfamilies."
+  - "Human renegotiation times are synthetic (simulated_human_renegotiation_model)."

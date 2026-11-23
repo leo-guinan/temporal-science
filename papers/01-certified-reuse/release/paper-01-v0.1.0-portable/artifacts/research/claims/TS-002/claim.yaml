@@ -1,0 +1,53 @@
+id: TS-002
+version: 0.1.0
+title: Multi-Anchor Validity Atlas Soundness & Amortized Hit-Rate Payback
+kind: theorem
+status: formally_proved_under_assumptions
+paper_id: paper-01
+statement: >
+  The union of K certified global-Lipschitz validity balls (Multi-Anchor Validity Atlas, P6)
+  preserves exact observational equivalence on every input falling inside any ball, and
+  achieves positive net operation savings over conventional incremental computation iff
+  empirical hit rate h exceeds h_min = (c_guard + c_reanchor) / (k_eff + c_reanchor) (Theorem 2).
+assumptions:
+  - Global Lipschitz vector L holds across all cached anchors (inherited from TS-001).
+  - Stationary trigger statistics for exact Theorem 2 break-even bound; online drift regret (P5) remains open.
+depends_on:
+  - id: TS-BASE-001
+    version: 1.0.0
+  - id: TS-001
+    version: 0.1.0
+evidence:
+  proofs:
+    - "../living-computation/research/proof-obligations.md"
+  experiments:
+    - "../living-computation/results/milestone_01_02/milestone_summary.json"
+    - "../living-computation/results/exp01_trace_reuse/exp01_summary.json"
+    - "../living-computation/results/exp02_canaries/exp02_sweep.json"
+  counterexamples:
+    - "Exp 2 shock-rate sweep: static contracts flip net-negative above shock probability p ~ 0.11 (-30.05% at p=0.60)."
+    - "Exp 1 full_materialized traces: -167% ops vs incremental (never pays back)."
+    - "Milestone recurring_states: combinatorial boundary mixing yields -3.34% ops even with Multi-Anchor Atlas."
+guarantee:
+  type: restricted_worst_case
+  scope: stationary_localized_regimes_above_h_min
+  energy_evidence_tier: modeled_proxy_energy
+validity:
+  requirements:
+    - "0 false-SAFE hits in test_multi_anchor_atlas_soundness_fuzz"
+    - "Adaptive retirement enabled when hit rate drops below h_min"
+  invalidation_conditions:
+    - "Shock rate exceeding phase-transition boundary p > 0.12 without retirement"
+provenance:
+  contributors:
+    - living-computation-v01
+    - living-computation-v02
+  source_artifacts:
+    - "../living-computation/core/canary.py"
+    - "../living-computation/core/engines.py"
+    - "../living-computation/benchmarks/run_milestone.py"
+    - "../living-computation/experiments/01_trace_reuse/run_exp01.py"
+    - "../living-computation/experiments/02_canaries/run_exp02.py"
+limitations:
+  - "Non-stationary adaptive-retirement regret bound (P5) is only partially proved."
+  - "Synchronous disk JSONL tracing offsets modeled energy savings (-2.3% to -7.1%) despite +14-15% op savings."
