@@ -1,5 +1,8 @@
 # Temporal Science Research Initiative (CRR v0.2)
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24467291.svg)](https://doi.org/10.5281/zenodo.24467291)
+**Latest Release:** [`v0.1.1-external-season-1`](https://github.com/leo-guinan/temporal-science/releases/tag/v0.1.1-external-season-1) · **External Challenge:** [`ledger/season-1/EXTERNAL_CHALLENGE_INVITATION.md`](ledger/season-1/EXTERNAL_CHALLENGE_INVITATION.md) · **Observation Ledger:** [`ledger/season-1/`](ledger/season-1/)
+
 **Foundational Research Program, Five-Paper Publication Architecture, and Composable Research Repository**
 
 > *How does a computational system's history change the energy required to reach an equivalent future state?*

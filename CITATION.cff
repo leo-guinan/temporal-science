@@ -2,6 +2,7 @@ cff-version: 1.2.0
 message: "If you use this research initiative, challenge kit, specifications, or CRR tooling, please cite it as below."
 title: "Temporal Science Research Initiative & Living Computation Experimental Program"
 version: "0.1.1-external-season-1"
+doi: "10.5281/zenodo.24467291"
 date-released: "2026-11-23"
 license: MIT
 authors:
