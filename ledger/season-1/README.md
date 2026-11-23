@@ -8,7 +8,7 @@ This ledger is intentionally a lightweight, version-controlled set of Markdown a
 
 | Stream | File | What We Observe | Current Entries |
 | :--- | :--- | :--- | :---: |
-| **Public Releases** | [`releases.json`](releases.json) | Immutable release tags, GitHub release URLs, Zenodo archival DOIs, post-download SHA-256 verification | `1` (staged, pending public publish) |
+| **Public Releases** | [`releases.json`](releases.json) | Immutable release tags, GitHub release URLs, Zenodo archival DOIs, post-download SHA-256 verification | `1` (published on GitHub, SHA-256 verified; Zenodo DOI pending) |
 | **Energy Challenge** | [`energy-challenge.json`](energy-challenge.json) | Independent replications, counterexamples, scope narrowings, and model prediction accuracy on third-party workloads and hardware | `0` (pending) |
 | **External Contributions** | [`external-contributions.json`](external-contributions.json) | Upstream review, acceptance, criticism, and reuse of our work across external mathematical and research environments | `0` (pending) |
 | **Unrestricted Research Grants** | [`unrestricted-grants.json`](unrestricted-grants.json) | Pre-contact frozen scouting reports (prior work recognized, question offered, predictions) and subsequent public research | `0 / 8` frozen |

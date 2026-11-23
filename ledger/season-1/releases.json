@@ -5,13 +5,16 @@
   "releases": [
     {
       "release_tag": "v0.1.1-external-season-1",
-      "status": "staged_local_pending_public_publish",
+      "status": "published_github_pending_zenodo_doi",
       "staged_at": "2026-11-23",
-      "published_at": null,
+      "published_at": "2026-11-23",
+      "git_commit": "c906e60",
       "local_staging_dir": "release/v0.1.1-external-season-1",
-      "github_release_url": null,
+      "github_repository_url": "https://github.com/leo-guinan/temporal-science",
+      "github_release_url": "https://github.com/leo-guinan/temporal-science/releases/tag/v0.1.1-external-season-1",
       "zenodo_doi": null,
-      "public_download_sha256_verified": false,
+      "public_download_sha256_verified": true,
+      "public_download_verified_at": "2026-11-23",
       "local_verification": {
         "sha256_manifest_files_ok": 11,
         "local_tests_passing": "47/47 (22 temporal-science + 25 living-computation)",
